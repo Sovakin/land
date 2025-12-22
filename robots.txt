@@ -1,0 +1,19 @@
+User-agent: *
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+Allow: /
+
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /
+User-agent: Barkrowler
+Disallow: /
+
+Host: hypeart.ai
+Sitemap: https://hypeart.ai/sitemap.xml
