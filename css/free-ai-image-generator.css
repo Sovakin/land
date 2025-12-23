@@ -1,5 +1,5 @@
 .article-section {
-    padding: 64px 24px;
+    padding: 0 32px 0 32px;
     max-width: 800px;
     margin: 0 auto;
     color: var(--color-white);
@@ -275,7 +275,6 @@
         overflow: hidden;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
         /* Deep shadow for depth */
-        border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .gallery-caption {
@@ -496,4 +495,138 @@
 
 .prompt-card.full-width {
     grid-column: 1 / -1;
+}
+
+/* Исправление видимости описания */
+.gallery-item figure {
+    /* Убираем жесткие ограничения с контейнера */
+    aspect-ratio: auto !important;
+    overflow: visible !important;
+    height: auto !important;
+    background: transparent !important;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-item img {
+    /* Переносим форму и пропорции на само изображение */
+    aspect-ratio: 4 / 3;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    /* Скругление углов картинки */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* Фон пока грузится картинка */
+}
+
+.gallery-caption {
+    /* Настройки текста */
+    display: block;
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #A0AEC0;
+    /* Светло-серый цвет для читаемости на темном */
+    text-align: left;
+    /* Или center, как вам больше нравится */
+    font-weight: 300;
+}
+
+/* --- МОБИЛЬНАЯ ВЕРСИЯ (до 900px) --- */
+@media (max-width: 900px) {
+
+    /* 1. Исправляем контейнер, чтобы слайдер выходил за пределы, но не ломал верстку */
+    .block-7 .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        overflow: visible !important;
+        /* Разрешаем теням и элементам быть видимыми */
+        width: 100%;
+        max-width: 100%;
+    }
+
+    /* 2. Настройка сетки-слайдера */
+    .gallery-grid {
+        display: flex !important;
+        /* Включаем флекс для ряда */
+        flex-wrap: nowrap !important;
+        /* Запрещаем перенос строк */
+        overflow-x: auto !important;
+        /* Горизонтальный скролл */
+
+        /* Важно: делаем слайдер во всю ширину экрана */
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        /* Центрируем слайдер относительно экрана */
+        margin-right: calc(50% - 50vw);
+
+        /* Отступы внутри ленты, чтобы первый и последний элементы не прилипали к краям */
+        padding: 0 24px 40px 24px !important;
+        gap: 16px;
+
+        /* Логика "прилипания" слайдов */
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+
+        /* Скрываем скроллбар */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .gallery-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 3. Настройка карточки */
+    .gallery-item {
+        /* Фиксируем ширину карточки: 85% от ширины экрана, но не уже 280px */
+        min-width: 85vw;
+        max-width: 85vw;
+        flex-shrink: 0;
+        /* Запрещаем сжиматься */
+
+        /* Центрируем активный слайд при скролле */
+        scroll-snap-align: center;
+
+        /* Убираем лишние отступы самой карточки */
+        margin: 0 !important;
+    }
+
+    /* 4. Исправление картинки и контейнера (из предыдущего шага, но адаптировано) */
+    .gallery-item figure {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        /* Растягиваем на всю высоту */
+        margin: 0;
+        background: transparent !important;
+        aspect-ratio: auto !important;
+        /* Отключаем жесткие пропорции контейнера */
+        overflow: visible !important;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        /* Картинка держит пропорции */
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        /* Тень для объема */
+    }
+
+    /* 5. Улучшение текста описания для мобильных */
+    .gallery-caption {
+        white-space: normal;
+        /* Разрешаем перенос текста */
+        font-size: 14px !important;
+        color: #CBD5E0;
+        /* Светло-серый, читабельный */
+        margin-top: 16px;
+        padding: 0 4px;
+        /* Небольшой отступ от краев карточки */
+        text-align: left;
+    }
 }
