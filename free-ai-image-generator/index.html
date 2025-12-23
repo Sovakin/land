@@ -96,6 +96,14 @@
                 </div>
             </div>
     </section>
+
+    <section class="article-section" style="padding-top: 0;">
+        <blockquote class="quote-block">
+            "Gear doesn't make great content — the right creative tools do. I've tested dozens of AI image generators
+            over six years. The best ones don't just spit out pixels — they understand story, style, and speed."
+            <span class="quote-author">— Ethan Brooks, Motion Designer & Content Strategist</span>
+        </blockquote>
+    </section>
     <!-- Gallery Section (Moved Up) -->
     <section class="block-7" style="background: none;">
         <div class="container">
@@ -198,15 +206,6 @@
         </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="article-section" style="padding-top: 0; padding-bottom: 40px;">
-        <blockquote class="quote-block">
-            "Gear doesn't make great content — the right creative tools do. I've tested dozens of AI image generators
-            over six years. The best ones don't just spit out pixels — they understand story, style, and speed."
-            <span class="quote-author">— Ethan Brooks, Motion Designer & Content Strategist</span>
-        </blockquote>
-    </section>
-
     <!-- Block 6: Key Features -->
     <section class="block-6 flex-center-all">
         <div class="conteiner container-block-6 flex-center-all">
@@ -223,30 +222,47 @@
                             <span class="block-6__card-num">∞</span>
                             <h3 class="block-6__card-title">Unlimited Images</h3>
                             <p class="block-6__card-text">Fair-use testing with no hard daily cap on free tier;
-                                unlimited on paid plans.</p>
+                                unlimited image generation on paid plans for high-volume needs; queue management.
+                            </p>
                         </div>
                     </div>
                     <div class="block-6__card">
                         <div class="block-6__card-content">
                             <span class="block-6__card-num">4K</span>
-                            <h3 class="block-6__card-title">High Resolution</h3>
-                            <p class="block-6__card-text">Native up to 1024×1024, upscale to 4K/8K. Multiple formats
-                                supported.</p>
-                        </div>
-                    </div>
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">4s</span>
-                            <h3 class="block-6__card-title">Flash Speed</h3>
-                            <p class="block-6__card-text">Median generation time 4.2s (SDXL + LoRA). No render lag.</p>
+                            <h3 class="block-6__card-title">High resolution images</h3>
+                            <p class="block-6__card-text">Native up to 1024×1024 on standard models, up to 1536×1536 on
+                                premium models; 4K/8K upscale available post-generation via AI Upscaler; choice of image
+                                formats (PNG/JPG/WebP with adjustable compression); color space options (sRGB, Rec.709
+                                for video workflows).
+                            </p>
                         </div>
                     </div>
                     <div class="block-6__card">
                         <div class="block-6__card-content">
                             <span class="block-6__card-num">©</span>
-                            <h3 class="block-6__card-title">Commercial Rights</h3>
-                            <p class="block-6__card-text">Licensed for commercial use on all paid plans. No attribution
-                                required.</p>
+                            <h3 class="block-6__card-title">Licensed images</h3>
+                            <p class="block-6__card-text">Clear commercial license on paid plans; no attribution
+                                required; unique image guarantee per ToS (each generation uses unique seed).
+                            </p>
+                        </div>
+                    </div>
+                    <div class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num">4s</span>
+                            <h3 class="block-6__card-title">Flash image</h3>
+                            <p class="block-6__card-text">Median generation time 4.2s at 1024×1024, 30 steps, CFG 7
+                                (benchmarked Dec 2025 on SDXL 1.0 + LoRA v2025.12); priority queue for paid users;
+                                quality image consistently reproducible with seeds; part of our AI suite.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num">PNG</span>
+                            <h3 class="block-6__card-title">Flexible image formats</h3>
+                            <p class="block-6__card-text">Square (1:1), portrait (2:3, 3:4, 4:5, 9:16), landscape (3:2,
+                                4:3, 5:4, 16:9, 21:9); layer/mask export for advanced editing (PNG with alpha channel).
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -608,46 +624,70 @@
 
     <!-- Deep Content Area (Article) -->
     <section class="article-section">
-        <h2>Comparing Our AI Generator</h2>
+        <h2>Comparing Our AI Generator with Other Models</h2>
+        <p>Below is a comparison of our AI image generator versus different AI models: Nano Banana Pro (Gemini), DALL·E
+            3 (ChatGPT), Midjourney, Ideogram, and Stable Diffusion. The table highlights speed, photorealism, price,
+            max resolution, and extra features.</p>
         <div class="comparison-table-wrapper">
             <table class="comparison-table">
                 <thead>
                     <tr>
                         <th>Model</th>
-                        <th>Speed</th>
+                        <th>Speed (median)</th>
                         <th>Photorealism</th>
                         <th>Cost</th>
+                        <th>Max Resolution (native)</th>
                         <th>Extras</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="background: rgba(88, 81, 251, 0.1);">
-                        <td><strong>Our Generator</strong></td>
-                        <td>4.2s (Fast)</td>
+                    <tr>
+                        <td>Our Generator</td>
+                        <td>4.2s (P50: 4.2s, P95: 6.0s)</td>
                         <td>★★★★☆</td>
-                        <td>Free + Paid</td>
-                        <td>Inpainting, Outpainting, Batch</td>
+                        <td>Free tier + from $10/mo</td>
+                        <td>1024×1024 (8K upscale)</td>
+                        <td>Inpainting, outpainting, licensed images, seed lock, batch queue</td>
                     </tr>
                     <tr>
-                        <td>Nano Banana Pro</td>
+                        <td>Nano Banana Pro (Gemini 3 Pro Image)</td>
                         <td>~8-12s</td>
                         <td>★★★★★</td>
-                        <td>$20/mo</td>
-                        <td>Text-in-image specialty</td>
+                        <td>Free (limited), $20/mo</td>
+                        <td>1536×1536</td>
+                        <td>Best text-in-image, character consistency, editing via chat</td>
                     </tr>
                     <tr>
-                        <td>DALL·E 3</td>
+                        <td>DALL·E 3 (ChatGPT)</td>
                         <td>~10s</td>
                         <td>★★★★★</td>
-                        <td>$20/mo</td>
-                        <td>Great text rendering</td>
+                        <td>Token-based / ChatGPT Plus ($20/mo)</td>
+                        <td>1024×1024</td>
+                        <td>Exceptional text rendering, canvas editing, wide style range</td>
                     </tr>
                     <tr>
                         <td>Midjourney V7</td>
-                        <td>5-15s</td>
+                        <td>Variable (5–15s)</td>
                         <td>★★★★★</td>
-                        <td>From $10/mo</td>
-                        <td>Artistic style</td>
+                        <td>From $10/mo (annual)</td>
+                        <td>High (upscale available, ~2048×2048)</td>
+                        <td>Best artistic/cinematic quality, style reference (sref), Discord-only</td>
+                    </tr>
+                    <tr>
+                        <td>Ideogram 3.0</td>
+                        <td>10s (4 images), 5s (Turbo)</td>
+                        <td>★★★★☆</td>
+                        <td>Free (limited), from $8/mo</td>
+                        <td>1024×1024</td>
+                        <td>Best text-in-image for logos/ads, batch generator, character creator</td>
+                    </tr>
+                    <tr>
+                        <td>Stable Diffusion (SDXL)</td>
+                        <td>Fast (local), ~3–6s</td>
+                        <td>★★★★☆</td>
+                        <td>Free (open-source)</td>
+                        <td>Up to 2048×2048 native</td>
+                        <td>Full control, LoRA/ControlNet, local deployment, open license</td>
                     </tr>
                 </tbody>
             </table>
@@ -656,20 +696,41 @@
         <h2 style="margin-top: 60px;">What Is an AI Image Generator and How Does It Work?</h2>
         <p>AI image generation takes your text and turns it into a picture. You type "red sports car on a mountain road
             at sunset," the model interprets the words, and out comes a visual. Under the hood, it's diffusion models
-            doing the heavy lifting.</p>
+            doing the heavy lifting — starting with noise and refining it step-by-step until the image matches your
+            description.
+        </p>
 
         <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; margin: 24px 0;">
-            <h4 style="margin-top: 0;">The Pipeline:</h4>
+            <h4 style="margin-top: 0;">THere's the pipeline:</h4>
             <ul>
                 <li><strong>Text Prompt</strong> → You enter what you want.</li>
-                <li><strong>Text Encoder/Tokenizer</strong> → Converts your words into numerical embeddings.</li>
-                <li><strong>Latent Space (Noise)</strong> → Generation kicks off with random noise.</li>
-                <li><strong>Denoising Steps</strong> → The model iteratively cleans up the noise.</li>
-                <li><strong>Final Image</strong> → You get the finished picture.</li>
+                <li><strong>Text Encoder/Tokenizer</strong> → Converts your words into numerical embeddings the model
+                    can read (Runware Docs, 2025). </li>
+                <li><strong>Latent Space (Noise)</strong> → Generation kicks off with random noise in a compressed
+                    representation (ComfyUI, 2025).  </li>
+                <li><strong>Denoising Steps</strong> → The model iteratively cleans up the noise, guided by your text.
+                    More steps = more detail, but also more time (Hugging Face, 2025).  
+                </li>
+                <li><strong>Final Image</strong> → After denoising wraps, you get the finished picture (Runware Docs,
+                    2025).
+                </li>
             </ul>
         </div>
 
-        <h2 style="margin-top: 60px;">Secrets of Prompt Crafting</h2>
+        <p>Modern diffusion models like Stable Diffusion and SDXL work in latent space for speed. Text gets tokenized
+            via pre-trained models (CLIP ViT-L/14, for example), then cross-attention mechanisms align the visual output
+            with your semantic input, step by step (pcnews.ru, 2023; habr.com, 2023; ultralytics.com, 2023).</p>
+
+        <h2 style="margin-top: 60px;">Secrets of Prompt Crafting: Formulas and Examples</h2>
+        <p>Ideal prompt formula:</p>
+        <code>[Object] + [Details] + [Environment] + [Style] + [Technique] + [Constraints]</code>
+        <p>Example: "Red sports car (object), matte finish, aerodynamic curves (details), mountain road at sunset
+            (environment), cinematic photography style (style), 35mm lens, shallow depth of field (technique), no
+            visible brand logos (constraints)."</p>
+        <p>Negative prompts: Exclude artifacts like "bad anatomy, blurry, extra limbs, deformed hands, watermark."</p>
+        <p>Weighting words: Use parentheses <code>(keyword)</code> or brackets <code>[keyword]</code> to emphasize; some
+            tools support
+            numerical weights like <code>(keyword:1.5)</code>.</p>
         <div class="comparison-table-wrapper">
             <table class="comparison-table">
                 <thead>
@@ -677,55 +738,99 @@
                         <th>Poor Prompt</th>
                         <th>Why It's Poor</th>
                         <th>Improved Prompt</th>
+                        <th>Result</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>"A business executive"</td>
-                        <td>Missing detail</td>
-                        <td>"Business executive in modern office, natural window lighting, photorealistic, 8K
-                            resolution"</td>
+                        <td>Missing technical detail (camera, lighting, quality specs)</td>
+                        <td>Missing technical detail (camera, lighting, quality specs) | "Business executive in modern
+                            office, natural window lighting, photorealistic, shot on Canon EOS R5, 85mm lens, f/1.8
+                            aperture, 8K resolution, professional photography, hyper-detailed skin texture, volumetric
+                            lighting, HDR"
+                        </td>
+                        <td>Sharp corporate portrait with realistic lighting</td>
                     </tr>
                     <tr>
                         <td>"A mountain climber"</td>
-                        <td>Vague composition</td>
-                        <td>"Mountain climber reaching summit, dramatic low-angle shot, golden hour lighting"</td>
+                        <td>Vague composition, no angle or emotion</td>
+                        <td>"Mountain climber reaching summit, dramatic low-angle shot, hero pose, rule of thirds
+                            composition, wide-angle lens, subject against clear blue sky, golden hour lighting, sense of
+                            achievement"</td>
+                        <td>Dynamic, inspiring action shot </td>
+                    </tr>
+                    <tr>
+                        <td>"A portrait of a woman"</td>
+                        <td>AI may generate unnatural facial features</td>
+                        <td>"Portrait of a woman, photorealistic facial proportions, soft natural lighting, detailed
+                            skin texture" + negative: "no deformed eyes, no extra fingers, no blurry face"</td>
+                        <td>Clean, realistic portrait without artifacts</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <h2 style="margin-top: 60px;">Useful Prompt Presets</h2>
+        <h2 style="margin-top: 60px;">Prompt Library</h2>
+        <p>Save time with 30+ ready-to-use prompt presets, organized by category. Click "Use preset" to auto-fill the
+            prompt field and start generating.
+        </p>
         <div class="prompt-library">
             <div class="prompt-card">
-                <h4>Portrait</h4>
-                <p class="prompt-text">"Close-up portrait, 85mm lens, f/1.8, natural window lighting, shallow depth of
-                    field, 4K"</p>
+                <h3>Portrait presets</h3>
+                <p class="prompt-text">- "Close-up portrait, 85mm lens, f/1.8, natural window lighting, shallow depth of
+                    field, 4K""</p>
+                <p class="prompt-text">- "Headshot, studio softbox lighting, neutral background, professional, sharp
+                    focus"</p>
             </div>
             <div class="prompt-card">
-                <h4>Product</h4>
+                <h3>Product presets</h3>
                 <p class="prompt-text">"Smartphone on reflective surface, studio lighting with softbox, 50mm lens,
                     realistic reflections"</p>
+                <p class="prompt-text">- "Luxury watch on marble surface, dramatic side lighting, high detail, 4K"</p>
             </div>
             <div class="prompt-card">
-                <h4>Logo (Minimalist)</h4>
-                <p class="prompt-text">"Minimalist geometric logo, flat colors, vector style, clean lines, centered
+                <h3>Logo & graphic design</h3>
+                <p class="prompt-text">- "Minimalist geometric logo, flat colors, vector style, clean lines, centered
                     composition"</p>
+                <p class="prompt-text">- "Tech startup logo, modern sans-serif, gradient background, blue and white
+                    palette"</p>
             </div>
             <div class="prompt-card">
-                <h4>Cinematic</h4>
-                <p class="prompt-text">"Dramatic sunset with silhouette, 35mm lens, warm backlight, shallow depth of
+                <h3>Cinematic & atmosphere</h3>
+                <p class="prompt-text">- "Dramatic sunset with silhouette, 35mm lens, warm backlight, shallow depth of
                     field, film grain"</p>
+                <p class="prompt-text">- "Rainy city street at night, neon lights, cinematic mood, high contrast"
+                </p>
+            </div>
+            <div class="prompt-card full-width">
+                <h3>Camera specs quick reference</h3>
+                <p class="prompt-text">- Portrait: 85mm, f/1.8</p>
+                <p class="prompt-text">- Product: 50mm, f/8, softbox 3-point
+                </p>
+                <p class="prompt-text">- Landscape: wide-angle (24mm), f/11
+                </p>
+                <p class="prompt-text">- Cinematic: 35mm, f/2.8, shallow DOF
+                </p>
             </div>
         </div>
 
-        <h2 style="margin-top: 60px;">Detailed Review of Top Neural Networks</h2>
+        <h2 style="margin-top: 60px;">Detailed Review of Top Neural Networks for Image Generation</h2>
         <div class="steps-container">
             <div>
-                <h3>1. Leonardo.Ai</h3>
-                <p>Best free generator on Stable Diffusion. Good control, diverse styles, custom models.
-                    <strong>Pros:</strong> Diverse styles, active community. <strong>Cons:</strong> Limits during peak
-                    hours.
+                <h3>1. Leonardo.Ai — Best Free Generator on Stable Diffusion</h3>
+                <p>Leonardo.Ai runs on Stable Diffusion with multiple models (Phoenix, Motion 2.0, Nano Banana), custom
+                    LoRA, free credits per day (50), and scene/asset generation pipelines.<br>
+                    <strong>Pros:</strong> Good control, diverse styles, active community, image-to-image mode, custom
+                    model training (40+ images).<br>
+                    <strong>Cons:</strong> Limits during peak hours, watermarks on free tier (removed on paid),
+                    occasional face quality variance.<br>
+                    <strong>Pricing:</strong>Free plan available (50 credits/day); paid from ~$15/mo.
+                    <br>
+                    <strong>Best for:</strong>Beginners, indie developers, marketers.<br>
+                    <strong>Available models in 2025:</strong>Flagship Phoenix for photorealism, Motion 2.0 and Veo 3
+                    for video, Nano Banana for natural-language image editing; custom models train on 40+ images with
+                    resolution and category settings (Leonardo AI docs, 2025).
                 </p>
             </div>
             <div>
@@ -754,7 +859,7 @@
     <section class="block-10 flex-center-all">
         <div class="container container-block-10 flex-center-all">
             <div class="block-10__content">
-                <h2 class="block-10__title">Frequently Asked Questions</h2>
+                <h2 class="block-10__title">Frequently Asked Questions (FAQ)</h2>
                 <div class="block-10__wrapper">
                     <div class="block-10__items-container">
                         <div class="block-10__item">
@@ -763,8 +868,9 @@
                                 <h3>Are there completely free AI image generators?</h3>
                             </button>
                             <div class="block-10__answer">
-                                <p>Yes, but often with limits. We offer a free tier with daily generations. Stable
-                                    Diffusion is free if you run it locally.</p>
+                                <p>Yes, but with limits or watermarks. Open-source solutions like Stable Diffusion are
+                                    unlimited if you have a GPU. Bing Image Creator (DALL·E 3) and Kandinsky offer free
+                                    tiers; Leonardo.Ai provides daily credits.</p>
                             </div>
                         </div>
                         <div class="block-10__item">
@@ -773,17 +879,23 @@
                                 <h3>Can I use generated images commercially?</h3>
                             </button>
                             <div class="block-10__answer">
-                                <p>Yes, on our paid plans you get full commercial rights. Free plan is personal use
-                                    only.</p>
+                                <p>Yes, if licensed images and ToS permit. Avoid brands/faces without consent.
+                                    Midjourney (with subscription), Adobe Firefly, and Stable Diffusion (open license)
+                                    explicitly allow commercial use. Our generator allows commercial use on paid plans
+                                    only. Always check the specific tool's terms.
+                                </p>
                             </div>
                         </div>
                         <div class="block-10__item">
                             <div class="block-10__border"></div>
                             <button class="block-10__question">
-                                <h3>How do I write a prompt?</h3>
+                                <h3>What is a prompt and how do I write it correctly?</h3>
                             </button>
                             <div class="block-10__answer">
-                                <p>Use the formula: Object + Details + Environment + Style + Technique. Be specific.</p>
+                                <p>A prompt is a text instruction (image prompt). Use the formula: object + details +
+                                    environment + style + technique + constraints. Add negative prompts to exclude
+                                    errors.
+                                </p>
                             </div>
                         </div>
                         <div class="block-10__item">
@@ -792,8 +904,23 @@
                                 <h3>Why do AI images sometimes look strange?</h3>
                             </button>
                             <div class="block-10__answer">
-                                <p>Common issues: wrong hand anatomy, gibberish text. Solutions: add negative prompts,
-                                    increase steps, or use upscale.</p>
+                                <p>Common issues: wrong hand anatomy, gibberish text. Solutions: add negative prompts
+                                    (`no extra fingers, no blurry text`), increase denoising steps, apply upscale
+                                    post-processing.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block-10__item">
+                            <div class="block-10__border"></div>
+                            <button class="block-10__question">
+                                <h3>What's the difference between model families?</h3>
+                            </button>
+                            <div class="block-10__answer">
+                                <p>Midjourney excels in artistic styles and realism; DALL·E 3 follows text precisely and
+                                    renders text in images well; SDXL offers deep control and customization via
+                                    LoRA/ControlNet; Ideogram specializes in text-in-image for logos/posters; Nano
+                                    Banana Pro (Gemini) leads in character consistency and infographic text rendering.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -807,7 +934,9 @@
         <div class="container container-block-11 flex-center-all">
             <div class="block-11__content">
                 <h2 class="block-11__slogan">Ready to Create Your First Unique Image?</h2>
-                <p class="block-11__text">Create image in seconds — generate now and try for free.</p>
+                <p class="block-11__text">Create image in seconds — generate now and try for free. Our online AI image
+                    creator and AI image maker with AI assistant are ready to start generating. Click "Try Now" — we'll
+                    jump back to the form above.</p>
                 <a href="#top-form" class="btn btn-branded flex-center-all block-11__button">Generate Free Image</a>
             </div>
         </div>

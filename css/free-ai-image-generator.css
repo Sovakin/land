@@ -1,5 +1,5 @@
 .article-section {
-    padding: 60px 32px;
+    padding: 64px 24px;
     max-width: 800px;
     margin: 0 auto;
     color: var(--color-white);
@@ -492,4 +492,8 @@
     max-width: 600px;
     margin: 0;
     font-weight: 300;
+}
+
+.prompt-card.full-width {
+    grid-column: 1 / -1;
 }
