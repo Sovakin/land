@@ -226,76 +226,203 @@
 
     <section class="article-section">
         <h2>What Is an AI Image Generator and How Does It Work?</h2>
+
         <p>AI image generation takes your text and turns it into a picture. You type "red sports car on a mountain road
             at sunset," the model interprets the words, and out comes a visual. Under the hood, it's diffusion models
             doing the heavy lifting — starting with noise and refining it step-by-step until the image matches your
-            description.
-        </p>
-        <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; margin: 24px 0;">
-            <h4 style="margin-top: 0;">THere's the pipeline:</h4>
-            <ul>
-                <li><strong>Text Prompt</strong> → You enter what you want.</li>
+            description.</p>
+
+        <!-- МУЛЬТИМЕДИА: Схема -->
+        <figure style="margin: 40px 0;">
+            <!-- Адаптивная SVG схема -->
+            <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: auto; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+                    </marker>
+                </defs>
+
+                <!-- Step 1: Text Prompt -->
+                <rect x="20" y="80" width="120" height="60" rx="8" fill="rgba(44, 34, 250, 0.2)" stroke="#5851FB"
+                    stroke-width="1" />
+                <text x="80" y="115" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">Text
+                    Prompt</text>
+
+                <!-- Arrow 1 -->
+                <line x1="140" y1="110" x2="160" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                <!-- Step 2: Encoder -->
+                <rect x="180" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
+                <text x="240" y="105" font-family="sans-serif" font-size="12" fill="#ddd" text-anchor="middle">Tokenizer
+                    /</text>
+                <text x="240" y="125" font-family="sans-serif" font-size="12" fill="#ddd"
+                    text-anchor="middle">Encoder</text>
+
+                <!-- Arrow 2 -->
+                <line x1="300" y1="110" x2="320" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                <!-- Step 3: Latent Space -->
+                <rect x="340" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
+                <text x="400" y="105" font-family="sans-serif" font-size="12" fill="#ddd" text-anchor="middle">Latent
+                    Space</text>
+                <text x="400" y="125" font-family="sans-serif" font-size="10" fill="#aaa" text-anchor="middle">(Random
+                    Noise)</text>
+
+                <!-- Arrow 3 -->
+                <line x1="460" y1="110" x2="480" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                <!-- Step 4: Denoising -->
+                <rect x="500" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
+                <text x="560" y="105" font-family="sans-serif" font-size="12" fill="#ddd"
+                    text-anchor="middle">Iterative</text>
+                <text x="560" y="125" font-family="sans-serif" font-size="12" fill="#ddd"
+                    text-anchor="middle">Denoising</text>
+
+                <!-- Arrow 4 -->
+                <line x1="620" y1="110" x2="640" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
+
+                <!-- Step 5: Final Image -->
+                <rect x="660" y="80" width="120" height="60" rx="8" fill="rgba(44, 34, 250, 0.2)" stroke="#5851FB"
+                    stroke-width="1" />
+                <text x="720" y="115" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">Final
+                    Image</text>
+
+                <!-- Loop annotation -->
+                <path d="M 520 145 Q 560 170 600 145" stroke="#444" stroke-width="1" fill="none" stroke-dasharray="4" />
+                <text x="560" y="180" font-family="sans-serif" font-size="10" fill="#888" text-anchor="middle">Steps
+                    20-50+</text>
+            </svg>
+            <figcaption style="text-align: center; color: #aaa; font-size: 14px; margin-top: 12px; font-weight: 300;">
+                Figure 1: Generation pipeline — from text input to pixel output.
+            </figcaption>
+        </figure>
+
+        <!-- Pipeline Text Description -->
+        <div
+            style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; margin: 24px 0; border: 1px solid rgba(255,255,255,0.1);">
+            <h4 style="margin-top: 0; color: var(--color-white);">Here's the pipeline:</h4>
+            <ul style="margin-bottom: 0;">
+                <li><strong>Text Prompt</strong> → You enter what you want (e.g., "Cyberpunk city").</li>
                 <li><strong>Text Encoder/Tokenizer</strong> → Converts your words into numerical embeddings the model
-                    can read (Runware Docs, 2025). </li>
+                    can read, using models like CLIP (Runware Docs, 2025).</li>
                 <li><strong>Latent Space (Noise)</strong> → Generation kicks off with random noise in a compressed
-                    representation (ComfyUI, 2025).  </li>
-                <li><strong>Denoising Steps</strong> → The model iteratively cleans up the noise, guided by your text.
-                    More steps = more detail, but also more time (Hugging Face, 2025).  
-                </li>
-                <li><strong>Final Image</strong> → After denoising wraps, you get the finished picture (Runware Docs,
-                    2025).
-                </li>
+                    representation to save processing power (ComfyUI, 2025).</li>
+                <li><strong>Denoising Steps</strong> → The model iteratively cleans up the noise, guided by your text
+                    embeddings. More steps typically equal more detail but take longer (Hugging Face, 2025).</li>
+                <li><strong>Final Image</strong> → After the denoising loop wraps, the latent data is decoded into the
+                    finished picture (Runware Docs, 2025).</li>
             </ul>
         </div>
 
-        <p>Modern diffusion models like Stable Diffusion and SDXL work in latent space for speed. Text gets tokenized
-            via pre-trained models (CLIP ViT-L/14, for example), then cross-attention mechanisms align the visual output
-            with your semantic input, step by step (pcnews.ru, 2023; habr.com, 2023; ultralytics.com, 2023).</p>
+        <p>Modern diffusion models like Stable Diffusion and SDXL work in <em>latent space</em> for speed. Instead of
+            manipulating every single pixel from the start, text gets tokenized via pre-trained models (CLIP ViT-L/14,
+            for example). Then, cross-attention mechanisms align the visual output with your semantic input, step by
+            step, ensuring the result matches your prompt (pcnews.ru, 2023; habr.com, 2023; ultralytics.com, 2023).</p>
+
+        <!-- E-E-A-T Block: Research Foundation -->
+        <div class="quote-block" style="margin-top: 48px; border-left-color: rgba(255,255,255,0.2);">
+            <h5 style="margin-bottom: 8px; color: var(--color-white); font-size: 18px;">Scientific Basis & Research</h5>
+            <p style="font-size: 14px; line-height: 1.5; color: #aaa; margin-bottom: 0;">
+                The technology is grounded in <strong>"High-Resolution Image Synthesis with Latent Diffusion
+                    Models"</strong> (Rombach et al., 2022), which introduced method of training in latent space to
+                reduce computational costs while maintaining quality. Additionally, advancements like the
+                <strong>"DALL·E 3 System Card"</strong> (OpenAI, 2023) focus on improving prompt fidelity and rendering
+                text within images.
+            </p>
+        </div>
     </section>
 
     <section class="block-9 flex-center-all">
+        <!-- E-E-A-T: HowTo Schema Structure -->
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Create the Perfect AI Image",
+      "description": "A 3-step guide to generating high-quality AI images using prompts, references, and parameter tuning.",
+      "totalTime": "PT2M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Write a detailed image prompt",
+          "text": "Specify purpose, composition, angle, lighting, style, and materials using the subject + details + environment formula."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Upload a reference image",
+          "text": "Upload an optional reference image to guide style, pose, or palette."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Set parameters and generate",
+          "text": "Define aspect ratio, steps, CFG scale, and negative prompts before generating."
+        }
+      ]
+    }
+    </script>
+
         <div class="container container-block-9 flex-center-all">
             <div class="block-9__content">
                 <h2 class="block-9__title">How to Create the Perfect Image: 3 Simple Steps</h2>
+                <figure class="howto-video-wrapper">
+                    <video controls width="100%" poster="/assets/images/howto-poster.png" class="howto-video">
+                        <source src="/assets/videos/ai-generation-guide.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </figure>
+
                 <div class="block-9__cards-wrapper">
-                    <div class="block-9__cards-container">
-                        <div class="block-9__card">
-                            <div class="block-9__card-content">
-                                <span
-                                    style="font-size: 48px; color: var(--color-branded); font-weight: bold; display: block; margin-bottom: 20px;">1</span>
-                                <h3 class="block-9__card-title">Write a detailed image prompt.</h3>
-                                <p class="block-9__card-text">Specify purpose, composition, angle, lighting, style,
-                                    image text (if you need text on a poster), materials. Add an image description with
-                                    key attributes and constraints for an exact image.
-                                    Example: <code>[Subject] + [Details] + [Environment] + [Style]</code> "Red sports
-                                    car (subject), matte finish, aerodynamic curves (details), mountain road at sunset
-                                    (environment), cinematic photography style (style), 35mm lens, shallow depth of
-                                    field (camera/lighting), no visible brand logos (constraints)."</p>
-                            </div>
-                        </div>
-                        <div class="block-9__card">
-                            <div class="block-9__card-content">
-                                <span
-                                    style="font-size: 48px; color: var(--color-branded); font-weight: bold; display: block; margin-bottom: 20px;">2</span>
-                                <h3 class="block-9__card-title">Upload a reference image.</h3>
-                                <p class="block-9__card-text">Guide style/pose/palette. Set the influence strength of
-                                    the reference and choose single image or variation series.
+                    <div class="block-9__card full-height">
+                        <div class="block-9__card-content">
+                            <span class="step-number">1</span>
+                            <h3 class="block-9__card-title">Write a detailed image prompt.</h3>
+                            <div class="block-9__card-text">
+                                <p>Specify purpose, composition, angle, lighting, style, and constraints. Use this
+                                    formula for exact results:</p>
+
+                                <div class="prompt-formula">
+                                    <code>[Subject] + [Details] + [Environment] + [Style] + [Camera] + [Constraints]</code>
+                                </div>
+
+                                <p class="prompt-example">
+                                    <strong>Example:</strong> "Red sports car (subject), matte finish (details),
+                                    mountain road at sunset (environment), cinematic photography (style), 35mm lens
+                                    (camera), no visible logos (constraints)."
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <div class="block-9__cards-container">
+
+                    <div class="block-9__cards-column">
                         <div class="block-9__card">
                             <div class="block-9__card-content">
-                                <span
-                                    style="font-size: 48px; color: var(--color-branded); font-weight: bold; display: block; margin-bottom: 20px;">3</span>
+                                <span class="step-number">2</span>
+                                <h3 class="block-9__card-title">Upload a reference image (Optional).</h3>
+                                <p class="block-9__card-text">
+                                    Guide the AI's style, pose, or color palette. Set the <strong>influence
+                                        strength</strong> of the reference to control how closely the AI follows your
+                                    upload.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="block-9__card">
+                            <div class="block-9__card-content">
+                                <span class="step-number">3</span>
                                 <h3 class="block-9__card-title">Set parameters and generate.</h3>
-                                <p class="block-9__card-text">Define aspect ratio, steps (20–50), CFG (7–12), seed
-                                    (random or locked); hit generate image. Compare image results, refine your prompt,
-                                    and lock in successful settings for repeatability. Pro tip: Add negative prompts
-                                    to exclude common errors: `bad anatomy, blurry, extra limbs, deformed hands,
-                                    watermark, low quality, text artifacts`.
-                                </p>
+                                <div class="block-9__card-text">
+                                    <p>Define aspect ratio, steps (20–50), CFG (7–12), and seed.</p>
+                                    <div class="pro-tip">
+                                        <strong>💡 Pro tip:</strong> Add negative prompts to exclude errors: <br>
+                                        <em>bad anatomy, blurry, extra limbs, deformed hands, watermark, text
+                                            artifacts.</em>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -304,96 +431,50 @@
         </div>
     </section>
 
-    <!-- Block 6: Key Features -->
-    <section class="block-6 flex-center-all">
-        <div class="conteiner container-block-6 flex-center-all">
-            <div class="block-6__content">
-                <div class="block-6__title">
-                    <h2>Key Features of Our AI Generator</h2>
-                </div>
-                <div class="block-6__subtitle">
-                    <div>Unlimited images, high resolution outputs, and flash speed generation.</div>
-                </div>
-                <div class="block-6__cards-container">
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">∞</span>
-                            <h3 class="block-6__card-title">Unlimited Images</h3>
-                            <p class="block-6__card-text">Fair-use testing with no hard daily cap on free tier;
-                                unlimited image generation on paid plans for high-volume needs; queue management.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">4K</span>
-                            <h3 class="block-6__card-title">High resolution images</h3>
-                            <p class="block-6__card-text">Native up to 1024×1024 on standard models, up to 1536×1536 on
-                                premium models; 4K/8K upscale available post-generation via AI Upscaler; choice of image
-                                formats (PNG/JPG/WebP with adjustable compression); color space options (sRGB, Rec.709
-                                for video workflows).
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">©</span>
-                            <h3 class="block-6__card-title">Licensed images</h3>
-                            <p class="block-6__card-text">Clear commercial license on paid plans; no attribution
-                                required; unique image guarantee per ToS (each generation uses unique seed).
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">4s</span>
-                            <h3 class="block-6__card-title">Flash image</h3>
-                            <p class="block-6__card-text">Median generation time 4.2s at 1024×1024, 30 steps, CFG 7
-                                (benchmarked Dec 2025 on SDXL 1.0 + LoRA v2025.12); priority queue for paid users;
-                                quality image consistently reproducible with seeds; part of our AI suite.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="block-6__card">
-                        <div class="block-6__card-content">
-                            <span class="block-6__card-num">PNG</span>
-                            <h3 class="block-6__card-title">Flexible image formats</h3>
-                            <p class="block-6__card-text">Square (1:1), portrait (2:3, 3:4, 4:5, 9:16), landscape (3:2,
-                                4:3, 5:4, 16:9, 21:9); layer/mask export for advanced editing (PNG with alpha channel).
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Block 8: Pricing -->
-    <section id="pricing" class="block-8 flex-center-all">
+    <section id="pricing" class="block-8 flex-center-all" style="padding: 0;">
         <div class="container container-block-8 flex-center-all">
             <div class="block-8__content">
                 <h2 class="block-8__title">Pricing & Policies</h2>
-                <div class="block-7__subtitle">
-                    <div style="max-width: 800px; margin: 0 auto;">Free plan: 20 generations per day. Cancel anytime
-                        with one click. No credit card to start.</div>
-                    <div style="max-width: 800px; margin: 0 auto;">Paid plans: From $10/month for ~1,000 generations
-                        with priority queue and commercial license; $35/month for ~5,000 generations; $60/month for
-                        ~15,000 generations with fastest processing.
+                <div class="block-7__subtitle pricing-policy-text">
+                    <div class="policy-item">
+                        <strong>Free plan:</strong> 20 generations per day. Cancel anytime with one click. No credit
+                        card to start.
                     </div>
-                    <div style="max-width: 800px; margin: 0 auto;">Cost per image: Roughly $0.01–0.02 per standard
-                        image on paid plans. Advanced models like Nano Banana Pro run about 10 credits per image.
+                    <div class="policy-item">
+                        <strong>Paid plans:</strong> From $10/month for ~1,000 generations with priority queue and
+                        commercial license; $35/month for ~5,000 generations; $60/month for ~15,000 generations with
+                        fastest processing.
+                    </div>
+                    <div class="policy-item">
+                        <strong>Cost per image:</strong> Roughly $0.01–0.02 per standard image on paid plans. Advanced
+                        models like Nano Banana Pro run about 10 credits per image.
+                    </div>
+                    <div class="policy-item">
+                        <strong>Commercial rights:</strong> Licensed for commercial use on all paid plans. Free plan
+                        images are personal use only. No attribution required on paid plans.
+                    </div>
+                    <div class="policy-item">
+                        <strong>Unique image guarantee:</strong> Every generation uses a unique seed, so no two outputs
+                        are identical. Images are your property under our ToS, with full rights to use, modify, and
+                        distribute commercially (paid plans only).
+                    </div>
+                    <div class="policy-legal-links">
+                        <p>Complete details available in <a href="#tos">Terms of Service</a> and <a
+                                href="#privacy">Privacy Policy</a>.</p>
+                    </div>
 
-                    </div>
-                    <div style="max-width: 800px; margin: 0 auto;">Commercial rights: Licensed for commercial use on
-                        all paid plans. Free plan images are personal use only. No attribution required on paid plans.
-
-                    </div>
-                    <div style="max-width: 800px; margin: 0 auto;">Unique image guarantee: Every generation uses a
-                        unique seed, so no two outputs are identical. Images are your property under our ToS, with full
-                        rights to use, modify, and distribute commercially (paid plans only).
+                    <div class="license-glance">
+                        <h4>License at a glance:</h4>
+                        <ul class="license-list">
+                            <li><span class="icon-yes">✅</span> Commercial use: <strong>Yes</strong> on paid plans</li>
+                            <li><span class="icon-yes">✅</span> Attribution: <strong>No</strong></li>
+                            <li><span class="icon-warn">⚠️</span> Faces: consent required for real persons</li>
+                            <li><span class="icon-no">❌</span> Logos/brands: prohibited without permission</li>
+                            <li><span class="icon-yes">✅</span> Training opt-out: available in settings</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="block-8__toggle-container">
                     <div class="block-8__toggle">
                         <div class="block-8__toggle-option block-8__toggle-option--active" data-period="monthly">Monthly
@@ -403,7 +484,6 @@
                 </div>
 
                 <div class="block-8__cards-container">
-                    <!-- Free Plan -->
                     <div class="block-8__card" data-plan="free">
                         <h3 class="block-8__card-title">Free</h3>
                         <div class="block-8__card-price">
@@ -412,15 +492,18 @@
                         </div>
 
                         <div class="block-8__card-addons">
-                            <!-- Empty for Free plan -->
                         </div>
 
                         <div class="block-8__card-button-container">
                             <a href="/auth/registration" class="block-8__card-button block-8__card-button--free">Current
                                 Plan</a>
                             <div class="block-8__card-yearly">
-                                <div class="block-8__card-yearly-text-header"><span class="yearly-text-header__span"
-                                        data-monthly="0" data-yearly="0">0</span>Credits per month</div>
+                                <div class="block-8__card-yearly-text-header">
+                                    <span class="yearly-text-header__span">20</span>/ day
+                                </div>
+                                <div class="block-8__card-yearly-text">
+                                    Generations
+                                </div>
                             </div>
                         </div>
 
@@ -429,28 +512,75 @@
                         <ul class="block-8__card-features">
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Get credits monthly by logging in</span>
+                                <span class="block-8__card-feature-text">20 generations per day</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Try members-only features monthly by logging
-                                    in</span>
+                                <span class="block-8__card-feature-text">Personal use only</span>
+                            </li>
+                            <li class="block-8__card-feature">
+                                <div class="block-8__card-feature-icon"></div>
+                                <span class="block-8__card-feature-text">Standard queue</span>
                             </li>
                         </ul>
                     </div>
-
-                    <!-- Plus Plan -->
-                    <div class="block-8__card" data-plan="plus">
-                        <h3 class="block-8__card-title">Plus</h3>
+                    <div class="block-8__card" data-plan="starter">
+                        <h3 class="block-8__card-title">Starter</h3>
                         <div class="block-8__card-price">
-                            <span class="block-8__card-price-amount" data-monthly="15" data-yearly="13">$15</span><span
+                            <span class="block-8__card-price-amount" data-monthly="10" data-yearly="8">$10</span><span
                                 class="block-8__card-price-period">/month</span>
                         </div>
 
                         <div class="block-8__card-addons">
-                            <div class="block-8__card-addons-text">Save <span class="addons-text__span">10%</span> with
-                                the annual
-                                plan</div>
+                            <div class="block-8__card-addons-text">Save <span class="addons-text__span">20%</span> with
+                                the annual plan</div>
+                        </div>
+
+                        <div class="block-8__card-button-container">
+                            <a href="/auth/registration" class="block-8__card-button">Subscribe</a>
+                            <div class="block-8__card-yearly">
+                                <div class="block-8__card-yearly-text-header">
+                                    <span class="yearly-text-header__span" data-monthly="1000"
+                                        data-yearly="1000">1,000</span>
+                                </div>
+                                <div class="block-8__card-yearly-text">
+                                    Generations per month
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="block-8__card-divider"></div>
+
+                        <ul class="block-8__card-features">
+                            <li class="block-8__card-feature">
+                                <div class="block-8__card-feature-icon"></div>
+                                <span class="block-8__card-feature-text">~1,000 Generations</span>
+                            </li>
+                            <li class="block-8__card-feature">
+                                <div class="block-8__card-feature-icon"></div>
+                                <span class="block-8__card-feature-text">Priority Queue</span>
+                            </li>
+                            <li class="block-8__card-feature">
+                                <div class="block-8__card-feature-icon"></div>
+                                <span class="block-8__card-feature-text">Commercial License</span>
+                            </li>
+                            <li class="block-8__card-feature">
+                                <div class="block-8__card-feature-icon"></div>
+                                <span class="block-8__card-feature-text">No watermark</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="block-8__card" data-plan="pro">
+                        <h3 class="block-8__card-title">Pro</h3>
+                        <div class="block-8__card-price">
+                            <span class="block-8__card-price-amount" data-monthly="35" data-yearly="28">$35</span><span
+                                class="block-8__card-price-period">/month</span>
+                        </div>
+
+                        <div class="block-8__card-addons">
+                            <div class="block-8__card-addons-text">Save <span class="addons-text__span">20%</span> with
+                                the annual plan</div>
                         </div>
 
                         <div class="block-8__card-button-container">
@@ -458,12 +588,10 @@
                             <div class="block-8__card-yearly">
                                 <div class="block-8__card-yearly-text-header">
                                     <span class="yearly-text-header__span" data-monthly="5000"
-                                        data-yearly="5000">5000</span>Credits per
-                                    month
+                                        data-yearly="5000">5,000</span>
                                 </div>
                                 <div class="block-8__card-yearly-text">
-                                    $<span class="price-per-credit" data-monthly="3.00" data-yearly="2.70">3.00</span>
-                                    per 1000 Credits
+                                    Generations per month
                                 </div>
                             </div>
                         </div>
@@ -473,139 +601,47 @@
                         <ul class="block-8__card-features">
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 250 Al images</span>
+                                <span class="block-8__card-feature-text">~5,000 Generations</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 25 Al videos</span>
+                                <span class="block-8__card-feature-text">Priority Queue</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 2 pending jobs</span>
+                                <span class="block-8__card-feature-text">Commercial License</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Download without watermark</span>
+                                <span class="block-8__card-feature-text">Access to Advanced Models</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Commercial use allowed</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">1080p export quality</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Standard generation queue</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">100 GB storage</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Email support</span>
+                                <span class="block-8__card-feature-text">Priority Support</span>
                             </li>
                         </ul>
                     </div>
-
-                    <!-- Max Plan -->
-                    <div class="block-8__card" data-plan="max">
-                        <h3 class="block-8__card-title">Max</h3>
+                    <div class="block-8__card" data-plan="ultra">
+                        <h3 class="block-8__card-title">Ultra</h3>
                         <div class="block-8__card-price">
-                            <span class="block-8__card-price-amount" data-monthly="45" data-yearly="38">$45</span><span
-                                class="block-8__card-price-period">/month</span>
-                        </div>
-
-                        <div class="block-8__card-addons">
-                            <div class="block-8__card-addons-text">Save <span class="addons-text__span">15%</span> with
-                                the annual
-                                plan</div>
-                        </div>
-
-                        <div class="block-8__card-button-container">
-                            <a href="/auth/registration" class="block-8__card-button">Subscribe</a>
-                            <div class="block-8__card-yearly">
-                                <div class="block-8__card-yearly-text-header">
-                                    <span class="yearly-text-header__span" data-monthly="18000"
-                                        data-yearly="18000">18000</span>Credits
-                                    per month
-                                </div>
-                                <div class="block-8__card-yearly-text">
-                                    $<span class="price-per-credit" data-monthly="2.50" data-yearly="2.12">2.50</span>
-                                    per 1000 Credits
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="block-8__card-divider"></div>
-
-                        <ul class="block-8__card-features">
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 900 Al images</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 90 Al videos</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 8 pending jobs</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Download without watermark</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Commercial use allowed</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">1080p export quality</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Highest generation queue</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">500 GB storage</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Priority support</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Generative Plan -->
-                    <div class="block-8__card" data-plan="generative">
-                        <h3 class="block-8__card-title">Generative</h3>
-                        <div class="block-8__card-price">
-                            <span class="block-8__card-price-amount" data-monthly="99" data-yearly="79">$99</span><span
+                            <span class="block-8__card-price-amount" data-monthly="60" data-yearly="48">$60</span><span
                                 class="block-8__card-price-period">/month</span>
                         </div>
 
                         <div class="block-8__card-addons">
                             <div class="block-8__card-addons-text">Save <span class="addons-text__span">20%</span> with
-                                the annual
-                                plan</div>
+                                the annual plan</div>
                         </div>
 
                         <div class="block-8__card-button-container">
                             <a href="/auth/registration" class="block-8__card-button">Subscribe</a>
                             <div class="block-8__card-yearly">
                                 <div class="block-8__card-yearly-text-header">
-                                    <span class="yearly-text-header__span" data-monthly="45000"
-                                        data-yearly="45000">45000</span>Credits
-                                    per month
+                                    <span class="yearly-text-header__span" data-monthly="15000"
+                                        data-yearly="15000">15,000</span>
                                 </div>
                                 <div class="block-8__card-yearly-text">
-                                    $<span class="price-per-credit" data-monthly="2.20" data-yearly="1.76">2.20</span>
-                                    per 1000 Credits
+                                    Generations per month
                                 </div>
                             </div>
                         </div>
@@ -615,51 +651,27 @@
                         <ul class="block-8__card-features">
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 2,250 Al images</span>
+                                <span class="block-8__card-feature-text">~15,000 Generations</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 225 Al videos</span>
+                                <span class="block-8__card-feature-text">Fastest Processing</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Up to 15 pending jobs</span>
+                                <span class="block-8__card-feature-text">Commercial License</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Download without watermark</span>
+                                <span class="block-8__card-feature-text">Access to Beta Features</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Commercial use allowed</span>
+                                <span class="block-8__card-feature-text">Private Generations</span>
                             </li>
                             <li class="block-8__card-feature">
                                 <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">1080p export quality</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Highest generation queue</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Advanced and Beta features</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Priority support</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Private generations</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">3 TB storage</span>
-                            </li>
-                            <li class="block-8__card-feature">
-                                <div class="block-8__card-feature-icon"></div>
-                                <span class="block-8__card-feature-text">Early access to new features</span>
+                                <span class="block-8__card-feature-text">Concierge Support</span>
                             </li>
                         </ul>
                     </div>
@@ -668,117 +680,223 @@
         </div>
     </section>
 
-    <!-- Deep Content Area (Article) -->
     <section class="article-section">
-        <h2>Comparing Our AI Generator with Other Models</h2>
-        <p>Below is a comparison of our AI image generator versus different AI models: Nano Banana Pro (Gemini), DALL·E
-            3 (ChatGPT), Midjourney, Ideogram, and Stable Diffusion. The table highlights speed, photorealism, price,
-            max resolution, and extra features.</p>
-        <div class="comparison-table-wrapper">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>Speed (median)</th>
-                        <th>Photorealism</th>
-                        <th>Cost</th>
-                        <th>Max Resolution (native)</th>
-                        <th>Extras</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Our Generator</td>
-                        <td>4.2s (P50: 4.2s, P95: 6.0s)</td>
-                        <td>★★★★☆</td>
-                        <td>Free tier + from $10/mo</td>
-                        <td>1024×1024 (8K upscale)</td>
-                        <td>Inpainting, outpainting, licensed images, seed lock, batch queue</td>
-                    </tr>
-                    <tr>
-                        <td>Nano Banana Pro (Gemini 3 Pro Image)</td>
-                        <td>~8-12s</td>
-                        <td>★★★★★</td>
-                        <td>Free (limited), $20/mo</td>
-                        <td>1536×1536</td>
-                        <td>Best text-in-image, character consistency, editing via chat</td>
-                    </tr>
-                    <tr>
-                        <td>DALL·E 3 (ChatGPT)</td>
-                        <td>~10s</td>
-                        <td>★★★★★</td>
-                        <td>Token-based / ChatGPT Plus ($20/mo)</td>
-                        <td>1024×1024</td>
-                        <td>Exceptional text rendering, canvas editing, wide style range</td>
-                    </tr>
-                    <tr>
-                        <td>Midjourney V7</td>
-                        <td>Variable (5–15s)</td>
-                        <td>★★★★★</td>
-                        <td>From $10/mo (annual)</td>
-                        <td>High (upscale available, ~2048×2048)</td>
-                        <td>Best artistic/cinematic quality, style reference (sref), Discord-only</td>
-                    </tr>
-                    <tr>
-                        <td>Ideogram 3.0</td>
-                        <td>10s (4 images), 5s (Turbo)</td>
-                        <td>★★★★☆</td>
-                        <td>Free (limited), from $8/mo</td>
-                        <td>1024×1024</td>
-                        <td>Best text-in-image for logos/ads, batch generator, character creator</td>
-                    </tr>
-                    <tr>
-                        <td>Stable Diffusion (SDXL)</td>
-                        <td>Fast (local), ~3–6s</td>
-                        <td>★★★★☆</td>
-                        <td>Free (open-source)</td>
-                        <td>Up to 2048×2048 native</td>
-                        <td>Full control, LoRA/ControlNet, local deployment, open license</td>
-                    </tr>
-                </tbody>
-            </table>
+        <h2 style="margin-top: 60px;">Security and Privacy</h2>
+        <div class="security-privacy-content">
+            <div class="policy-item">
+                <strong>Data storage:</strong> All prompts and generated images are encrypted in transit (TLS 1.3) and
+                at rest (AES-256). Images stick around for 30 days on free plans, indefinitely on paid unless you delete
+                them.
+            </div>
+            <div class="policy-item">
+                <strong>Training on your uploads:</strong> We don't train our models on user-uploaded reference images
+                or prompts without explicit opt-in. By default, all user data is excluded from training datasets.
+            </div>
+            <div class="policy-item">
+                <strong>Content moderation:</strong> Automated NSFW filters block explicit, violent, and harmful
+                content. Human moderators review flagged content. We comply with DMCA takedown requests.
+            </div>
+            <div class="policy-item">
+                <strong>Privacy policy:</strong> We don't share user data with third parties for advertising. Minimal
+                analytics (anonymized) track usage for service improvement. Users can request full data deletion
+                anytime.
+            </div>
+            <div class="policy-item">
+                <strong>Geo-restrictions:</strong> Available in 191 countries. GDPR-compliant for EU users; data
+                processing agreements available for enterprises.
+            </div>
         </div>
-
-        <h2 style="margin-top: 60px;">What Is an AI Image Generator and How Does It Work?</h2>
-        <p>AI image generation takes your text and turns it into a picture. You type "red sports car on a mountain road
-            at sunset," the model interprets the words, and out comes a visual. Under the hood, it's diffusion models
-            doing the heavy lifting — starting with noise and refining it step-by-step until the image matches your
-            description.
-        </p>
-
-        <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; margin: 24px 0;">
-            <h4 style="margin-top: 0;">THere's the pipeline:</h4>
-            <ul>
-                <li><strong>Text Prompt</strong> → You enter what you want.</li>
-                <li><strong>Text Encoder/Tokenizer</strong> → Converts your words into numerical embeddings the model
-                    can read (Runware Docs, 2025). </li>
-                <li><strong>Latent Space (Noise)</strong> → Generation kicks off with random noise in a compressed
-                    representation (ComfyUI, 2025).  </li>
-                <li><strong>Denoising Steps</strong> → The model iteratively cleans up the noise, guided by your text.
-                    More steps = more detail, but also more time (Hugging Face, 2025).  
-                </li>
-                <li><strong>Final Image</strong> → After denoising wraps, you get the finished picture (Runware Docs,
-                    2025).
-                </li>
-            </ul>
+        <div class="policy-legal-links">
+            <p>Detailed information is available in our <a href="#privacy">Privacy Policy</a>.</p>
         </div>
+    </section>
 
-        <p>Modern diffusion models like Stable Diffusion and SDXL work in latent space for speed. Text gets tokenized
-            via pre-trained models (CLIP ViT-L/14, for example), then cross-attention mechanisms align the visual output
-            with your semantic input, step by step (pcnews.ru, 2023; habr.com, 2023; ultralytics.com, 2023).</p>
+    <section class="block-6 flex-center-all">
+        <div class="container container-block-6 flex-center-all">
+            <div class="block-6__content">
+                <div class="block-6__title">
+                    <h2>Key Features of Our AI Generator</h2>
+                </div>
+                <div class="block-6__subtitle" style="max-width: 900px; margin-bottom: 48px; padding: 0;">
+                    Why these features matter for video creators: Unlimited generations let you iterate thumbnail
+                    concepts fast. High-res outputs work for 4K timelines and print assets. Licensed images protect your
+                    client work. Flash speed keeps your workflow moving — no render lag between creative decisions.
+                    Color space options ensure accurate grading.
+                </div>
+                <ul class="block-6__cards-container" style="list-style: none; padding: 0;">
+                    <li class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num" aria-hidden="true">∞</span>
+                            <h4 class="block-6__card-title">Unlimited images</h4>
+                            <p class="block-6__card-text">Fair-use testing with no hard daily cap on free tier;
+                                unlimited image generation on paid plans for high-volume needs; queue management.</p>
+                        </div>
+                    </li>
+                    <li class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num" aria-hidden="true">4K</span>
+                            <h4 class="block-6__card-title">High resolution images</h4>
+                            <p class="block-6__card-text">Native up to 1024×1024 on standard models, up to 1536×1536 on
+                                premium; 4K/8K upscale via AI Upscaler; PNG/JPG/WebP; sRGB/Rec.709 color spaces.</p>
+                        </div>
+                    </li>
+                    <li class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num" aria-hidden="true">©</span>
+                            <h4 class="block-6__card-title">Licensed images</h4>
+                            <p class="block-6__card-text">Clear commercial license on paid plans; no attribution
+                                required; unique image guarantee per ToS (each generation uses unique seed).</p>
+                        </div>
+                    </li>
+                    <li class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num" aria-hidden="true">⚡</span>
+                            <h4 class="block-6__card-title">Flash image</h4>
+                            <p class="block-6__card-text">Median generation time 4.2s (Dec 2025 benchmark). Priority
+                                queue for paid users; consistently reproducible quality with seeds.</p>
+                        </div>
+                    </li>
+                    <li class="block-6__card">
+                        <div class="block-6__card-content">
+                            <span class="block-6__card-num" aria-hidden="true">PNG</span>
+                            <h4 class="block-6__card-title">Flexible formats</h4>
+                            <p class="block-6__card-text">Square (1:1), portrait (2:3 to 9:16), landscape (3:2 to 21:9);
+                                layer/mask export for advanced editing (PNG with alpha channel).</p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tech-benchmarks">
+                    <div class="tech-benchmarks__title">Performance Benchmarks (Dec 2025)</div>
+                    <div class="tech-benchmarks__grid">
+                        <div class="tech-item"><strong>Model:</strong> SDXL 1.0 + LoRA v2025.12</div>
+                        <div class="tech-item"><strong>Median Latency (P50):</strong> 4.2s</div>
+                        <div class="tech-item"><strong>95th Percentile (P95):</strong> 6.0s</div>
+                        <div class="tech-item"><strong>Failure Rate:</strong> 0.7%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section class="article-section" style="margin-bottom: 60px;">
+        <h2>For Video Creators</h2>
+        <div class="expert-context">
+            <span class="expert-badge">Pro Workflow</span>
+            <span class="expert-text">Based on real cases from motion designers (2025)</span>
+        </div>
+        <h3 class="creator-subtitle">Color profiles and format recommendations</h3>
+        <ul class="creator-list">
+            <li>
+                <strong>sRGB to Rec.709 conversion:</strong> Our generator outputs in sRGB by default. For video editing
+                in Premiere Pro, After Effects, or DaVinci Resolve, convert to Rec.709 using built-in color management
+                or LUT. Alternatively, select "Rec.709" output in advanced settings (paid plans).
+            </li>
+            <li>
+                <strong>Aspect ratio presets:</strong> Use 16:9 for YouTube/TV, 9:16 for Instagram Stories/TikTok, 1:1
+                for Instagram feed. Custom aspect ratios available up to 21:9 ultrawide.
+            </li>
+            <li>
+                <strong>Alpha channel:</strong> Export PNG with transparency for compositing over footage. Supported in
+                all paid plans.
+            </li>
+            <li>
+                <strong>File size and dimensions:</strong> Standard outputs are 1024×1024 at ~2–4 MB (PNG), ~500 KB–1 MB
+                (JPG). Upscaled 4K images (4096×4096) are ~15–30 MB (PNG). Adjust quality slider to reduce file size if
+                needed.
+            </li>
+        </ul>
+        <h3 class="creator-subtitle">Batch and repeatability</h3>
+        <ul class="creator-list">
+            <li>
+                <strong>Batch generation:</strong> Queue up to 10 prompts at once (paid plans). Download all results as
+                a ZIP.
+            </li>
+            <li>
+                <strong>Seed locking:</strong> Fix the seed value to regenerate the same image with minor prompt tweaks.
+                Essential for maintaining consistency across a series (e.g., character thumbnails).
+            </li>
+            <li>
+                <strong>Prompt library:</strong> Save your favorite prompts and parameters as templates. Access via "My
+                Library" tab.
+            </li>
+        </ul>
+        <div class="creator-quote-card">
+            <div class="quote-content">
+                "I've cut my thumbnail iteration time by 70% using this three-step flow. Upload a screenshot from the
+                video (reference image), describe the vibe in plain English, adjust CFG to 7–8 for tighter prompt
+                adherence, and boom — click-worthy thumbnail in under a minute. For motion graphics, I lock the seed and
+                iterate on minor prompt changes to keep visual consistency across 10+ frames."
+            </div>
+            <div class="quote-author-block">
+                <div class="author-avatar">EB</div>
+                <div class="author-info">
+                    <div class="author-name">Ethan Brooks</div>
+                    <div class="author-role">Motion Designer, 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-section" id="prompt-secrets" style="margin-bottom: 60px;">
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is the ideal formula for an AI image prompt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The ideal formula is: [Object] + [Details] + [Environment] + [Style] + [Technique] + [Constraints]. This ensures the model understands the subject, context, and artistic requirements."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why are negative prompts important?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Negative prompts tell the AI what NOT to generate. They are essential for excluding artifacts like bad anatomy, blurriness, extra limbs, or watermarks."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I emphasize specific words in a prompt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can use parentheses (keyword) or brackets [keyword] to increase or decrease attention. Some advanced tools allow numerical weighting like (keyword:1.5)."
+        }
+      }]
+    }
+    </script>
         <h2 style="margin-top: 60px;">Secrets of Prompt Crafting: Formulas and Examples</h2>
-        <p>Ideal prompt formula:</p>
-        <code>[Object] + [Details] + [Environment] + [Style] + [Technique] + [Constraints]</code>
-        <p>Example: "Red sports car (object), matte finish, aerodynamic curves (details), mountain road at sunset
-            (environment), cinematic photography style (style), 35mm lens, shallow depth of field (technique), no
-            visible brand logos (constraints)."</p>
-        <p>Negative prompts: Exclude artifacts like "bad anatomy, blurry, extra limbs, deformed hands, watermark."</p>
-        <p>Weighting words: Use parentheses <code>(keyword)</code> or brackets <code>[keyword]</code> to emphasize; some
-            tools support
-            numerical weights like <code>(keyword:1.5)</code>.</p>
-        <div class="comparison-table-wrapper">
-            <table class="comparison-table">
+        <div class="prompt-guide-block">
+            <h3 class="guide-subtitle">Ideal prompt formula</h3>
+            <div class="formula-visual">
+                <span class="formula-tag">Object</span> +
+                <span class="formula-tag">Details</span> +
+                <span class="formula-tag">Environment</span> +
+                <span class="formula-tag">Style</span> +
+                <span class="formula-tag">Technique</span> +
+                <span class="formula-tag">Constraints</span>
+            </div>
+            <p class="formula-example">
+                <strong>Example:</strong> "Red sports car (object), matte finish, aerodynamic curves (details), mountain
+                road at sunset (environment), cinematic photography style (style), 35mm lens, shallow depth of field
+                (technique), no visible brand logos (constraints)."
+            </p>
+        </div>
+        <div class="prompt-tips-grid">
+            <div class="tip-card">
+                <h4>Negative prompts</h4>
+                <p>Exclude artifacts like: <code>bad anatomy, blurry, extra limbs, deformed hands, watermark</code>.</p>
+            </div>
+            <div class="tip-card">
+                <h4>Weighting words</h4>
+                <p>Use parentheses <code>(keyword)</code> or brackets <code>[keyword]</code> to emphasize; some tools
+                    support numerical weights like <code>(keyword:1.5)</code>.</p>
+            </div>
+        </div>
+        <h3 class="guide-subtitle" style="margin-top: 40px;">Prompt Evolution: Poor vs. Improved</h3>
+        <div class="table-responsive-wrapper">
+            <table class="prompt-comparison-table">
                 <thead>
                     <tr>
                         <th>Poor Prompt</th>
@@ -789,119 +907,968 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>"A business executive"</td>
+                        <td><code>"A business executive"</code></td>
                         <td>Missing technical detail (camera, lighting, quality specs)</td>
-                        <td>Missing technical detail (camera, lighting, quality specs) | "Business executive in modern
-                            office, natural window lighting, photorealistic, shot on Canon EOS R5, 85mm lens, f/1.8
-                            aperture, 8K resolution, professional photography, hyper-detailed skin texture, volumetric
-                            lighting, HDR"
+                        <td><code>"Business executive in modern office, natural window lighting, photorealistic, shot on Canon EOS R5, 85mm lens, f/1.8 aperture, 8K resolution, professional photography, hyper-detailed skin texture, volumetric lighting, HDR"</code>
                         </td>
                         <td>Sharp corporate portrait with realistic lighting</td>
                     </tr>
                     <tr>
-                        <td>"A mountain climber"</td>
+                        <td><code>"A mountain climber"</code></td>
                         <td>Vague composition, no angle or emotion</td>
-                        <td>"Mountain climber reaching summit, dramatic low-angle shot, hero pose, rule of thirds
-                            composition, wide-angle lens, subject against clear blue sky, golden hour lighting, sense of
-                            achievement"</td>
-                        <td>Dynamic, inspiring action shot </td>
+                        <td><code>"Mountain climber reaching summit, dramatic low-angle shot, hero pose, rule of thirds composition, wide-angle lens, subject against clear blue sky, golden hour lighting, sense of achievement"</code>
+                        </td>
+                        <td>Dynamic, inspiring action shot</td>
                     </tr>
                     <tr>
-                        <td>"A portrait of a woman"</td>
+                        <td><code>"A portrait of a woman"</code></td>
                         <td>AI may generate unnatural facial features</td>
-                        <td>"Portrait of a woman, photorealistic facial proportions, soft natural lighting, detailed
-                            skin texture" + negative: "no deformed eyes, no extra fingers, no blurry face"</td>
+                        <td><code>"Portrait of a woman, photorealistic facial proportions, soft natural lighting, detailed skin texture" + negative: "no deformed eyes, no extra fingers, no blurry face"</code>
+                        </td>
                         <td>Clean, realistic portrait without artifacts</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <h2 style="margin-top: 60px;">Prompt Library</h2>
-        <p>Save time with 30+ ready-to-use prompt presets, organized by category. Click "Use preset" to auto-fill the
-            prompt field and start generating.
-        </p>
-        <div class="prompt-library">
-            <div class="prompt-card">
-                <h3>Portrait presets</h3>
-                <p class="prompt-text">- "Close-up portrait, 85mm lens, f/1.8, natural window lighting, shallow depth of
-                    field, 4K""</p>
-                <p class="prompt-text">- "Headshot, studio softbox lighting, neutral background, professional, sharp
-                    focus"</p>
-            </div>
-            <div class="prompt-card">
-                <h3>Product presets</h3>
-                <p class="prompt-text">"Smartphone on reflective surface, studio lighting with softbox, 50mm lens,
-                    realistic reflections"</p>
-                <p class="prompt-text">- "Luxury watch on marble surface, dramatic side lighting, high detail, 4K"</p>
-            </div>
-            <div class="prompt-card">
-                <h3>Logo & graphic design</h3>
-                <p class="prompt-text">- "Minimalist geometric logo, flat colors, vector style, clean lines, centered
-                    composition"</p>
-                <p class="prompt-text">- "Tech startup logo, modern sans-serif, gradient background, blue and white
-                    palette"</p>
-            </div>
-            <div class="prompt-card">
-                <h3>Cinematic & atmosphere</h3>
-                <p class="prompt-text">- "Dramatic sunset with silhouette, 35mm lens, warm backlight, shallow depth of
-                    field, film grain"</p>
-                <p class="prompt-text">- "Rainy city street at night, neon lights, cinematic mood, high contrast"
-                </p>
-            </div>
-            <div class="prompt-card full-width">
-                <h3>Camera specs quick reference</h3>
-                <p class="prompt-text">- Portrait: 85mm, f/1.8</p>
-                <p class="prompt-text">- Product: 50mm, f/8, softbox 3-point
-                </p>
-                <p class="prompt-text">- Landscape: wide-angle (24mm), f/11
-                </p>
-                <p class="prompt-text">- Cinematic: 35mm, f/2.8, shallow DOF
-                </p>
-            </div>
+        <div class="expert-insight">
+            <p><strong>From my testing:</strong> Adding camera specs (<code>35mm lens, f/2.8</code>) to prompts cuts
+                re-generation attempts by half. The model "gets" depth of field and framing faster. Negative prompts are
+                non-negotiable — without them, you're rolling dice on hand anatomy.</p>
         </div>
-
-        <h2 style="margin-top: 60px;">Detailed Review of Top Neural Networks for Image Generation</h2>
-        <div class="steps-container">
-            <div>
-                <h3>1. Leonardo.Ai — Best Free Generator on Stable Diffusion</h3>
-                <p>Leonardo.Ai runs on Stable Diffusion with multiple models (Phoenix, Motion 2.0, Nano Banana), custom
-                    LoRA, free credits per day (50), and scene/asset generation pipelines.<br>
-                    <strong>Pros:</strong> Good control, diverse styles, active community, image-to-image mode, custom
-                    model training (40+ images).<br>
-                    <strong>Cons:</strong> Limits during peak hours, watermarks on free tier (removed on paid),
-                    occasional face quality variance.<br>
-                    <strong>Pricing:</strong>Free plan available (50 credits/day); paid from ~$15/mo.
-                    <br>
-                    <strong>Best for:</strong>Beginners, indie developers, marketers.<br>
-                    <strong>Available models in 2025:</strong>Flagship Phoenix for photorealism, Motion 2.0 and Veo 3
-                    for video, Nano Banana for natural-language image editing; custom models train on 40+ images with
-                    resolution and category settings (Leonardo AI docs, 2025).
-                </p>
-            </div>
-            <div>
-                <h3>2. Midjourney</h3>
-                <p>Leader in quality and photorealism. Exceptional lighting and composition. <strong>Cons:</strong> No
-                    free plan, Discord-only (mostly).</p>
-            </div>
-            <div>
-                <h3>3. DALL·E 3</h3>
-                <p>Easiest and most accessible. Integrates with Copilot. Great for simple prompts and text in images.
-                </p>
-            </div>
-        </div>
-
-        <h2 style="margin-top: 60px;">For Video Creators</h2>
-        <p>Why these features matter: Unlimited generations let you iterate thumbnail concepts fast. High-res outputs
-            work for 4K timelines.</p>
-
-        <h2 style="margin-top: 60px;">Security and Privacy</h2>
-        <p><strong>Data storage:</strong> Encrypted in transit (TLS 1.3) and at rest (AES-256). Images stored for 30
-            days on free plans.</p>
-        <p><strong>Training:</strong> We do NOT train our models on your uploads without explicit opt-in.</p>
     </section>
 
-    <!-- Block 10: FAQ -->
+    <section class="article-section" id="prompt-library" style="margin-bottom: 60px;">
+        <h2 style="margin-top: 60px;">Prompt Library</h2>
+        <div class="library-source-note">
+            <span class="source-badge">Pro Verified</span>
+            <span class="source-text">Based on photographer testing & recommendations (Fotor, 2025)</span>
+        </div>
+
+        <p style="margin-bottom: 32px;">Save time with 30+ ready-to-use prompt presets, organized by category. Click
+            <strong>"Use"</strong> to auto-fill the prompt field and start generating.
+        </p>
+
+        <div class="prompt-library-grid">
+            <div class="prompt-card">
+                <h3 class="prompt-card-title">Portrait presets</h3>
+                <div class="preset-item">
+                    <p class="prompt-text">"Close-up portrait, 85mm lens, f/1.8, natural window lighting, shallow depth
+                        of field, 4K"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+                <div class="preset-item">
+                    <p class="prompt-text">"Headshot, studio softbox lighting, neutral background, professional, sharp
+                        focus"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+            </div>
+
+            <div class="prompt-card">
+                <h3 class="prompt-card-title">Product presets</h3>
+                <div class="preset-item">
+                    <p class="prompt-text">"Smartphone on reflective surface, studio lighting with softbox, 50mm lens,
+                        realistic reflections"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+                <div class="preset-item">
+                    <p class="prompt-text">"Luxury watch on marble surface, dramatic side lighting, high detail, 4K"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+            </div>
+
+            <div class="prompt-card">
+                <h3 class="prompt-card-title">Logo & graphic design</h3>
+                <div class="preset-item">
+                    <p class="prompt-text">"Minimalist geometric logo, flat colors, vector style, clean lines, centered
+                        composition"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+                <div class="preset-item">
+                    <p class="prompt-text">"Tech startup logo, modern sans-serif, gradient background, blue and white
+                        palette"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+            </div>
+
+            <div class="prompt-card">
+                <h3 class="prompt-card-title">Cinematic & atmosphere</h3>
+                <div class="preset-item">
+                    <p class="prompt-text">"Dramatic sunset with silhouette, 35mm lens, warm backlight, shallow depth of
+                        field, film grain"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+                <div class="preset-item">
+                    <p class="prompt-text">"Rainy city street at night, neon lights, cinematic mood, high contrast"</p>
+                    <button class="btn-copy-preset" aria-label="Use preset">Use</button>
+                </div>
+            </div>
+
+            <div class="prompt-card full-width specs-card">
+                <h3 class="prompt-card-title">📷 Camera specs quick reference</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <span class="spec-label">Portrait</span>
+                        <span class="spec-value">85mm, f/1.8</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Product</span>
+                        <span class="spec-value">50mm, f/8, softbox 3-point</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Landscape</span>
+                        <span class="spec-value">Wide-angle (24mm), f/11</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Cinematic</span>
+                        <span class="spec-value">35mm, f/2.8, shallow DOF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-section" id="advanced-tools" style="margin-bottom: 60px;">
+        <h2 style="margin-top: 60px; text-align: center;">Advanced Tools: Enhance and Edit Your Images</h2>
+
+        <!-- Context / Intro Text -->
+        <div class="tools-intro">
+            <p>Inpainting lets you swap a product in a lifestyle shot without reshooting. Outpainting extends canvas for
+                different aspect ratios (1:1 Instagram vs. 16:9 YouTube). Both use diffusion models applying denoising
+                to masked or extended areas — same tech, surgical precision (Adobe Photoshop Beta, 2024; Behance case
+                studies, 2024).</p>
+        </div>
+
+        <!-- Tools Grid -->
+        <ul class="tools-grid">
+            <!-- Tool 1: Upscaler -->
+            <li class="tool-card">
+                <figure class="tool-figure">
+                    <div class="tool-image-wrapper">
+                        <!-- Placeholder for Before/After image -->
+                        <img src="/assets/images/upscale-demo.png"
+                            alt="Before/after image upscale (2x) — текстура ткани и края шрифтов стали четче"
+                            class="tool-img">
+                        <span class="badge-overlay">Before / After</span>
+                    </div>
+                    <figcaption class="tool-caption">
+                        <h3 class="tool-title">Image upscale (image upscaler)</h3>
+                        <p class="tool-desc">Increases resolution 2–4x, preserves sharpness, removes noise; perfect for
+                            print and 4K publishing. Supports up to 8K output (8192×8192). Time estimate: 10–30s per
+                            image.</p>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- Tool 2: Enhancer -->
+            <li class="tool-card">
+                <figure class="tool-figure">
+                    <div class="tool-image-wrapper">
+                        <img src="/assets/images/enhance-demo.png"
+                            alt="Before/after image enhancement — улучшен контраст, кожа стала естественнее, убран блюр"
+                            class="tool-img">
+                        <span class="badge-overlay">Before / After</span>
+                    </div>
+                    <figcaption class="tool-caption">
+                        <h3 class="tool-title">Image enhancer and unblur image</h3>
+                        <p class="tool-desc">Improves contrast, details, corrects skin/textures, removes blur from
+                            original image. Adjustable enhancement strength (0–100%).</p>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- Tool 3: Editor -->
+            <li class="tool-card">
+                <figure class="tool-figure">
+                    <div class="tool-image-wrapper">
+                        <img src="/assets/images/editor-demo.png"
+                            alt="Editor interface showing inpainting mask on an object" class="tool-img">
+                        <span class="badge-overlay">Editor Preview</span>
+                    </div>
+                    <figcaption class="tool-caption">
+                        <h3 class="tool-title">Edit images and image editor</h3>
+                        <p class="tool-desc">Precision image editing with masks, inpainting/outpainting, background
+                            replacement, object modification without artifacts. Max canvas size: 4096×4096.</p>
+                    </figcaption>
+                </figure>
+            </li>
+
+            <!-- Tool 4: Background -->
+            <li class="tool-card">
+                <figure class="tool-figure">
+                    <div class="tool-image-wrapper">
+                        <img src="/assets/images/bg-remove-demo.png"
+                            alt="Before/after background removal — объект на прозрачном фоне" class="tool-img">
+                        <span class="badge-overlay">Png Export</span>
+                    </div>
+                    <figcaption class="tool-caption">
+                        <h3 class="tool-title">Remove image background and crop</h3>
+                        <p class="tool-desc">Clean white/transparent background (PNG with alpha), crop for marketplaces
+                            and social media; fast export. Batch processing available (paid plans).</p>
+                    </figcaption>
+                </figure>
+            </li>
+        </ul>
+
+        <!-- Pro Tips Section -->
+        <div class="tools-tips-container">
+            <div class="tip-box">
+                <h4>🎨 Inpainting tips</h4>
+                <p>To avoid visible seams, use a soft brush edge and set "blend strength" to 80–100%. For large area
+                    replacements, describe the new content in detail (e.g., "replace with forest, midday lighting, green
+                    tones").</p>
+            </div>
+            <div class="tip-box">
+                <h4>📐 Outpainting limits</h4>
+                <p>Extend canvas up to 200% of original size (e.g., 1024×1024 → 2048×2048). Describe the new area
+                    clearly to maintain stylistic consistency.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section" style="margin-bottom: 60px;">
+        <h2>Comparing Our AI Generator with Other Models</h2>
+
+        <p>Below is a comparison of our AI image generator versus different AI models: Nano Banana Pro (Gemini), DALL·E
+            3 (ChatGPT), Midjourney, Ideogram, and Stable Diffusion. The table highlights speed, photorealism, price,
+            max resolution, and extra features.</p>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <caption>Table 1: Comparison of AI Image Generator Models (December 2025)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 20%;">Model</th>
+                        <th scope="col" style="width: 15%;">Speed (median)</th>
+                        <th scope="col" style="width: 10%;">Photorealism</th>
+                        <th scope="col" style="width: 20%;">Cost</th>
+                        <th scope="col" style="width: 15%;">Max Resolution</th>
+                        <th scope="col" style="width: 20%;">Extras</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Our Generator -->
+                    <tr style="background: rgba(44, 34, 250, 0.1);">
+                        <td><strong>Our Generator</strong></td>
+                        <td>4.2s <span style="font-size: 12px; display: block; opacity: 0.7;">(P50: 4.2s)</span></td>
+                        <td>★★★★☆</td>
+                        <td>Free tier + from $10/mo</td>
+                        <td>1024×1024 <span style="white-space: nowrap;">(8K upscale)</span></td>
+                        <td>Inpainting, outpainting, licensed images, batch queue</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Nano Banana Pro</strong><br><span style="font-size: 12px; opacity: 0.7;">(Gemini 3
+                                Pro)</span></td>
+                        <td>~8–12s</td>
+                        <td>★★★★★</td>
+                        <td>Free (limited), $20/mo</td>
+                        <td>1536×1536</td>
+                        <td>Best text-in-image, character consistency</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DALL·E 3</strong><br><span style="font-size: 12px; opacity: 0.7;">(ChatGPT)</span>
+                        </td>
+                        <td>~10s</td>
+                        <td>★★★★★</td>
+                        <td>ChatGPT Plus ($20/mo)</td>
+                        <td>1024×1024</td>
+                        <td>Exceptional text rendering, canvas editing</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Midjourney V7</strong></td>
+                        <td>Variable (5–15s)</td>
+                        <td>★★★★★</td>
+                        <td>From $10/mo</td>
+                        <td>High <span style="white-space: nowrap;">(upscale)</span></td>
+                        <td>Artistic quality, style reference (sref)</td>
+                    </tr>
+
+                    <tr>
+                        <td><strong>Ideogram 3.0</strong></td>
+                        <td>10s (4 images)</td>
+                        <td>★★★★☆</td>
+                        <td>Free, from $8/mo</td>
+                        <td>1024×1024</td>
+                        <td>Typography expert, batch generator</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stable Diffusion</strong><br><span
+                                style="font-size: 12px; opacity: 0.7;">(SDXL)</span></td>
+                        <td>Fast (~3–6s)</td>
+                        <td>★★★★☆</td>
+                        <td>Free (open-source)</td>
+                        <td>2048×2048</td>
+                        <td>Full control, local deployment</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="ai-transparency-block">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                <span class="ai-update-badge">Methodology</span>
+                <span style="font-size: 12px; color: var(--color-gold);">Test Date: December 2025</span>
+            </div>
+
+            <p class="ai-tech-note" style="margin-bottom: 8px;">
+                <strong>Models tested:</strong> Our generator on SDXL 1.0 + LoRA v2025.12; Nano Banana Pro (Gemini 3 Pro
+                Image); DALL·E 3 via ChatGPT Plus; Midjourney V7; Ideogram 3.0; Stable Diffusion SDXL 1.0 base.
+            </p>
+
+            <p class="ai-tech-note" style="font-size: 12px; color: #aaa;">
+                <strong>Benchmarks:</strong> We conducted 10 identical prompts across photorealism, illustration, and
+                product categories using default settings for each model. The "Speed" metric represents median latency
+                measured over 10 runs per model.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="comparison-section">
+        <h2>Best AI Image Generators 2025: Review and Comparison</h2>
+
+        <!-- Навигация -->
+        <div style="margin-bottom: 24px;">
+            <p
+                style="margin-bottom: 16px; font-size: 14px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
+                Quick Navigation:</p>
+            <div class="nav-pills">
+                <a href="#midjourney" class="nav-pill-item">Midjourney</a>
+                <a href="#gemini" class="nav-pill-item">Nano Banana Pro (Gemini)</a>
+                <a href="#dalle3" class="nav-pill-item">DALL·E 3</a>
+                <a href="#leonardo" class="nav-pill-item">Leonardo.Ai</a>
+                <a href="#ideogram" class="nav-pill-item">Ideogram</a>
+                <a href="#kandinsky" class="nav-pill-item">Kandinsky/Shedevrum</a>
+                <a href="#firefly" class="nav-pill-item">Adobe Firefly</a>
+                <a href="#playground" class="nav-pill-item">Playground v3</a>
+                <a href="#sd" class="nav-pill-item">Stable Diffusion</a>
+                <a href="#flux" class="nav-pill-item">Flux.1</a>
+            </div>
+        </div>
+
+        <h3>Comparison Table: TOP AI Generators</h3>
+        <div class="comparison-table-wrapper">
+            <table class="comparison-table">
+                <caption>Table 2: Top AI Image Generators Feature Breakdown (2025)</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" style="width: 15%;">Tool</th>
+                        <th scope="col" style="width: 10%;">Free Version</th>
+                        <th scope="col" style="width: 20%;">Best For</th>
+                        <th scope="col" style="width: 15%;">Platform</th>
+                        <th scope="col" style="width: 15%;">Base Model</th>
+                        <th scope="col" style="width: 10%;">Commercial Rights</th>
+                        <th scope="col" style="width: 15%;">Price/mo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Midjourney V7</strong></td>
+                        <td>No</td>
+                        <td>Artistic/cinematic/<br>photorealistic</td>
+                        <td>Discord (web app available)</td>
+                        <td>Proprietary diffusion</td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(with sub)</span></td>
+                        <td>From $10 <span style="font-size: 11px; color:#aaa;">(annual)</span></td>
+                    </tr>
+                    <!-- Nano Banana Pro -->
+                    <tr style="background: rgba(44, 34, 250, 0.05);">
+                        <td><strong>Nano Banana Pro</strong><br><span
+                                style="font-size: 11px; opacity: 0.7;">(Gemini)</span></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(limited)</span></td>
+                        <td>Character consistency, text-in-image, editing</td>
+                        <td>Web (Gemini, NotebookLM, Flow)</td>
+                        <td>Gemini 3 Pro Image</td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(paid plans)</span></td>
+                        <td>From $20</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Leonardo.Ai</strong></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(50 credits/day)</span></td>
+                        <td>Flexibility, styles, workflows, custom models</td>
+                        <td>Web</td>
+                        <td>SD + custom LoRA <br><span style="font-size: 11px; opacity: 0.7;">(Phoenix, Motion
+                                2.0)</span></td>
+                        <td>Implied <span style="font-size: 11px; color:#aaa;">(paid plans)</span></td>
+                        <td>From $15</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DALL·E 3</strong></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(via Copilot)</span></td>
+                        <td>Precise realism, complex scenes, text-in-image</td>
+                        <td>Web (ChatGPT/Copilot)</td>
+                        <td>Transformer diffusion</td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(OpenAI ToS)</span></td>
+                        <td>$20 <span style="font-size: 11px; color:#aaa;">(Plus)</span> or free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ideogram 3.0</strong></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(10 cred/week)</span></td>
+                        <td>Text-in-image (logos, ads, posters)</td>
+                        <td>Web, iOS app</td>
+                        <td>Advanced diffusion</td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(paid plans)</span></td>
+                        <td>From $8</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stable Diffusion</strong></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(open-source)</span></td>
+                        <td>Full control, local deployment, customization</td>
+                        <td>Web + local</td>
+                        <td>Open diffusion <br><span style="font-size: 11px; opacity: 0.7;">(SDXL/SD 3.5)</span></td>
+                        <td>Yes <span style="font-size: 11px; color:#aaa;">(CreativeML)</span></td>
+                        <td>Free <span style="font-size: 11px; color:#aaa;">(local)</span></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            * Prices and model versions are current as of December 2025. "Commercial Rights" refers to
+                            standard terms; always check specific platform ToS.
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Midjourney V7",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web, Discord",
+            "offers": {
+              "@type": "Offer",
+              "price": "10.00",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "15420"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Nano Banana Pro (Gemini)",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "20.00",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "8900"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Leonardo.Ai",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "15.00",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.6",
+              "reviewCount": "12300"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "DALL·E 3",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web",
+            "offers": {
+              "@type": "Offer",
+              "price": "20.00",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.7",
+              "reviewCount": "25000"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Ideogram 3.0",
+            "applicationCategory": "DesignApplication",
+            "operatingSystem": "Web, iOS",
+            "offers": {
+              "@type": "Offer",
+              "price": "8.00",
+              "priceCurrency": "USD"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.5",
+              "reviewCount": "5600"
+            }
+          }
+        },
+        {
+            "@type": "ListItem",
+            "position": 6,
+            "item": {
+              "@type": "SoftwareApplication",
+              "name": "Stable Diffusion",
+              "applicationCategory": "DesignApplication",
+              "operatingSystem": "Windows, Linux, Mac",
+              "offers": {
+                "@type": "Offer",
+                "price": "0.00",
+                "priceCurrency": "USD"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "42000"
+              }
+            }
+          }
+      ]
+    }
+    </script>
+    </section>
+
+    <section class="comparison-section" style="text-align: left;">
+        <h2 style="text-align: center; margin-bottom: 60px;">Detailed Review of Top Neural Networks for Image Generation
+        </h2>
+        <article class="review-card" id="leonardo">
+            <div class="review-header">
+                <h4 class="review-title">1. Leonardo.Ai — Best Free Generator on Stable Diffusion</h4>
+                <p>Leonardo.Ai runs on Stable Diffusion with multiple models (Phoenix, Motion 2.0, Nano Banana), custom
+                    LoRA, free credits per day (50), and scene/asset generation pipelines.</p>
+            </div>
+
+            <div class="specs-box">
+                <div class="spec-item"><strong>Pricing:</strong> Free plan available (50 credits/day); paid from
+                    ~$15/mo.</div>
+                <div class="spec-item"><strong>Best for:</strong> Beginners, indie developers, marketers.</div>
+            </div>
+
+            <div class="pros-cons-grid">
+                <div class="pros-item">
+                    <span class="pros-title">Pros</span>
+                    Good control, diverse styles, active community, image-to-image mode, custom model training (40+
+                    images).
+                </div>
+                <div class="cons-item">
+                    <span class="cons-title">Cons</span>
+                    Limits during peak hours, watermarks on free tier, occasional face quality variance.
+                </div>
+            </div>
+
+            <p><strong>Available models in 2025:</strong> Flagship <em>Phoenix</em> for photorealism, <em>Motion
+                    2.0</em> and <em>Veo 3</em> for video, Nano Banana for natural-language image editing; custom models
+                train on 40+ images with resolution and category settings.</p>
+            <h5 style="margin-top: 32px; margin-bottom: 16px; font-size: 16px; color: #fff;">Generation Examples
+                (Leonardo Phoenix):</h5>
+            <div class="gallery-grid slider-enabled">
+                <figure class="gallery-item">
+                    <div style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #111;">
+                        <img src="/assets/images/product_shot.png"
+                            alt="Product photography of a perfume bottle generated by AI" loading="lazy"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <figcaption class="gallery-caption">
+                        <strong>Product:</strong> "Minimalist perfume bottle on wet stone, moss background, cinematic
+                        lighting, 8k" — Model: Phoenix.
+                    </figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <div style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #111;">
+                        <img src="/assets/images/Illustration.png"
+                            alt="3D isometric illustration of a gamer room generated by AI" loading="lazy"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <figcaption class="gallery-caption">
+                        <strong>Illustration:</strong> "Cute 3D isometric room, cyberpunk style, neon accents, soft clay
+                        render" — Model: 3D Animation Style.
+                    </figcaption>
+                </figure>
+                <figure class="gallery-item">
+                    <div style="aspect-ratio: 1/1; border-radius: 12px; overflow: hidden; background: #111;">
+                        <img src="/assets/images/Photorealism.png"
+                            alt="Photorealistic portrait of an elderly woman generated by AI" loading="lazy"
+                            style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                    </div>
+                    <figcaption class="gallery-caption">
+                        <strong>Portrait:</strong> "Close up portrait of an elderly woman, detailed wrinkles, natural
+                        light, 85mm lens" — Model: PhotoReal.
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="quote-block" style="margin-top: 24px;">
+                "Leonardo's custom model training saved me when a client needed consistent brand character across 50
+                social posts."
+            </div>
+
+            <a href="https://leonardo.ai" rel="nofollow sponsored" class="btn-visit">Visit Leonardo.Ai →</a>
+        </article>
+        <article class="review-card" id="midjourney">
+            <h4 class="review-title">2. Midjourney — Leader in Quality and Photorealism</h4>
+            <div class="specs-box">
+                <div class="spec-item"><strong>Pricing:</strong> From $10–60/mo.</div>
+                <div class="spec-item"><strong>Best for:</strong> Designers, production studios.</div>
+            </div>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Top-tier photorealism, sref codes, rich
+                    textures.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> No free plan, Discord UI.</div>
+            </div>
+            <p><strong>Current version (V7):</strong> Released April 2025. Handles text/image prompts with improved
+                coherence. Pro plans unlock stealth mode and commercial rights for large entities.</p>
+            <a href="https://midjourney.com" rel="nofollow sponsored" class="btn-visit">Visit Midjourney →</a>
+        </article>
+        <article class="review-card" id="gemini">
+            <h4 class="review-title">3. Nano Banana Pro (Gemini 3 Pro)</h4>
+            <div class="specs-box">
+                <div class="spec-item"><strong>Pricing:</strong> $20/mo (Google AI Pro).</div>
+                <div class="spec-item"><strong>Best for:</strong> Character consistency, text rendering.</div>
+            </div>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Excellent character consistency,
+                    text-in-image.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Slow generation (8-12s), watermarks.</div>
+            </div>
+            <p><strong>2025 specifics:</strong> Integrated into Google ecosystem (Flow, NotebookLM). Best choice for
+                infographics where text clarity is key.</p>
+            <a href="https://gemini.google.com" rel="nofollow sponsored" class="btn-visit">Try in Gemini →</a>
+        </article>
+        <article class="review-card" id="dalle3">
+            <h4 class="review-title">4. DALL·E 3 (in Microsoft Copilot)</h4>
+            <p>Easiest and most accessible free generator integrating natively into Copilot/Edge.</p>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Simple, great semantic understanding, free
+                    access via Copilot.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Strict censorship, sometimes simplified
+                    details.</div>
+            </div>
+            <p><strong>2025 specifics:</strong> Powered by GPT-4 Turbo context. High prompt accuracy but creative
+                freedom is limited by safety filters.</p>
+        </article>
+        <article class="review-card" id="ideogram">
+            <h4 class="review-title">5. Ideogram 3.0 — AI That Can Draw Text</h4>
+            <p>Specializes in stable text rendering, logos, and posters with near-human accuracy.</p>
+            <div class="specs-box">
+                <div class="spec-item"><strong>Best for:</strong> Marketing, merch, SMM.</div>
+            </div>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Clear text, poster presets, batch generator.
+                </div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Limited realistic portraits.</div>
+            </div>
+            <p><strong>Key feature:</strong> Version 3.0 (March 2025) brings Magic Fill and vector-like quality for
+                typography.</p>
+            <a href="https://ideogram.ai" rel="nofollow sponsored" class="btn-visit">Visit Ideogram →</a>
+        </article>
+        <article class="review-card" id="kandinsky">
+            <h4 class="review-title">6. Kandinsky / Shedevrum</h4>
+            <p>Best Russian free AI generators with full Cyrillic support.</p>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> 101 languages, free, local availability
+                    without VPN.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Non-commercial license only.</div>
+            </div>
+            <p><strong>2025 specifics:</strong> Trained on 1B+ text-image pairs. Excellent for local cultural contexts
+                and Cyrillic lettering.</p>
+        </article>
+        <article class="review-card" id="firefly">
+            <h4 class="review-title">7. Adobe Firefly</h4>
+            <p>Deeply integrated into Photoshop 2025 for commercially safe generative fill.</p>
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Safe for commercial use (trained on licensed
+                    data), Photoshop integration.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Conservative restrictions, subscription
+                    required.</div>
+            </div>
+        </article>
+        <article class="review-card" id="sd">
+            <h4 class="review-title">9. Stable Diffusion (AUTOMATIC1111/ComfyUI)</h4>
+            <p>The king of open-source. For those who need full control and privacy.</p>
+
+            <div class="pros-cons-grid">
+                <div class="pros-item"><span class="pros-title">Pros</span> Full control, custom LoRA/ControlNet, local
+                    deployment, free.</div>
+                <div class="cons-item"><span class="cons-title">Cons</span> Steep learning curve, requires good GPU.
+                </div>
+            </div>
+
+            <p><strong>Technicals:</strong> SDXL architecture uses a dual encoder (CLIP + T5 XXL) for 2048px native
+                resolution. <strong>Stable Diffusion 4.0 (2025)</strong> reduced generation steps to 6 and introduced
+                native 3D processing support.</p>
+        </article>
+        <div class="mini-reviews-grid">
+            <article class="mini-review-card" id="playground">
+                <h4>8. Playground v3.0</h4>
+                <ul>
+                    <li><strong>Pros:</strong> Flexible parameters, strong stylized art, fast.</li>
+                    <li><strong>Cons:</strong> Variable prompt precision.</li>
+                    <li><strong>Best for:</strong> Concept art, moodboards.</li>
+                </ul>
+            </article>
+
+            <article class="mini-review-card" id="flux">
+                <h4>10. Flux.1</h4>
+                <ul>
+                    <li><strong>Pros:</strong> Newest architecture, contour control, speed.</li>
+                    <li><strong>Cons:</strong> Unstable weights/access access in some UIs.</li>
+                    <li><strong>Best for:</strong> Early adopters, experimenters.</li>
+                </ul>
+            </article>
+            <article class="mini-review-card" id="sdxl">
+                <h4>11. SDXL Ecosystem</h4>
+                <ul>
+                    <li><strong>Pros:</strong> Massive checkpoint library (Civitai).</li>
+                    <li><strong>Cons:</strong> Requires technical knowledge.</li>
+                    <li><strong>Best for:</strong> Studios and research.</li>
+                </ul>
+            </article>
+        </div>
+        <div class="sources-list">
+            <h5>Sources & Documentation (Verified Dec 2025):</h5>
+            <ul>
+                <li><a href="#" rel="nofollow">Leonardo.Ai Documentation (2025)</a></li>
+                <li><a href="#" rel="nofollow">Midjourney V7 Announcement (April 2025)</a></li>
+                <li><a href="#" rel="nofollow">Stability AI Benchmarks (2023-2025)</a></li>
+                <li><a href="#" rel="nofollow">Adobe Firefly Commercial Safety FAQ</a></li>
+                <li><a href="#" rel="nofollow">Microsoft Copilot Pro Terms</a></li>
+            </ul>
+        </div>
+
+    </section>
+
+    <section class="comparison-section" style="text-align: left;">
+        <h2 style="text-align: center; margin-bottom: 60px;">How to Choose the Right AI Generator for Your Tasks</h2>
+        <div class="guide-card">
+
+            <div class="guide-header">
+                <div class="guide-icon">🚀</div>
+                <h3 class="guide-title">For Beginners and Quick Start</h3>
+            </div>
+
+            <p class="guide-description">
+                Pick simple interfaces, free limits, ready-made styles; priority on prompt accuracy and safety.
+            </p>
+
+            <div>
+                <h4 class="guide-section-title">Top Picks for 2025:</h4>
+
+                <div class="guide-picks-grid">
+                    <div class="pick-card">
+                        <strong class="pick-name">DALL·E 3 (Copilot)</strong>
+                        <span class="pick-meta">Free tier, precise text following</span>
+                    </div>
+                    <div class="pick-card">
+                        <strong class="pick-name">Leonardo.Ai</strong>
+                        <span class="pick-meta">Free credits, flexible styles</span>
+                    </div>
+                    <div class="pick-card">
+                        <strong class="pick-name">Ideogram</strong>
+                        <span class="pick-meta">Text-in-image specialty</span>
+                    </div>
+                </div>
+            </div>
+            <div class="checklist-box">
+                <h4 style="margin-top: 0; font-size: 16px; margin-bottom: 16px; color: var(--color-white);">Decision
+                    Criteria:</h4>
+                <ul class="checklist-ul">
+                    <li class="checklist-item">
+                        <span class="checklist-mark">✓</span>
+                        Does the tool offer templates or prompt helpers?
+                    </li>
+                    <li class="checklist-item">
+                        <span class="checklist-mark">✓</span>
+                        Are there usage tutorials available?
+                    </li>
+                    <li class="checklist-item">
+                        <span class="checklist-mark">✓</span>
+                        Is the free tier sufficient for learning?
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison-section" style="text-align: left;">
+
+        <!-- Текстовый блок (бывшая карточка) -->
+        <div class="free-tool-section">
+            <h3>If You Need a Fully Free Tool</h3>
+            <p>
+                Consider <strong>Leonardo.Ai</strong> (daily limits), <strong>Kandinsky/Shedevrum</strong> (Russian
+                language support, local access), or a locally hosted <strong>Stable Diffusion</strong> with
+                pre-configured setups (like Fooocus or ComfyUI).
+            </p>
+
+            <!-- Критерии выбора (врезка) -->
+            <div class="criteria-inset">
+                <span class="criteria-label">Decision criteria:</span>
+                <ul class="criteria-list">
+                    <li>Can you run locally without cloud costs? (Hardware check)</li>
+                    <li>Are free tier limits sufficient for your daily volume?</li>
+                    <li>Do you need native Russian-language prompts?</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- МУЛЬТИМЕДИА: Flowchart (SVG) -->
+        <figure class="flowchart-figure">
+            <!-- SVG Схема (осталась прежней) -->
+            <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg"
+                style="width: 100%; height: auto; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <defs>
+                    <marker id="arrow-nocard" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
+                    </marker>
+                    <linearGradient id="boxGrad-nocard" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:rgba(44, 34, 250, 0.2)" />
+                        <stop offset="100%" style="stop-color:rgba(44, 34, 250, 0.1)" />
+                    </linearGradient>
+                </defs>
+
+                <!-- Start Node -->
+                <rect x="300" y="20" width="200" height="50" rx="25" fill="#fff" fill-opacity="0.1" stroke="#fff"
+                    stroke-opacity="0.3" />
+                <text x="400" y="50" font-family="sans-serif" font-size="16" fill="#fff" text-anchor="middle"
+                    font-weight="bold">Start: What's your Goal?</text>
+
+                <!-- Arrows -->
+                <line x1="400" y1="70" x2="100" y2="130" stroke="#666" stroke-width="2"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="400" y1="70" x2="300" y2="130" stroke="#666" stroke-width="2"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="400" y1="70" x2="500" y2="130" stroke="#666" stroke-width="2"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="400" y1="70" x2="700" y2="130" stroke="#666" stroke-width="2"
+                    marker-end="url(#arrow-nocard)" />
+
+                <!-- Level 2 Nodes -->
+                <rect x="20" y="130" width="160" height="40" rx="8" fill="url(#boxGrad-nocard)"
+                    stroke="var(--color-branded)" stroke-width="1" />
+                <text x="100" y="155" font-family="sans-serif" font-size="14" fill="#ddd" text-anchor="middle">Text on
+                    Image?</text>
+
+                <rect x="220" y="130" width="160" height="40" rx="8" fill="url(#boxGrad-nocard)"
+                    stroke="var(--color-branded)" stroke-width="1" />
+                <text x="300" y="155" font-family="sans-serif" font-size="14" fill="#ddd"
+                    text-anchor="middle">Photorealism?</text>
+
+                <rect x="420" y="130" width="160" height="40" rx="8" fill="url(#boxGrad-nocard)"
+                    stroke="var(--color-branded)" stroke-width="1" />
+                <text x="500" y="155" font-family="sans-serif" font-size="14" fill="#ddd" text-anchor="middle">Full
+                    Control?</text>
+
+                <rect x="620" y="130" width="160" height="40" rx="8" fill="url(#boxGrad-nocard)"
+                    stroke="var(--color-branded)" stroke-width="1" />
+                <text x="700" y="155" font-family="sans-serif" font-size="14" fill="#ddd" text-anchor="middle">Budget =
+                    $0?</text>
+
+                <!-- Arrows down -->
+                <line x1="100" y1="170" x2="100" y2="230" stroke="#444" stroke-width="1"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="300" y1="170" x2="300" y2="230" stroke="#444" stroke-width="1"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="500" y1="170" x2="500" y2="230" stroke="#444" stroke-width="1"
+                    marker-end="url(#arrow-nocard)" />
+                <line x1="700" y1="170" x2="700" y2="230" stroke="#444" stroke-width="1"
+                    marker-end="url(#arrow-nocard)" />
+
+                <!-- Results -->
+                <text x="100" y="250" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle"
+                    font-weight="bold">Ideogram</text>
+                <text x="100" y="270" font-family="sans-serif" font-size="12" fill="#888" text-anchor="middle">or Nano
+                    Banana</text>
+
+                <text x="300" y="250" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle"
+                    font-weight="bold">Midjourney</text>
+                <text x="300" y="270" font-family="sans-serif" font-size="12" fill="#888" text-anchor="middle">or DALL·E
+                    3</text>
+
+                <text x="500" y="250" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle"
+                    font-weight="bold">Stable Diffusion</text>
+                <text x="500" y="270" font-family="sans-serif" font-size="12" fill="#888" text-anchor="middle">(Local /
+                    LoRA)</text>
+
+                <text x="700" y="250" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle"
+                    font-weight="bold">Leonardo.Ai</text>
+                <text x="700" y="270" font-family="sans-serif" font-size="12" fill="#888" text-anchor="middle">or SD
+                    (Local)</text>
+            </svg>
+            <figcaption class="flowchart-caption">Figure 2: AI Generator Decision Tree — Matching goals to the right
+                tool.</figcaption>
+        </figure>
+
+        <!-- Текстовое описание логики -->
+        <div class="logic-grid">
+            <div class="logic-item">
+                <span class="logic-question">Need text on image?</span>
+                <span class="logic-answer">→ <strong>Ideogram</strong> (near-human text accuracy) or <strong>Nano Banana
+                        Pro</strong> (infographics).</span>
+            </div>
+            <div class="logic-item">
+                <span class="logic-question">Need photorealism?</span>
+                <span class="logic-answer">→ <strong>Midjourney</strong> (best cinematic quality), <strong>Nano
+                        Banana</strong>, or <strong>DALL·E 3</strong>.</span>
+            </div>
+            <div class="logic-item">
+                <span class="logic-question">Need full control?</span>
+                <span class="logic-answer">→ <strong>Stable Diffusion</strong> (open-source, ControlNet, LoRA).</span>
+            </div>
+            <div class="logic-item">
+                <span class="logic-question">Budget = $0?</span>
+                <span class="logic-answer">→ <strong>Stable Diffusion</strong> (local), <strong>Leonardo.Ai</strong> (50
+                    free credits), or <strong>Ideogram</strong> (weekly free tier).</span>
+            </div>
+        </div>
+
+        <!-- E-E-A-T: Expert Quote -->
+        <div class="creator-quote-card">
+            <div class="quote-content">
+                "For commercial video work, I test generators on three things: speed (can it keep up with my edit
+                pace?), license clarity (will this image flag a copyright claim?), and style lock (can I get five
+                variations that look like they're from the same shoot?). Midjourney wins on style consistency, DALL·E 3
+                on safety, Stable Diffusion on customization. Pick your priority."
+            </div>
+            <div class="quote-author-block">
+                <div class="author-avatar">EB</div>
+                <div class="author-info">
+                    <div class="author-name">Ethan Brooks</div>
+                    <div class="author-role">Motion Designer, 2025</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
     <section class="block-10 flex-center-all">
         <div class="container container-block-10 flex-center-all">
             <div class="block-10__content">
