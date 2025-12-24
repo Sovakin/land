@@ -1644,6 +1644,7 @@ ul.block-6__cards-container {
 
 /* Ограничиваем ширину параграфов, чтобы текст не разъезжался на 1200px */
 .comparison-section>p {
+    text-align: center;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -1724,6 +1725,7 @@ ul.block-6__cards-container {
     }
 
     .comparison-section>p {
+        text-align: left;
         margin-left: 0;
         margin-right: 0;
         width: 100%;
@@ -2282,6 +2284,7 @@ ul.block-6__cards-container {
 }
 
 .free-tool-section p {
+    text-align: center;
     font-size: 18px;
     line-height: 1.6;
     color: #ddd;
@@ -2463,6 +2466,1053 @@ ul.block-6__cards-container {
 /* Адаптив */
 @media (max-width: 600px) {
     .tos-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Ethical & Regulatory Section Styles --- */
+
+/* Layout for DO/DON'T Columns */
+.dodont-container {
+    display: flex;
+    gap: 32px;
+    margin: 40px auto;
+    max-width: 1000px;
+    justify-content: center;
+}
+
+.dodont-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 300px;
+}
+
+/* Headers for Columns */
+.dodont-header {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.do-header {
+    color: #4ade80;
+    /* Green */
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+}
+
+.dont-header {
+    color: #f87171;
+    /* Red */
+    background: rgba(248, 113, 113, 0.1);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* Individual Cards */
+.dodont-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: transform 0.2s ease;
+}
+
+.dodont-card:hover {
+    transform: translateY(-2px);
+}
+
+.do-card {
+    border-left: 3px solid #4ade80;
+}
+
+.dont-card {
+    border-left: 3px solid #f87171;
+}
+
+.dodont-card-icon {
+    font-size: 24px;
+    line-height: 1;
+    padding-top: 2px;
+}
+
+.dodont-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dodont-card-content strong {
+    color: var(--color-white);
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.dodont-card-content p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Regulatory Block Styles */
+.regulatory-block {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 60px auto 40px auto;
+    max-width: 1000px;
+}
+
+.regulatory-title {
+    color: var(--color-white);
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 16px;
+}
+
+.regulatory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.regulatory-item h4 {
+    color: var(--color-branded-light);
+    font-size: 16px;
+    margin: 0 0 8px 0;
+}
+
+.regulatory-item p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Disclaimer Box */
+.disclaimer-box {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    padding: 20px;
+    background: rgba(255, 200, 0, 0.05);
+    /* Yellow/Gold tint */
+    border: 1px solid rgba(255, 200, 0, 0.2);
+    border-radius: 8px;
+    text-align: left;
+}
+
+.disclaimer-header {
+    display: block;
+    color: var(--color-gold);
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.disclaimer-box p {
+    margin: 0;
+    font-size: 13px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+/* Mobile Responsiveness for this section */
+@media (max-width: 768px) {
+    .free-tool-section p {
+        text-align: left;
+    }
+
+    .dodont-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .dodont-column {
+        width: 100%;
+    }
+
+    .regulatory-block {
+        padding: 20px;
+    }
+
+    .regulatory-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* --- Methodology & Testing Section Styles --- */
+
+/* Intro Grid (Criteria & Methodology) */
+.methodology-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 48px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.method-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.method-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.method-title {
+    color: var(--color-branded-light);
+    font-size: 20px;
+    margin: 0 0 12px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.method-card p {
+    font-size: 15px;
+    color: #ddd;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Benchmarks Block */
+.benchmarks-block {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-left: 4px solid var(--color-branded);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 48px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benchmarks-title {
+    color: var(--color-white);
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+.benchmarks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benchmark-item strong {
+    color: var(--color-white);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.benchmark-item p {
+    color: #ccc;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Table Specifics */
+.methodology-table caption {
+    caption-side: top;
+    text-align: left;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.methodology-table td {
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.winner-badge {
+    display: inline-block;
+    background: rgba(44, 34, 250, 0.2);
+    color: var(--color-branded-light);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 12px;
+    border: 1px solid var(--color-branded);
+    white-space: nowrap;
+}
+
+.methodology-table tfoot td {
+    font-size: 12px;
+    color: #777;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    line-height: 1.4;
+}
+
+/* --- Исправленный блок Metadata E-E-A-T --- */
+.test-metadata-block {
+    margin-top: 40px;
+    padding: 24px;
+    /* Делаем блок визуально цельным (карточка) */
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+
+    /* Центрируем и ограничиваем ширину */
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+    /* Выравнивание содержимого */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.metadata-header {
+    font-size: 13px;
+    color: #888;
+    /* Более приглушенный цвет заголовка */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+/* Используем Flexbox вместо Grid для плотной упаковки */
+.metadata-grid {
+    display: flex;
+    flex-wrap: wrap;
+    /* Разрешаем перенос на новую строку */
+    gap: 24px;
+    /* Отступы между элементами */
+    align-items: baseline;
+    /* Выравнивание по базовой линии текста */
+    font-size: 14px;
+    color: #ccc;
+}
+
+.metadata-item {
+    flex: 0 1 auto;
+    /* Элементы занимают столько места, сколько нужно контенту */
+}
+
+.metadata-item strong {
+    color: var(--color-white);
+    margin-right: 6px;
+}
+
+/* Ссылка на репозиторий занимает всю ширину, если не влезает, или стоит отдельно */
+.metadata-item.full-width {
+    width: 100%;
+    margin-top: 4px;
+    /* Небольшой отступ сверху для визуального отделения */
+    padding-top: 12px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    /* Пунктирная линия для отделения ссылки */
+}
+
+.repo-link {
+    color: var(--color-branded-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.repo-link:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* Адаптив для мобильных: вертикальная стопка */
+@media (max-width: 768px) {
+    .metadata-grid {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .metadata-item.full-width {
+        border-top: none;
+        padding-top: 0;
+        margin-top: 8px;
+    }
+}
+
+/* --- Use Cases Section Styles --- */
+
+/* Intro Tags List */
+.use-cases-intro {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.use-cases-tags {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.use-cases-tags li {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.use-cases-tags strong {
+    color: var(--color-branded-light);
+}
+
+/* Grid Layout */
+.use-case-grid {
+    display: grid;
+    /* БЫЛО: grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+
+    /* СТАЛО: Жестко задаем 2 колонки равной ширины */
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 24px;
+    padding: 0;
+    list-style: none;
+    margin: 0 auto;
+
+    /* Ограничиваем общую ширину, чтобы 2 карточки не выглядели слишком растянутыми на огромных экранах */
+    max-width: 1000px;
+}
+
+/* Card Style */
+.use-case-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.use-case-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Image Area */
+.use-case-figure {
+    margin: 0;
+    position: relative;
+    width: 100%;
+    padding-top: 60%;
+    /* Aspect Ratio 5:3 */
+    background: #222;
+    /* Placeholder color */
+    overflow: hidden;
+}
+
+.use-case-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.use-case-card:hover .use-case-img {
+    transform: scale(1.05);
+}
+
+.use-case-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Content Area */
+.use-case-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.use-case-title {
+    font-size: 18px;
+    color: var(--color-white);
+    margin: 0 0 12px 0;
+    font-weight: 600;
+}
+
+.use-case-desc {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+    flex-grow: 1;
+}
+
+.use-case-desc strong {
+    color: var(--color-white);
+    display: block;
+    margin-bottom: 4px;
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* CTA Button */
+.use-case-btn {
+    align-self: flex-start;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-branded-light);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+}
+
+.use-case-btn:hover {
+    color: var(--color-white);
+    border-bottom-color: var(--color-white);
+    text-decoration: none;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .use-case-grid {
+        /* На мобильных переключаемся на 1 колонку */
+        grid-template-columns: 1fr;
+    }
+
+    .use-cases-tags {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .use-cases-tags li {
+        width: 100%;
+        text-align: center;
+        max-width: 300px;
+    }
+}
+
+/* --- Reviews Section Styles --- */
+
+/* Aggregate Rating Header */
+.aggregate-rating-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+    text-align: center;
+}
+
+.rating-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-white);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.rating-stars {
+    color: var(--color-gold);
+    /* #FFD700 or defined var */
+    font-size: 24px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.rating-text {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+.rating-source {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Reviews Grid */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding: 0;
+    margin: 0 auto;
+    list-style: none;
+    max-width: 1200px;
+}
+
+/* Review Card */
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.2s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.review-stars {
+    color: var(--color-gold);
+    font-size: 18px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.review-body {
+    margin: 0 0 24px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #eee;
+    font-style: italic;
+    flex-grow: 1;
+}
+
+/* Review Author (Cite) */
+.review-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-style: normal;
+    /* Reset cite italic */
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+
+.review-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    background: #333;
+    /* Fallback color */
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 16px;
+}
+
+.author-role {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 2px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .review-card {
+        max-width: 100%;
+    }
+}
+
+/* Общий контейнер, который держит колонки */
+.block-10__items-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    /* Чтобы колонки не растягивались по высоте, если контента мало */
+    gap: 24px;
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+/* Стили для каждой колонки */
+.block-10__column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    /* Расстояние между вопросами внутри колонки */
+    flex: 1;
+    /* Колонки делят ширину поровну */
+    width: 100%;
+}
+
+/* Карточка вопроса */
+.block-10__item {
+    width: 100%;
+    position: relative;
+    background: rgba(18, 19, 21, 0.2);
+    /* #12131533 */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Адаптив для мобильных и планшетов (перестраиваем в одну колонку) */
+@media (max-width: 900px) {
+    .block-10__items-container {
+        flex-direction: column;
+    }
+}
+
+.block-11__actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+/* Основная кнопка CTA */
+.block-11__button {
+    margin: 0;
+    /* Сбрасываем старые отступы */
+    min-width: 240px;
+    font-size: 18px;
+    /* Чуть крупнее для акцента */
+}
+
+/* Вторичная ссылка (Галерея) */
+.block-11__secondary-link {
+    font-size: 16px;
+    color: var(--color-white);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+    padding-bottom: 2px;
+}
+
+.block-11__secondary-link:hover {
+    color: var(--color-branded-light);
+    border-bottom-color: var(--color-branded-light);
+}
+
+/* Блок доверия (E-E-A-T) */
+.block-11__trust-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    /* Темная подложка для читаемости на фоне */
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    max-width: fit-content;
+}
+
+.trust-icon {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.block-11__trust-text {
+    margin: 0;
+    font-size: 13px;
+    color: #eee;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.block-11__trust-text strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+    .block-11__content {
+        align-items: center;
+        /* Центрируем контент */
+        text-align: center;
+    }
+
+    .block-11__actions {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .block-11__button {
+        width: 100%;
+        /* Кнопка на всю ширину */
+        margin-left: 0;
+        /* Убираем margin-left если он был в базовых стилях */
+    }
+
+    .block-11__trust-info {
+        flex-direction: row;
+        text-align: left;
+        border-radius: 12px;
+        margin-top: 16px;
+        padding: 16px;
+    }
+}
+
+/* --- Sources & Author Section Styles --- */
+
+.sources-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 40px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+}
+
+.sources-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.sources-header h3 {
+    margin: 0;
+    font-size: 24px;
+    color: var(--color-white);
+}
+
+.update-badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.update-badge strong {
+    color: var(--color-white);
+}
+
+/* Author Card */
+.author-bio-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.author-avatar-large {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--color-branded);
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.author-details {
+    flex: 1;
+}
+
+.author-header {
+    margin-bottom: 12px;
+}
+
+.author-header h4 {
+    margin: 0 0 4px 0;
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+.author-role {
+    font-size: 13px;
+    color: var(--color-branded-light);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.author-bio {
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
+}
+
+.author-bio strong {
+    color: var(--color-white);
+}
+
+.author-link {
+    font-size: 14px;
+    color: var(--color-branded-light);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+.author-link:hover {
+    color: var(--color-white);
+    transform: translateX(4px);
+}
+
+/* Sources List */
+.sources-block {
+    margin-bottom: 32px;
+}
+
+.sources-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #666;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+}
+
+.sources-list-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 8px 32px;
+}
+
+.sources-list-grid li {
+    font-size: 13px;
+    color: #888;
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 4px;
+}
+
+.sources-list-grid li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #444;
+}
+
+/* Breadcrumbs */
+.breadcrumbs-footer {
+    font-size: 13px;
+    color: #666;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+
+.breadcrumbs-footer a {
+    color: #888;
+    text-decoration: none;
+}
+
+.breadcrumbs-footer a:hover {
+    color: #ccc;
+}
+
+.crumb-separator {
+    margin: 0 6px;
+    color: #444;
+}
+
+.crumb-current {
+    color: var(--color-white);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .sources-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .author-bio-card {
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .author-avatar-large {
+        width: 56px;
+        height: 56px;
+        font-size: 20px;
+    }
+
+    .sources-list-grid {
         grid-template-columns: 1fr;
     }
 }

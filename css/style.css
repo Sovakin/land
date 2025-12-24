@@ -1849,3 +1849,64 @@ section {
         gap: 32px;
     }
 }
+
+/* --- External Breadcrumbs Styles --- */
+
+.breadcrumbs-external-wrapper {
+    width: 100%;
+    max-width: 1440px;
+    /* Ограничение ширины как у .container */
+    margin: 0 0 0 32px;
+    /* Центрирование */
+    /* Отступ сверху и по бокам (как у block-1) */
+    box-sizing: border-box;
+}
+
+.breadcrumbs-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: 'Onest', sans-serif;
+    /* Ваш шрифт */
+}
+
+.breadcrumbs-item a {
+    color: rgba(255, 255, 255, 0.5);
+    /* Полупрозрачный белый */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumbs-item a:hover {
+    color: var(--color-branded-light);
+    /* Или белый */
+    text-decoration: underline;
+}
+
+.breadcrumbs-item span {
+    color: var(--color-white);
+    opacity: 0.9;
+    cursor: default;
+}
+
+.breadcrumbs-separator {
+    margin: 0 10px;
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 12px;
+}
+
+/* Адаптив для мобильных (отступы как у block-1 на моб) */
+@media (max-width: 575px) {
+    .breadcrumbs-external-wrapper {
+        padding: 16px 16px 0 16px;
+    }
+
+    .breadcrumbs-list {
+        font-size: 12px;
+    }
+}
