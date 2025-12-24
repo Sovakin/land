@@ -2328,3 +2328,141 @@ ul.block-6__cards-container {
     left: 0;
     color: var(--color-branded);
 }
+
+/* Юридический блок */
+.legal-section {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.legal-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 4px solid var(--color-gold);
+    /* Акцент на важность */
+    padding: 24px;
+    margin-bottom: 32px;
+    border-radius: 0 12px 12px 0;
+}
+
+.legal-title {
+    font-size: 20px;
+    color: var(--color-white);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.legal-icon {
+    color: var(--color-gold);
+}
+
+.legal-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 16px;
+}
+
+.legal-highlight-box {
+    background: rgba(255, 208, 0, 0.1);
+    border: 1px solid rgba(255, 208, 0, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    margin-top: 24px;
+}
+
+.highlight-header {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-gold);
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.citation-link {
+    font-size: 12px;
+    color: #888;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* Сетка для Commercial Use */
+.tos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.tos-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tos-card h4 {
+    color: var(--color-white);
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+}
+
+.tos-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ccc;
+    margin: 0;
+    flex-grow: 1;
+    /* Чтобы карточки были одной высоты */
+}
+
+/* Выделение "Нашего генератора" */
+.tos-card.highlight {
+    background: rgba(44, 34, 250, 0.08);
+    /* Легкий оттенок бренда */
+    border: 1px solid var(--color-branded);
+    position: relative;
+    overflow: hidden;
+}
+
+.tos-card.highlight::before {
+    content: "Recommended";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 10px;
+    background: var(--color-branded);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.tos-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--color-branded-light);
+    text-decoration: underline;
+}
+
+.tos-link:hover {
+    color: #fff;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .tos-grid {
+        grid-template-columns: 1fr;
+    }
+}
