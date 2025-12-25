@@ -30,7 +30,6 @@
     color: #ddd;
 }
 
-/* Form Styles */
 .ai-generator-form {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -97,7 +96,6 @@
     text-align: center;
 }
 
-/* Comparison Table */
 .comparison-table-wrapper {
     overflow-x: auto;
     margin: 40px 0;
@@ -126,7 +124,6 @@
     background: rgba(255, 255, 255, 0.02);
 }
 
-/* Prompt Library */
 .prompt-library {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -152,7 +149,6 @@
     font-style: italic;
 }
 
-/* Quote */
 .quote-block {
     border-left: 4px solid var(--color-branded);
     padding-left: 24px;
@@ -170,7 +166,6 @@
     font-style: normal;
 }
 
-/* Step by step */
 .steps-container {
     display: flex;
     flex-direction: column;
@@ -194,7 +189,6 @@
     margin-top: 0;
 }
 
-/* Update badge */
 .update-badge {
     display: inline-block;
     background: rgba(24, 27, 136, 0.4);
@@ -205,7 +199,6 @@
     margin-bottom: 16px;
 }
 
-/* Gallery Overrides */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -239,7 +232,6 @@
     }
 }
 
-/* Mobile Slider for Gallery */
 @media (max-width: 900px) {
     .gallery-grid {
         display: flex;
@@ -247,8 +239,6 @@
         scroll-snap-type: x mandatory;
         gap: 20px;
         padding: 10px 4vw 30px 4vw;
-        /* Side padding relative to viewport */
-
         /* Hide scrollbar */
         scrollbar-width: none;
         -ms-overflow-style: none;
@@ -262,7 +252,6 @@
     .gallery-item {
         min-width: 280px;
         width: 80vw;
-        /* Shows previous/next items for context */
         max-width: 400px;
         flex-shrink: 0;
         scroll-snap-align: center;
@@ -273,7 +262,6 @@
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
-        /* Deep shadow for depth */
     }
 
     .gallery-caption {
@@ -295,7 +283,6 @@
     overflow: hidden;
     border-radius: 8px;
     background-color: rgba(255, 255, 255, 0.05);
-    /* Placeholder bg */
 }
 
 .gallery-item img {
@@ -346,7 +333,6 @@
     text-align: center;
 }
 
-/* Gallery Dots */
 .gallery-dots {
     display: flex;
     justify-content: center;
@@ -367,7 +353,6 @@
     background-color: var(--color-branded);
 }
 
-/* TOC */
 .toc {
     background: rgba(255, 255, 255, 0.03);
     padding: 24px;
@@ -399,7 +384,6 @@
     color: var(--color-branded-light);
 }
 
-/* Custom Block 9 (Steps) Overrides */
 .block-9__card-content {
     display: flex;
     flex-direction: column;
@@ -407,7 +391,6 @@
     text-align: left;
 }
 
-/* Gallery dots */
 .gallery-dots {
     display: none;
     justify-content: center;
@@ -428,7 +411,6 @@
     transform: scale(1.3);
 }
 
-/* Показываем только на мобиле */
 @media (max-width: 900px) {
     .gallery-dots {
         display: flex;
@@ -471,7 +453,6 @@
     align-items: center;
     justify-content: center;
     background-color: rgba(44, 34, 250, 0.3);
-    /* Цвет branded с прозрачностью */
     border: 1px solid var(--color-branded);
     color: #fff;
     font-size: 12px;
@@ -496,9 +477,7 @@
     grid-column: 1 / -1;
 }
 
-/* Исправление видимости описания */
 .gallery-item figure {
-    /* Убираем жесткие ограничения с контейнера */
     aspect-ratio: auto !important;
     overflow: visible !important;
     height: auto !important;
@@ -509,67 +488,45 @@
 }
 
 .gallery-item img {
-    /* Переносим форму и пропорции на само изображение */
     aspect-ratio: 4 / 3;
     width: 100%;
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-    /* Скругление углов картинки */
     background-color: rgba(255, 255, 255, 0.05);
-    /* Фон пока грузится картинка */
 }
 
 .gallery-caption {
-    /* Настройки текста */
     display: block;
     margin-top: 12px;
     font-size: 14px;
     line-height: 1.5;
     color: #A0AEC0;
-    /* Светло-серый цвет для читаемости на темном */
     text-align: left;
-    /* Или center, как вам больше нравится */
     font-weight: 300;
 }
 
-/* --- МОБИЛЬНАЯ ВЕРСИЯ (до 900px) --- */
 @media (max-width: 900px) {
-
-    /* 1. Исправляем контейнер, чтобы слайдер выходил за пределы, но не ломал верстку */
     .block-7 .container {
         padding-left: 0 !important;
         padding-right: 0 !important;
         overflow: visible !important;
-        /* Разрешаем теням и элементам быть видимыми */
         width: 100%;
         max-width: 100%;
     }
 
-    /* 2. Настройка сетки-слайдера */
     .gallery-grid {
         display: flex !important;
-        /* Включаем флекс для ряда */
         flex-wrap: nowrap !important;
-        /* Запрещаем перенос строк */
         overflow-x: auto !important;
-        /* Горизонтальный скролл */
-
         /* Важно: делаем слайдер во всю ширину экрана */
         width: 100vw;
         margin-left: calc(50% - 50vw);
-        /* Центрируем слайдер относительно экрана */
         margin-right: calc(50% - 50vw);
-
-        /* Отступы внутри ленты, чтобы первый и последний элементы не прилипали к краям */
         padding: 0 24px 40px 24px !important;
         gap: 16px;
-
-        /* Логика "прилипания" слайдов */
         scroll-snap-type: x mandatory;
         scroll-behavior: smooth;
-
-        /* Скрываем скроллбар */
         scrollbar-width: none;
         -ms-overflow-style: none;
     }
@@ -578,64 +535,47 @@
         display: none;
     }
 
-    /* 3. Настройка карточки */
     .gallery-item {
-        /* Фиксируем ширину карточки: 85% от ширины экрана, но не уже 280px */
         min-width: 85vw;
         max-width: 85vw;
         flex-shrink: 0;
-        /* Запрещаем сжиматься */
-
         /* Центрируем активный слайд при скролле */
         scroll-snap-align: center;
-
-        /* Убираем лишние отступы самой карточки */
         margin: 0 !important;
     }
 
-    /* 4. Исправление картинки и контейнера (из предыдущего шага, но адаптировано) */
     .gallery-item figure {
         display: flex;
         flex-direction: column;
         height: 100%;
-        /* Растягиваем на всю высоту */
         margin: 0;
         background: transparent !important;
         aspect-ratio: auto !important;
-        /* Отключаем жесткие пропорции контейнера */
         overflow: visible !important;
     }
 
     .gallery-item img {
         width: 100%;
         aspect-ratio: 4 / 3;
-        /* Картинка держит пропорции */
         object-fit: cover;
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        /* Тень для объема */
     }
 
-    /* 5. Улучшение текста описания для мобильных */
     .gallery-caption {
         white-space: normal;
-        /* Разрешаем перенос текста */
         font-size: 14px !important;
         color: #CBD5E0;
-        /* Светло-серый, читабельный */
         margin-top: 16px;
         padding: 0 4px;
-        /* Небольшой отступ от краев карточки */
         text-align: left;
     }
 }
 
-/* Styling for the updated Pricing & Policies text section */
 .pricing-policy-text {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-    /* Align text to left for better readability of policies */
     font-weight: 300;
     color: #ddd;
     font-size: 18px;
@@ -668,7 +608,6 @@
     color: var(--color-white);
 }
 
-/* License at a glance box */
 .license-glance {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -697,7 +636,6 @@
 @media (min-width: 600px) {
     .license-list {
         grid-template-columns: 1fr 1fr;
-        /* 2 columns on larger screens */
     }
 }
 
@@ -713,10 +651,8 @@
     color: var(--color-white);
 }
 
-/* Styles for Security and Privacy section */
 .security-privacy-content {
     max-width: 800px;
-    /* Match the width of other text sections */
     margin: 0 auto;
     font-weight: 300;
     color: #ddd;
@@ -726,7 +662,6 @@
 
 .security-privacy-content .policy-item {
     margin-bottom: 16px;
-    /* Space between policy points */
 }
 
 .security-privacy-content .policy-item strong {
@@ -738,9 +673,7 @@
     margin-top: 24px;
     padding-top: 16px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    /* Separator line */
     text-align: center;
-    /* Center the privacy policy link */
 }
 
 .policy-legal-links p {
@@ -758,12 +691,9 @@
     color: var(--color-white);
 }
 
-/* Ensure the main article-section styling is applied */
 .article-section {
     padding: 0 32px;
-    /* Default padding */
     max-width: 800px;
-    /* Ensures content stays within a readable width */
     margin: 0 auto;
     color: var(--color-white);
 }
@@ -782,7 +712,6 @@
     color: #ddd;
 }
 
-/* Reset semantics for Block 6 list */
 ul.block-6__cards-container {
     list-style-type: none;
     padding-left: 0;
@@ -790,7 +719,6 @@ ul.block-6__cards-container {
     margin-block-end: 0;
 }
 
-/* Ensure h4 looks like the previous h3 */
 .block-6__card-title {
     font-weight: 500;
     font-size: 24px;
@@ -799,7 +727,6 @@ ul.block-6__cards-container {
     margin: 0 0 16px 0;
 }
 
-/* Technical Benchmarks Styling */
 .tech-benchmarks {
     margin-top: 60px;
     padding: 24px;
@@ -815,7 +742,6 @@ ul.block-6__cards-container {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-branded-light);
-    /* Или var(--color-gold) */
     margin-bottom: 16px;
     text-align: center;
     font-weight: 600;
@@ -849,8 +775,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Styles for "For Video Creators" Section */
-
 /* Expert Context Badge */
 .expert-context {
     display: flex;
@@ -876,7 +800,6 @@ ul.block-6__cards-container {
     font-style: italic;
 }
 
-/* Subtitles */
 .creator-subtitle {
     font-size: 24px;
     color: var(--color-white);
@@ -885,7 +808,6 @@ ul.block-6__cards-container {
     font-weight: 500;
 }
 
-/* Lists */
 .creator-list {
     list-style: none;
     padding: 0;
@@ -916,7 +838,6 @@ ul.block-6__cards-container {
     font-weight: 500;
 }
 
-/* Quote Card */
 .creator-quote-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
     border-left: 4px solid var(--color-branded);
@@ -968,7 +889,6 @@ ul.block-6__cards-container {
     color: #aaa;
 }
 
-/* Mobile Adaptation */
 @media (max-width: 600px) {
     .creator-quote-card {
         padding: 20px;
@@ -983,8 +903,6 @@ ul.block-6__cards-container {
         gap: 8px;
     }
 }
-
-/* Styles for How-To Section */
 
 /* Video Container */
 .howto-video-wrapper {
@@ -1013,7 +931,6 @@ ul.block-6__cards-container {
     font-style: italic;
 }
 
-/* Step Number Styling */
 .step-number {
     font-size: 48px;
     color: var(--color-branded);
@@ -1023,7 +940,6 @@ ul.block-6__cards-container {
     line-height: 1;
 }
 
-/* Prompt Formula Styling */
 .prompt-formula {
     background: rgba(255, 255, 255, 0.1);
     padding: 12px;
@@ -1046,12 +962,10 @@ ul.block-6__cards-container {
     margin-top: 8px;
 }
 
-/* Pro Tip Styling */
 .pro-tip {
     margin-top: 16px;
     padding: 12px;
     background: rgba(255, 215, 0, 0.1);
-    /* Gold tint */
     border-radius: 8px;
     font-size: 14px;
     color: #eee;
@@ -1064,7 +978,6 @@ ul.block-6__cards-container {
     margin-bottom: 4px;
 }
 
-/* Layout Adjustments for Block 9 */
 .block-9__cards-wrapper {
     display: flex;
     gap: 24px;
@@ -1079,7 +992,6 @@ ul.block-6__cards-container {
     flex: 1;
 }
 
-/* Make the first card take up half the space if side-by-side */
 .block-9__card.full-height {
     flex: 1;
 }
@@ -1093,8 +1005,6 @@ ul.block-6__cards-container {
         width: 100%;
     }
 }
-
-/* Styles for Prompt Secrets Section */
 
 /* Formula Visuals */
 .prompt-guide-block {
@@ -1121,7 +1031,6 @@ ul.block-6__cards-container {
 
 .formula-tag {
     background: rgba(44, 34, 250, 0.2);
-    /* Branded color transparent */
     border: 1px solid var(--color-branded);
     color: var(--color-white);
     padding: 4px 8px;
@@ -1137,7 +1046,6 @@ ul.block-6__cards-container {
     border-left: 2px solid var(--color-branded);
 }
 
-/* Tips Grid */
 .prompt-tips-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1180,7 +1088,6 @@ ul.block-6__cards-container {
     font-size: 13px;
 }
 
-/* Table Styling */
 .table-responsive-wrapper {
     overflow-x: auto;
     margin: 24px 0 40px 0;
@@ -1192,7 +1099,6 @@ ul.block-6__cards-container {
     width: 100%;
     border-collapse: collapse;
     min-width: 800px;
-    /* Force scroll on mobile */
     font-size: 14px;
 }
 
@@ -1224,10 +1130,8 @@ ul.block-6__cards-container {
     font-family: monospace;
     font-size: 12px;
     color: #aaddff;
-    /* Light blue for code to stand out */
 }
 
-/* Expert Insight */
 .expert-insight {
     background: linear-gradient(90deg, rgba(44, 34, 250, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
     border-left: 4px solid var(--color-branded);
@@ -1248,65 +1152,48 @@ ul.block-6__cards-container {
     border-radius: 3px;
 }
 
-/* --- Desktop Table Fix --- */
-
 /* Расширяем секцию только на десктопах (экраны шире 1024px) */
 @media (min-width: 1024px) {
     #prompt-secrets {
         max-width: 1200px;
-        /* Увеличиваем ширину с 800px до 1200px */
         width: 100%;
         padding-left: 32px;
         padding-right: 32px;
     }
 
-    /* Убираем принудительный скролл и фиксируем ширину колонок */
     #prompt-secrets .table-responsive-wrapper {
         overflow-x: visible;
-        /* Отключаем скроллбар */
         border: none;
-        /* Убираем рамку контейнера, если она мешает */
     }
 
     #prompt-secrets .prompt-comparison-table {
         min-width: 100%;
-        /* Таблица занимает всю ширину контейнера */
         table-layout: fixed;
-        /* Фиксированный алгоритм для равного распределения */
     }
 
-    /* Настраиваем ширину каждой колонки для лучшей читаемости */
     /* 1. Poor Prompt */
     #prompt-secrets .prompt-comparison-table th:nth-child(1) {
         width: 15%;
     }
 
-    /* 2. Why It's Poor */
     #prompt-secrets .prompt-comparison-table th:nth-child(2) {
         width: 20%;
     }
 
-    /* 3. Improved Prompt (самая широкая, т.к. там длинный код) */
     #prompt-secrets .prompt-comparison-table th:nth-child(3) {
         width: 40%;
     }
 
-    /* 4. Result */
     #prompt-secrets .prompt-comparison-table th:nth-child(4) {
         width: 25%;
     }
 
-    /* Обязательно разрешаем перенос длинных слов и кода */
     #prompt-secrets .prompt-comparison-table code {
         white-space: pre-wrap;
-        /* Сохраняет пробелы, но переносит текст */
         word-wrap: break-word;
-        /* Ломает длинные слова, чтобы не вылезали */
         overflow-wrap: break-word;
     }
 }
-
-/* Prompt Library Styles */
 
 .library-source-note {
     display: flex;
@@ -1330,7 +1217,6 @@ ul.block-6__cards-container {
     font-style: italic;
 }
 
-/* Grid Layout */
 .prompt-library-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1338,7 +1224,6 @@ ul.block-6__cards-container {
     margin-top: 24px;
 }
 
-/* Card Styles */
 .prompt-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1358,7 +1243,6 @@ ul.block-6__cards-container {
     padding-bottom: 12px;
 }
 
-/* Preset Item (Text + Button) */
 .preset-item {
     background: rgba(0, 0, 0, 0.2);
     padding: 12px;
@@ -1395,7 +1279,6 @@ ul.block-6__cards-container {
     border-color: var(--color-branded);
 }
 
-/* Full Width Card & Camera Specs */
 .prompt-card.full-width {
     grid-column: 1 / -1;
     background: linear-gradient(90deg, rgba(44, 34, 250, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
@@ -1427,7 +1310,6 @@ ul.block-6__cards-container {
     font-family: monospace;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     .prompt-library-grid {
         grid-template-columns: 1fr;
@@ -1435,11 +1317,8 @@ ul.block-6__cards-container {
 
     .specs-grid {
         grid-template-columns: 1fr 1fr;
-        /* 2 columns on mobile for specs */
     }
 }
-
-/* --- Advanced Tools Section Styles --- */
 
 /* Expand section width on desktop for 2x2 grid */
 @media (min-width: 1024px) {
@@ -1461,10 +1340,8 @@ ul.block-6__cards-container {
     font-weight: 300;
 }
 
-/* Grid Layout */
 .tools-grid {
     display: grid;
-    /* По умолчанию (мобильные): 1 колонка */
     grid-template-columns: 1fr;
     gap: 24px;
     list-style: none;
@@ -1474,14 +1351,10 @@ ul.block-6__cards-container {
 
 @media (min-width: 768px) {
     .tools-grid {
-        /* Строго 2 колонки. 
-           Никогда не будет 3 или 4, даже если экран огромный. */
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
-/* Tool Card */
 .tool-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1503,13 +1376,11 @@ ul.block-6__cards-container {
     height: 100%;
 }
 
-/* Image Wrapper (Simulates Before/After visual if image is missing) */
 .tool-image-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
     background: linear-gradient(90deg, #222 50%, #333 50%);
-    /* Placeholder split effect */
     overflow: hidden;
 }
 
@@ -1517,7 +1388,6 @@ ul.block-6__cards-container {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* If image fails to load, the gradient background serves as fallback */
 }
 
 .badge-overlay {
@@ -1534,7 +1404,6 @@ ul.block-6__cards-container {
     font-weight: 600;
 }
 
-/* Caption Content */
 .tool-caption {
     padding: 24px;
     display: flex;
@@ -1555,10 +1424,8 @@ ul.block-6__cards-container {
     line-height: 1.5;
     margin: 0 0 24px 0;
     flex-grow: 1;
-    /* Pushes button to bottom */
 }
 
-/* Button Styling */
 .tool-btn {
     display: inline-flex;
     justify-content: center;
@@ -1566,7 +1433,6 @@ ul.block-6__cards-container {
     width: 100%;
     padding: 12px;
     background: rgba(44, 34, 250, 0.1);
-    /* Branded transparent */
     border: 1px solid var(--color-branded);
     color: var(--color-branded-light);
     border-radius: 8px;
@@ -1583,7 +1449,6 @@ ul.block-6__cards-container {
     text-decoration: none;
 }
 
-/* Tips Container */
 .tools-tips-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1594,7 +1459,6 @@ ul.block-6__cards-container {
 
 .tip-box {
     background: rgba(255, 215, 0, 0.05);
-    /* Gold tint slightly */
     border: 1px solid rgba(255, 215, 0, 0.15);
     padding: 20px;
     border-radius: 8px;
@@ -1616,7 +1480,6 @@ ul.block-6__cards-container {
     line-height: 1.5;
 }
 
-/* Mobile Adaptation */
 @media (max-width: 768px) {
     .tools-intro {
         text-align: left;
@@ -1631,18 +1494,14 @@ ul.block-6__cards-container {
     }
 }
 
-/* Специальный класс для широкой секции сравнения */
 .comparison-section {
     max-width: 1200px;
-    /* Широкий контейнер для ПК */
     margin: 0 auto 60px auto;
     padding: 0 32px;
     color: var(--color-white);
     text-align: center;
-    /* Центрируем текст на ПК */
 }
 
-/* Ограничиваем ширину параграфов, чтобы текст не разъезжался на 1200px */
 .comparison-section>p {
     text-align: center;
     max-width: 800px;
@@ -1659,13 +1518,10 @@ ul.block-6__cards-container {
     margin-bottom: 24px;
 }
 
-/* Стили таблицы */
 .comparison-table-wrapper {
     width: 100%;
     overflow-x: auto;
-    /* Скролл только если не влезает */
     margin-bottom: 32px;
-    /* Центрируем таблицу внутри, если она меньше контейнера */
     display: flex;
     justify-content: center;
 }
@@ -1674,9 +1530,7 @@ ul.block-6__cards-container {
     width: 100%;
     border-collapse: collapse;
     min-width: 800px;
-    /* Минимальная ширина, чтобы не плющило на мобильных */
     text-align: left;
-    /* Внутри ячеек текст всегда слева для читаемости */
 }
 
 .comparison-table th,
@@ -1694,18 +1548,15 @@ ul.block-6__cards-container {
 
 .comparison-table caption {
     text-align: center;
-    /* Центрируем подпись таблицы на ПК */
     caption-side: bottom;
     color: #aaa;
     font-size: 12px;
     margin-top: 12px;
 }
 
-/* Блок методологии */
 .comparison-section .ai-transparency-block {
     max-width: 800px;
     margin: 0 auto;
-    /* Центрируем сам блок */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
@@ -1713,15 +1564,12 @@ ul.block-6__cards-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Центрируем контент внутри блока на ПК */
 }
 
-/* --- МОБИЛЬНАЯ ВЕРСИЯ --- */
 @media (max-width: 900px) {
     .comparison-section {
         padding: 0 32px;
         text-align: left !important;
-        /* Принудительно по левому краю */
     }
 
     .comparison-section>p {
@@ -1733,9 +1581,7 @@ ul.block-6__cards-container {
 
     .comparison-table-wrapper {
         justify-content: flex-start;
-        /* Таблица прилипает влево, появляется скролл */
         margin-left: -16px;
-        /* Небольшой хак, чтобы скролл был от края экрана */
         margin-right: -16px;
         width: calc(100% + 32px);
         padding: 0 16px;
@@ -1743,18 +1589,15 @@ ul.block-6__cards-container {
 
     .comparison-table caption {
         text-align: left;
-        /* Подпись таблицы тоже влево */
         padding-left: 2px;
     }
 
     .comparison-section .ai-transparency-block {
         align-items: flex-start;
-        /* Выравниваем элементы блока E-E-A-T влево */
         text-align: left;
     }
 }
 
-/* Стили для навигационных "пилюль" */
 .nav-pills {
     display: flex;
     flex-wrap: wrap;
@@ -1784,7 +1627,6 @@ ul.block-6__cards-container {
     text-decoration: none;
 }
 
-/* Стили для подвала таблицы */
 .comparison-table tfoot td {
     padding: 12px 16px;
     font-size: 12px;
@@ -1797,11 +1639,9 @@ ul.block-6__cards-container {
 @media (max-width: 900px) {
     .nav-pills {
         justify-content: flex-start;
-        /* Влево на мобильных */
     }
 }
 
-/* Стили для карточек обзора */
 .review-card {
     margin-bottom: 64px;
     padding-bottom: 64px;
@@ -1823,7 +1663,6 @@ ul.block-6__cards-container {
     margin-bottom: 16px;
 }
 
-/* Сетка для Плюсов и Минусов */
 .pros-cons-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1854,12 +1693,9 @@ ul.block-6__cards-container {
     color: #4ade80;
 }
 
-/* Зеленый */
 .cons-title {
     color: #f87171;
 }
-
-/* Красный */
 
 /* Инфо-блок с ценами и назначением */
 .specs-box {
@@ -1876,7 +1712,6 @@ ul.block-6__cards-container {
     margin-right: 4px;
 }
 
-/* Галерея примеров (дополнение к существующему gallery-grid) */
 .gallery-example-placeholder {
     width: 100%;
     height: 100%;
@@ -1900,7 +1735,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Кнопка перехода к инструменту */
 .btn-visit {
     display: inline-flex;
     align-items: center;
@@ -1922,7 +1756,6 @@ ul.block-6__cards-container {
     text-decoration: none;
 }
 
-/* Компактная сетка для коротких обзоров (Flux, Playground и т.д.) */
 .mini-reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1947,7 +1780,6 @@ ul.block-6__cards-container {
     margin-bottom: 16px;
 }
 
-/* Список источников E-E-A-T */
 .sources-list {
     margin-top: 64px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1986,7 +1818,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Карточка руководства (Guide Card) */
 .guide-card {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1996,7 +1827,6 @@ ul.block-6__cards-container {
     margin: 0 auto;
 }
 
-/* Заголовок карточки с иконкой */
 .guide-header {
     display: flex;
     align-items: center;
@@ -2032,7 +1862,6 @@ ul.block-6__cards-container {
     font-weight: 300;
 }
 
-/* Сетка выбора (Top Picks) */
 .guide-section-title {
     font-size: 12px;
     text-transform: uppercase;
@@ -2051,7 +1880,6 @@ ul.block-6__cards-container {
 
 .pick-card {
     background: rgba(44, 34, 250, 0.1);
-    /* Branded color with opacity */
     border: 1px solid rgba(44, 34, 250, 0.3);
     border-radius: 12px;
     padding: 16px;
@@ -2078,7 +1906,6 @@ ul.block-6__cards-container {
     display: block;
 }
 
-/* Чеклист критериев (Checklist) */
 .checklist-box {
     background: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
@@ -2111,7 +1938,6 @@ ul.block-6__cards-container {
     font-weight: bold;
 }
 
-/* Адаптив для карточки */
 @media (max-width: 768px) {
     .guide-card {
         padding: 24px;
@@ -2126,7 +1952,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Блок "Полностью бесплатный инструмент" */
 .free-tool-card {
     border-radius: 16px;
     padding: 32px;
@@ -2148,7 +1973,6 @@ ul.block-6__cards-container {
     font-weight: 600;
 }
 
-/* Стили для SVG схемы */
 .flowchart-figure {
     margin: 48px 0;
     width: 100%;
@@ -2162,7 +1986,6 @@ ul.block-6__cards-container {
     font-style: italic;
 }
 
-/* Список логики (текстовое пояснение к схеме) */
 .logic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2191,7 +2014,6 @@ ul.block-6__cards-container {
     line-height: 1.5;
 }
 
-/* Цитата эксперта */
 .expert-quote-wrapper {
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
@@ -2202,7 +2024,6 @@ ul.block-6__cards-container {
 
 .expert-quote-text {
     font-family: serif;
-    /* Или ваш шрифт для цитат */
     font-size: 20px;
     line-height: 1.6;
     color: #eee;
@@ -2235,7 +2056,6 @@ ul.block-6__cards-container {
     height: 48px;
     background: #333;
     border-radius: 50%;
-    /* Заглушка, если нет фото */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2255,7 +2075,6 @@ ul.block-6__cards-container {
     font-size: 13px;
 }
 
-/* Адаптив */
 @media (max-width: 768px) {
     .logic-grid {
         grid-template-columns: 1fr;
@@ -2270,7 +2089,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Блок "Бесплатный инструмент" - обычный текст */
 .free-tool-section {
     margin-bottom: 64px;
     text-align: left;
@@ -2292,12 +2110,10 @@ ul.block-6__cards-container {
     font-weight: 300;
 }
 
-/* Блок критериев (оформлен как врезка в текст) */
 .criteria-inset {
     margin-top: 24px;
     padding-left: 24px;
     border-left: 2px solid var(--color-branded);
-    /* Акцентная линия слева */
 }
 
 .criteria-label {
@@ -2332,7 +2148,6 @@ ul.block-6__cards-container {
     color: var(--color-branded);
 }
 
-/* Юридический блок */
 .legal-section {
     text-align: left;
     max-width: 900px;
@@ -2342,7 +2157,6 @@ ul.block-6__cards-container {
 .legal-card {
     background: rgba(255, 255, 255, 0.02);
     border-left: 4px solid var(--color-gold);
-    /* Акцент на важность */
     padding: 24px;
     margin-bottom: 32px;
     border-radius: 0 12px 12px 0;
@@ -2393,7 +2207,6 @@ ul.block-6__cards-container {
     cursor: pointer;
 }
 
-/* Сетка для Commercial Use */
 .tos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -2425,13 +2238,10 @@ ul.block-6__cards-container {
     color: #ccc;
     margin: 0;
     flex-grow: 1;
-    /* Чтобы карточки были одной высоты */
 }
 
-/* Выделение "Нашего генератора" */
 .tos-card.highlight {
     background: rgba(44, 34, 250, 0.08);
-    /* Легкий оттенок бренда */
     border: 1px solid var(--color-branded);
     position: relative;
     overflow: hidden;
@@ -2463,14 +2273,11 @@ ul.block-6__cards-container {
     color: #fff;
 }
 
-/* Адаптив */
 @media (max-width: 600px) {
     .tos-grid {
         grid-template-columns: 1fr;
     }
 }
-
-/* --- Ethical & Regulatory Section Styles --- */
 
 /* Layout for DO/DON'T Columns */
 .dodont-container {
@@ -2489,7 +2296,6 @@ ul.block-6__cards-container {
     min-width: 300px;
 }
 
-/* Headers for Columns */
 .dodont-header {
     font-size: 20px;
     font-weight: 700;
@@ -2503,19 +2309,16 @@ ul.block-6__cards-container {
 
 .do-header {
     color: #4ade80;
-    /* Green */
     background: rgba(74, 222, 128, 0.1);
     border: 1px solid rgba(74, 222, 128, 0.2);
 }
 
 .dont-header {
     color: #f87171;
-    /* Red */
     background: rgba(248, 113, 113, 0.1);
     border: 1px solid rgba(248, 113, 113, 0.2);
 }
 
-/* Individual Cards */
 .dodont-card {
     background: rgba(255, 255, 255, 0.03);
     border-radius: 12px;
@@ -2562,7 +2365,6 @@ ul.block-6__cards-container {
     line-height: 1.4;
 }
 
-/* Regulatory Block Styles */
 .regulatory-block {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2600,13 +2402,11 @@ ul.block-6__cards-container {
     line-height: 1.5;
 }
 
-/* Disclaimer Box */
 .disclaimer-box {
     max-width: 800px;
     margin: 40px auto 0 auto;
     padding: 20px;
     background: rgba(255, 200, 0, 0.05);
-    /* Yellow/Gold tint */
     border: 1px solid rgba(255, 200, 0, 0.2);
     border-radius: 8px;
     text-align: left;
@@ -2627,7 +2427,6 @@ ul.block-6__cards-container {
     line-height: 1.5;
 }
 
-/* Mobile Responsiveness for this section */
 @media (max-width: 768px) {
     .free-tool-section p {
         text-align: left;
@@ -2650,8 +2449,6 @@ ul.block-6__cards-container {
         grid-template-columns: 1fr;
     }
 }
-
-/* --- Methodology & Testing Section Styles --- */
 
 /* Intro Grid (Criteria & Methodology) */
 .methodology-intro-grid {
@@ -2694,7 +2491,6 @@ ul.block-6__cards-container {
     margin: 0;
 }
 
-/* Benchmarks Block */
 .benchmarks-block {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
     border-left: 4px solid var(--color-branded);
@@ -2735,7 +2531,6 @@ ul.block-6__cards-container {
     line-height: 1.5;
 }
 
-/* Table Specifics */
 .methodology-table caption {
     caption-side: top;
     text-align: left;
@@ -2773,21 +2568,15 @@ ul.block-6__cards-container {
     line-height: 1.4;
 }
 
-/* --- Исправленный блок Metadata E-E-A-T --- */
 .test-metadata-block {
     margin-top: 40px;
     padding: 24px;
-    /* Делаем блок визуально цельным (карточка) */
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-
-    /* Центрируем и ограничиваем ширину */
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
-
-    /* Выравнивание содержимого */
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -2796,7 +2585,6 @@ ul.block-6__cards-container {
 .metadata-header {
     font-size: 13px;
     color: #888;
-    /* Более приглушенный цвет заголовка */
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
@@ -2808,22 +2596,17 @@ ul.block-6__cards-container {
     margin-bottom: 4px;
 }
 
-/* Используем Flexbox вместо Grid для плотной упаковки */
 .metadata-grid {
     display: flex;
     flex-wrap: wrap;
-    /* Разрешаем перенос на новую строку */
     gap: 24px;
-    /* Отступы между элементами */
     align-items: baseline;
-    /* Выравнивание по базовой линии текста */
     font-size: 14px;
     color: #ccc;
 }
 
 .metadata-item {
     flex: 0 1 auto;
-    /* Элементы занимают столько места, сколько нужно контенту */
 }
 
 .metadata-item strong {
@@ -2831,14 +2614,11 @@ ul.block-6__cards-container {
     margin-right: 6px;
 }
 
-/* Ссылка на репозиторий занимает всю ширину, если не влезает, или стоит отдельно */
 .metadata-item.full-width {
     width: 100%;
     margin-top: 4px;
-    /* Небольшой отступ сверху для визуального отделения */
     padding-top: 12px;
     border-top: 1px dashed rgba(255, 255, 255, 0.1);
-    /* Пунктирная линия для отделения ссылки */
 }
 
 .repo-link {
@@ -2853,7 +2633,6 @@ ul.block-6__cards-container {
     text-decoration: underline;
 }
 
-/* Адаптив для мобильных: вертикальная стопка */
 @media (max-width: 768px) {
     .metadata-grid {
         flex-direction: column;
@@ -2866,8 +2645,6 @@ ul.block-6__cards-container {
         margin-top: 8px;
     }
 }
-
-/* --- Use Cases Section Styles --- */
 
 /* Intro Tags List */
 .use-cases-intro {
@@ -2899,11 +2676,8 @@ ul.block-6__cards-container {
     color: var(--color-branded-light);
 }
 
-/* Grid Layout */
 .use-case-grid {
     display: grid;
-    /* БЫЛО: grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
-
     /* СТАЛО: Жестко задаем 2 колонки равной ширины */
     grid-template-columns: repeat(2, 1fr);
 
@@ -2911,12 +2685,9 @@ ul.block-6__cards-container {
     padding: 0;
     list-style: none;
     margin: 0 auto;
-
-    /* Ограничиваем общую ширину, чтобы 2 карточки не выглядели слишком растянутыми на огромных экранах */
     max-width: 1000px;
 }
 
-/* Card Style */
 .use-case-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -2933,15 +2704,12 @@ ul.block-6__cards-container {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Image Area */
 .use-case-figure {
     margin: 0;
     position: relative;
     width: 100%;
     padding-top: 60%;
-    /* Aspect Ratio 5:3 */
     background: #222;
-    /* Placeholder color */
     overflow: hidden;
 }
 
@@ -2974,7 +2742,6 @@ ul.block-6__cards-container {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Content Area */
 .use-case-content {
     padding: 24px;
     display: flex;
@@ -3006,7 +2773,6 @@ ul.block-6__cards-container {
     opacity: 0.8;
 }
 
-/* CTA Button */
 .use-case-btn {
     align-self: flex-start;
     font-size: 13px;
@@ -3025,10 +2791,8 @@ ul.block-6__cards-container {
     text-decoration: none;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     .use-case-grid {
-        /* На мобильных переключаемся на 1 колонку */
         grid-template-columns: 1fr;
     }
 
@@ -3044,8 +2808,6 @@ ul.block-6__cards-container {
         max-width: 300px;
     }
 }
-
-/* --- Reviews Section Styles --- */
 
 /* Aggregate Rating Header */
 .aggregate-rating-block {
@@ -3066,7 +2828,6 @@ ul.block-6__cards-container {
 
 .rating-stars {
     color: var(--color-gold);
-    /* #FFD700 or defined var */
     font-size: 24px;
     letter-spacing: 2px;
     margin-bottom: 8px;
@@ -3085,7 +2846,6 @@ ul.block-6__cards-container {
     display: block;
 }
 
-/* Reviews Grid */
 .reviews-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -3096,7 +2856,6 @@ ul.block-6__cards-container {
     max-width: 1200px;
 }
 
-/* Review Card */
 .review-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3129,13 +2888,11 @@ ul.block-6__cards-container {
     flex-grow: 1;
 }
 
-/* Review Author (Cite) */
 .review-author {
     display: flex;
     align-items: center;
     gap: 16px;
     font-style: normal;
-    /* Reset cite italic */
     margin-top: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     padding-top: 16px;
@@ -3148,7 +2905,6 @@ ul.block-6__cards-container {
     object-fit: cover;
     border: 2px solid rgba(255, 255, 255, 0.1);
     background: #333;
-    /* Fallback color */
 }
 
 .author-info {
@@ -3168,7 +2924,6 @@ ul.block-6__cards-container {
     margin-top: 2px;
 }
 
-/* Mobile Adjustments */
 @media (max-width: 768px) {
     .reviews-grid {
         grid-template-columns: 1fr;
@@ -3179,43 +2934,35 @@ ul.block-6__cards-container {
     }
 }
 
-/* Общий контейнер, который держит колонки */
 .block-10__items-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
-    /* Чтобы колонки не растягивались по высоте, если контента мало */
     gap: 24px;
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
 }
 
-/* Стили для каждой колонки */
 .block-10__column {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    /* Расстояние между вопросами внутри колонки */
     flex: 1;
-    /* Колонки делят ширину поровну */
     width: 100%;
 }
 
-/* Карточка вопроса */
 .block-10__item {
     width: 100%;
     position: relative;
     background: rgba(18, 19, 21, 0.2);
-    /* #12131533 */
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
-/* Адаптив для мобильных и планшетов (перестраиваем в одну колонку) */
 @media (max-width: 900px) {
     .block-10__items-container {
         flex-direction: column;
@@ -3229,16 +2976,12 @@ ul.block-6__cards-container {
     margin-bottom: 32px;
 }
 
-/* Основная кнопка CTA */
 .block-11__button {
     margin: 0;
-    /* Сбрасываем старые отступы */
     min-width: 240px;
     font-size: 18px;
-    /* Чуть крупнее для акцента */
 }
 
-/* Вторичная ссылка (Галерея) */
 .block-11__secondary-link {
     font-size: 16px;
     color: var(--color-white);
@@ -3253,13 +2996,11 @@ ul.block-6__cards-container {
     border-bottom-color: var(--color-branded-light);
 }
 
-/* Блок доверия (E-E-A-T) */
 .block-11__trust-info {
     display: flex;
     align-items: flex-start;
     gap: 12px;
     background: rgba(0, 0, 0, 0.3);
-    /* Темная подложка для читаемости на фоне */
     padding: 12px 20px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3285,11 +3026,9 @@ ul.block-6__cards-container {
     font-weight: 600;
 }
 
-/* Адаптив для мобильных */
 @media (max-width: 600px) {
     .block-11__content {
         align-items: center;
-        /* Центрируем контент */
         text-align: center;
     }
 
@@ -3301,9 +3040,7 @@ ul.block-6__cards-container {
 
     .block-11__button {
         width: 100%;
-        /* Кнопка на всю ширину */
         margin-left: 0;
-        /* Убираем margin-left если он был в базовых стилях */
     }
 
     .block-11__trust-info {
@@ -3314,8 +3051,6 @@ ul.block-6__cards-container {
         padding: 16px;
     }
 }
-
-/* --- Sources & Author Section Styles --- */
 
 .sources-section {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -3355,7 +3090,6 @@ ul.block-6__cards-container {
     color: var(--color-white);
 }
 
-/* Author Card */
 .author-bio-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3430,7 +3164,6 @@ ul.block-6__cards-container {
     transform: translateX(4px);
 }
 
-/* Sources List */
 .sources-block {
     margin-bottom: 32px;
 }
@@ -3467,7 +3200,6 @@ ul.block-6__cards-container {
     color: #444;
 }
 
-/* Breadcrumbs */
 .breadcrumbs-footer {
     font-size: 13px;
     color: #666;
@@ -3493,7 +3225,6 @@ ul.block-6__cards-container {
     color: var(--color-white);
 }
 
-/* Mobile Responsiveness */
 @media (max-width: 768px) {
     .sources-header {
         flex-direction: column;

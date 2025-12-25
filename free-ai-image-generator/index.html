@@ -134,7 +134,6 @@
             <span class="quote-author">— Ethan Brooks, Motion Designer & Content Strategist</span>
         </blockquote>
     </section>
-    <!-- Gallery Section (Moved Up) -->
     <section class="block-7" style="background: none;">
         <div class="container">
             <div class="block-7__content" style="gap: 0">
@@ -261,10 +260,7 @@
             at sunset," the model interprets the words, and out comes a visual. Under the hood, it's diffusion models
             doing the heavy lifting — starting with noise and refining it step-by-step until the image matches your
             description.</p>
-
-        <!-- МУЛЬТИМЕДИА: Схема -->
         <figure style="margin: 40px 0;">
-            <!-- Адаптивная SVG схема -->
             <svg viewBox="0 0 800 220" xmlns="http://www.w3.org/2000/svg"
                 style="width: 100%; height: auto; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <defs>
@@ -272,53 +268,33 @@
                         <polygon points="0 0, 10 3.5, 0 7" fill="#666" />
                     </marker>
                 </defs>
-
-                <!-- Step 1: Text Prompt -->
                 <rect x="20" y="80" width="120" height="60" rx="8" fill="rgba(44, 34, 250, 0.2)" stroke="#5851FB"
                     stroke-width="1" />
                 <text x="80" y="115" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">Text
                     Prompt</text>
-
-                <!-- Arrow 1 -->
                 <line x1="140" y1="110" x2="160" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-                <!-- Step 2: Encoder -->
                 <rect x="180" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
                 <text x="240" y="105" font-family="sans-serif" font-size="12" fill="#ddd" text-anchor="middle">Tokenizer
                     /</text>
                 <text x="240" y="125" font-family="sans-serif" font-size="12" fill="#ddd"
                     text-anchor="middle">Encoder</text>
-
-                <!-- Arrow 2 -->
                 <line x1="300" y1="110" x2="320" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-                <!-- Step 3: Latent Space -->
                 <rect x="340" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
                 <text x="400" y="105" font-family="sans-serif" font-size="12" fill="#ddd" text-anchor="middle">Latent
                     Space</text>
                 <text x="400" y="125" font-family="sans-serif" font-size="10" fill="#aaa" text-anchor="middle">(Random
                     Noise)</text>
-
-                <!-- Arrow 3 -->
                 <line x1="460" y1="110" x2="480" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-                <!-- Step 4: Denoising -->
                 <rect x="500" y="80" width="120" height="60" rx="8" fill="rgba(255,255,255,0.05)" stroke="#444" />
                 <text x="560" y="105" font-family="sans-serif" font-size="12" fill="#ddd"
                     text-anchor="middle">Iterative</text>
                 <text x="560" y="125" font-family="sans-serif" font-size="12" fill="#ddd"
                     text-anchor="middle">Denoising</text>
-
-                <!-- Arrow 4 -->
                 <line x1="620" y1="110" x2="640" y2="110" stroke="#666" stroke-width="2" marker-end="url(#arrowhead)" />
-
-                <!-- Step 5: Final Image -->
                 <rect x="660" y="80" width="120" height="60" rx="8" fill="rgba(44, 34, 250, 0.2)" stroke="#5851FB"
                     stroke-width="1" />
                 <text x="720" y="115" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">Final
                     Image</text>
-
-                <!-- Loop annotation -->
                 <path d="M 520 145 Q 560 170 600 145" stroke="#444" stroke-width="1" fill="none" stroke-dasharray="4" />
                 <text x="560" y="180" font-family="sans-serif" font-size="10" fill="#888" text-anchor="middle">Steps
                     20-50+</text>
@@ -327,8 +303,6 @@
                 Figure 1: Generation pipeline — from text input to pixel output.
             </figcaption>
         </figure>
-
-        <!-- Pipeline Text Description -->
         <div
             style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; margin: 24px 0; border: 1px solid rgba(255,255,255,0.1);">
             <h4 style="margin-top: 0; color: var(--color-white);">Here's the pipeline:</h4>
@@ -349,8 +323,6 @@
             manipulating every single pixel from the start, text gets tokenized via pre-trained models (CLIP ViT-L/14,
             for example). Then, cross-attention mechanisms align the visual output with your semantic input, step by
             step, ensuring the result matches your prompt (pcnews.ru, 2023; habr.com, 2023; ultralytics.com, 2023).</p>
-
-        <!-- E-E-A-T Block: Research Foundation -->
         <div class="quote-block" style="margin-top: 48px; border-left-color: rgba(255,255,255,0.2);">
             <h5 style="margin-bottom: 8px; color: var(--color-white); font-size: 18px;">Scientific Basis & Research</h5>
             <p style="font-size: 14px; line-height: 1.5; color: #aaa; margin-bottom: 0;">
@@ -364,7 +336,6 @@
     </section>
 
     <section class="block-9 flex-center-all">
-        <!-- E-E-A-T: HowTo Schema Structure -->
         <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -439,8 +410,6 @@
                                 </p>
                             </div>
                         </div>
-
-                        <!-- Step 3 -->
                         <div class="block-9__card">
                             <div class="block-9__card-content">
                                 <span class="step-number">3</span>
@@ -1059,22 +1028,16 @@
 
     <section class="article-section" id="advanced-tools" style="margin-bottom: 60px;">
         <h2 style="margin-top: 60px; text-align: center;">Advanced Tools: Enhance and Edit Your Images</h2>
-
-        <!-- Context / Intro Text -->
         <div class="tools-intro">
             <p>Inpainting lets you swap a product in a lifestyle shot without reshooting. Outpainting extends canvas for
                 different aspect ratios (1:1 Instagram vs. 16:9 YouTube). Both use diffusion models applying denoising
                 to masked or extended areas — same tech, surgical precision (Adobe Photoshop Beta, 2024; Behance case
                 studies, 2024).</p>
         </div>
-
-        <!-- Tools Grid -->
         <ul class="tools-grid">
-            <!-- Tool 1: Upscaler -->
             <li class="tool-card">
                 <figure class="tool-figure">
                     <div class="tool-image-wrapper">
-                        <!-- Placeholder for Before/After image -->
                         <img src="/assets/images/upscale-demo.png"
                             alt="Before/after image upscale (2x) — текстура ткани и края шрифтов стали четче"
                             class="tool-img">
@@ -1088,8 +1051,6 @@
                     </figcaption>
                 </figure>
             </li>
-
-            <!-- Tool 2: Enhancer -->
             <li class="tool-card">
                 <figure class="tool-figure">
                     <div class="tool-image-wrapper">
@@ -1105,8 +1066,6 @@
                     </figcaption>
                 </figure>
             </li>
-
-            <!-- Tool 3: Editor -->
             <li class="tool-card">
                 <figure class="tool-figure">
                     <div class="tool-image-wrapper">
@@ -1121,8 +1080,6 @@
                     </figcaption>
                 </figure>
             </li>
-
-            <!-- Tool 4: Background -->
             <li class="tool-card">
                 <figure class="tool-figure">
                     <div class="tool-image-wrapper">
@@ -1138,8 +1095,6 @@
                 </figure>
             </li>
         </ul>
-
-        <!-- Pro Tips Section -->
         <div class="tools-tips-container">
             <div class="tip-box">
                 <h4>🎨 Inpainting tips</h4>
@@ -1175,7 +1130,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Our Generator -->
                     <tr style="background: rgba(44, 34, 250, 0.1);">
                         <td><strong>Our Generator</strong></td>
                         <td>4.2s <span style="font-size: 12px; display: block; opacity: 0.7;">(P50: 4.2s)</span></td>
@@ -1253,8 +1207,6 @@
 
     <section class="comparison-section">
         <h2>Best AI Image Generators 2025: Review and Comparison</h2>
-
-        <!-- Навигация -->
         <div style="margin-bottom: 24px;">
             <p
                 style="margin-bottom: 16px; font-size: 14px; color: #aaa; text-transform: uppercase; letter-spacing: 1px;">
@@ -1298,7 +1250,6 @@
                         <td>Yes <span style="font-size: 11px; color:#aaa;">(with sub)</span></td>
                         <td>From $10 <span style="font-size: 11px; color:#aaa;">(annual)</span></td>
                     </tr>
-                    <!-- Nano Banana Pro -->
                     <tr style="background: rgba(44, 34, 250, 0.05);">
                         <td><strong>Nano Banana Pro</strong><br><span
                                 style="font-size: 11px; opacity: 0.7;">(Gemini)</span></td>
@@ -1749,8 +1700,6 @@
     </section>
 
     <section class="comparison-section" style="text-align: left;">
-
-        <!-- Текстовый блок (бывшая карточка) -->
         <div class="free-tool-section">
             <h3>If You Need a Fully Free Tool</h3>
             <p>
@@ -1758,8 +1707,6 @@
                 language support, local access), or a locally hosted <strong>Stable Diffusion</strong> with
                 pre-configured setups (like Fooocus or ComfyUI).
             </p>
-
-            <!-- Критерии выбора (врезка) -->
             <div class="criteria-inset">
                 <span class="criteria-label">Decision criteria:</span>
                 <ul class="criteria-list">
@@ -1769,10 +1716,7 @@
                 </ul>
             </div>
         </div>
-
-        <!-- МУЛЬТИМЕДИА: Flowchart (SVG) -->
         <figure class="flowchart-figure">
-            <!-- SVG Схема (осталась прежней) -->
             <svg viewBox="0 0 800 360" xmlns="http://www.w3.org/2000/svg"
                 style="width: 100%; height: auto; background: rgba(255,255,255,0.02); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <defs>
@@ -1784,14 +1728,10 @@
                         <stop offset="100%" style="stop-color:rgba(44, 34, 250, 0.1)" />
                     </linearGradient>
                 </defs>
-
-                <!-- Start Node -->
                 <rect x="300" y="20" width="200" height="50" rx="25" fill="#fff" fill-opacity="0.1" stroke="#fff"
                     stroke-opacity="0.3" />
                 <text x="400" y="50" font-family="sans-serif" font-size="16" fill="#fff" text-anchor="middle"
                     font-weight="bold">Start: What's your Goal?</text>
-
-                <!-- Arrows -->
                 <line x1="400" y1="70" x2="100" y2="130" stroke="#666" stroke-width="2"
                     marker-end="url(#arrow-nocard)" />
                 <line x1="400" y1="70" x2="300" y2="130" stroke="#666" stroke-width="2"
@@ -1800,8 +1740,6 @@
                     marker-end="url(#arrow-nocard)" />
                 <line x1="400" y1="70" x2="700" y2="130" stroke="#666" stroke-width="2"
                     marker-end="url(#arrow-nocard)" />
-
-                <!-- Level 2 Nodes -->
                 <rect x="20" y="130" width="160" height="40" rx="8" fill="url(#boxGrad-nocard)"
                     stroke="var(--color-branded)" stroke-width="1" />
                 <text x="100" y="155" font-family="sans-serif" font-size="14" fill="#ddd" text-anchor="middle">Text on
@@ -1821,8 +1759,6 @@
                     stroke="var(--color-branded)" stroke-width="1" />
                 <text x="700" y="155" font-family="sans-serif" font-size="14" fill="#ddd" text-anchor="middle">Budget =
                     $0?</text>
-
-                <!-- Arrows down -->
                 <line x1="100" y1="170" x2="100" y2="230" stroke="#444" stroke-width="1"
                     marker-end="url(#arrow-nocard)" />
                 <line x1="300" y1="170" x2="300" y2="230" stroke="#444" stroke-width="1"
@@ -1831,8 +1767,6 @@
                     marker-end="url(#arrow-nocard)" />
                 <line x1="700" y1="170" x2="700" y2="230" stroke="#444" stroke-width="1"
                     marker-end="url(#arrow-nocard)" />
-
-                <!-- Results -->
                 <text x="100" y="250" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle"
                     font-weight="bold">Ideogram</text>
                 <text x="100" y="270" font-family="sans-serif" font-size="12" fill="#888" text-anchor="middle">or Nano
@@ -1856,8 +1790,6 @@
             <figcaption class="flowchart-caption">Figure 2: AI Generator Decision Tree — Matching goals to the right
                 tool.</figcaption>
         </figure>
-
-        <!-- Текстовое описание логики -->
         <div class="logic-grid">
             <div class="logic-item">
                 <span class="logic-question">Need text on image?</span>
@@ -1879,8 +1811,6 @@
                     free credits), or <strong>Ideogram</strong> (weekly free tier).</span>
             </div>
         </div>
-
-        <!-- E-E-A-T: Expert Quote -->
         <div class="creator-quote-card">
             <div class="quote-content">
                 "For commercial video work, I test generators on three things: speed (can it keep up with my edit
@@ -2009,8 +1939,6 @@
             Respect authorial styles, avoid deceiving audiences, and prioritize transparency. As creators, we must
             navigate the fine line between inspiration and infringement.
         </p>
-
-        <!-- Best Practices Text Block -->
         <div class="article-section" style="margin-bottom: 48px; padding: 0;">
             <h3 style="font-size: 24px; color: var(--color-white); margin-bottom: 16px;">Best Practices</h3>
             <ul class="creator-list">
@@ -2024,10 +1952,7 @@
                     (e.g., <code>no Mickey Mouse, no Nike swoosh</code>).</li>
             </ul>
         </div>
-
-        <!-- DO / DON'T Multimedia Cards -->
         <div class="dodont-container">
-            <!-- DO Column -->
             <div class="dodont-column">
                 <div class="dodont-header do-header">
                     <span class="dodont-icon">✅</span> DO
@@ -2054,8 +1979,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- DON'T Column -->
             <div class="dodont-column">
                 <div class="dodont-header dont-header">
                     <span class="dodont-icon">❌</span> DON'T
@@ -2083,8 +2006,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- E-E-A-T Regulatory Frameworks -->
         <div class="regulatory-block">
             <h3 class="regulatory-title">
                 <span style="margin-right: 8px;">⚖️</span> Regulatory Frameworks (E-E-A-T)
@@ -2112,8 +2033,6 @@
                     2 Report, OpenAI ToS.</span>
             </div>
         </div>
-
-        <!-- Disclaimer -->
         <div class="disclaimer-box">
             <strong class="disclaimer-header">⚠️ Disclaimer for Regulated Content</strong>
             <p>
@@ -2127,8 +2046,6 @@
 
     <section class="comparison-section methodology-section" id="methodology">
         <h2 style="text-align: center; margin-bottom: 40px;">How We Tested and Selected the Best Generators</h2>
-
-        <!-- Intro: Criteria & Methodology -->
         <div class="methodology-intro-grid">
             <div class="method-card">
                 <div class="method-icon">🎯</div>
@@ -2145,8 +2062,6 @@
                     Motion Designer, and a Content Strategist.</p>
             </div>
         </div>
-
-        <!-- Industry Benchmarks Block -->
         <div class="benchmarks-block">
             <h3 class="benchmarks-title">Standard Industry Benchmarks (2025)</h3>
             <div class="benchmarks-list">
@@ -2172,8 +2087,6 @@
                 compositionality and spatial relationships.
             </p>
         </div>
-
-        <!-- Methodology Table -->
         <div class="comparison-table-wrapper">
             <table class="comparison-table methodology-table">
                 <caption>Testing Methodology: Genre Winners & Metrics</caption>
@@ -2248,8 +2161,6 @@
                 </tfoot>
             </table>
         </div>
-
-        <!-- E-E-A-T Data Block -->
         <div class="test-metadata-block">
             <div class="metadata-header">
                 <span class="metadata-icon">📅</span> Test Verification Data
@@ -2272,8 +2183,6 @@
 
     <section class="comparison-section use-cases-section" id="use-cases">
         <h2 style="text-align: center; margin-bottom: 40px;">What You Can Create with AI</h2>
-
-        <!-- Text Categories -->
         <div class="use-cases-intro">
             <ul class="use-cases-tags">
                 <li><strong>Business:</strong> Banners, product images, ad creatives</li>
@@ -2282,10 +2191,7 @@
                 <li><strong>Personal:</strong> Avatars, greeting cards</li>
             </ul>
         </div>
-
-        <!-- Multimedia Cards Grid -->
         <ul class="use-case-grid">
-            <!-- Card 1: Business (Product Mockups) -->
             <li class="use-case-card">
                 <figure class="use-case-figure">
                     <img src="/assets/images/use-case-product.png"
@@ -2301,8 +2207,6 @@
                     <a href="#top-form" class="use-case-btn">Generate this style →</a>
                 </div>
             </li>
-
-            <!-- Card 2: Content Creators (Thumbnails) -->
             <li class="use-case-card">
                 <figure class="use-case-figure">
                     <img src="/assets/images/use-case-youtube.png"
@@ -2319,8 +2223,6 @@
                     <a href="#top-form" class="use-case-btn">Generate this style →</a>
                 </div>
             </li>
-
-            <!-- Card 3: Artists (Concept Art) -->
             <li class="use-case-card">
                 <figure class="use-case-figure">
                     <img src="/assets/images/use-case-concept.png" alt="Futuristic cityscape concept art for pitch deck"
@@ -2336,8 +2238,6 @@
                     <a href="#top-form" class="use-case-btn">Generate this style →</a>
                 </div>
             </li>
-
-            <!-- Card 4: Personal/Social (Instagram) -->
             <li class="use-case-card">
                 <figure class="use-case-figure">
                     <img src="/assets/images/use-case-social.png"
@@ -2357,7 +2257,6 @@
     </section>
 
     <section class="comparison-section reviews-section" itemscope itemtype="https://schema.org/SoftwareApplication">
-        <!-- Hidden meta for Schema completeness -->
         <meta itemprop="name" content="Free AI Image Generator">
         <meta itemprop="applicationCategory" content="DesignApplication">
         <meta itemprop="operatingSystem" content="Web">
@@ -2365,8 +2264,6 @@
         <meta itemprop="priceCurrency" content="USD">
 
         <h2 style="text-align: center; margin-bottom: 24px;">What Users Say About Our Generator</h2>
-
-        <!-- Aggregate Rating Block -->
         <div class="aggregate-rating-block" itemprop="aggregateRating" itemscope
             itemtype="https://schema.org/AggregateRating">
             <div class="rating-number" itemprop="ratingValue">4.6</div>
@@ -2377,10 +2274,7 @@
                 <span class="rating-source">(Source: Stripe/G2/Internal CRM, as of Dec 15, 2025)</span>
             </div>
         </div>
-
-        <!-- Reviews List -->
         <ul class="reviews-grid">
-            <!-- Review 1: Anna -->
             <li class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
                 <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                     <meta itemprop="ratingValue" content="5">
@@ -2397,8 +2291,6 @@
                     </div>
                 </cite>
             </li>
-
-            <!-- Review 2: Dmitry -->
             <li class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
                 <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                     <meta itemprop="ratingValue" content="4">
@@ -2415,8 +2307,6 @@
                     </div>
                 </cite>
             </li>
-
-            <!-- Review 3: Olga -->
             <li class="review-card" itemprop="review" itemscope itemtype="https://schema.org/Review">
                 <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                     <meta itemprop="ratingValue" content="5">
@@ -2443,8 +2333,6 @@
                 <span class="update-icon">📅</span> Last updated: <strong>December 2025</strong>
             </div>
         </div>
-
-        <!-- Author Block (E-E-A-T) -->
         <div class="author-bio-card" itemscope itemtype="https://schema.org/Person">
             <div class="author-avatar-large">EB</div>
             <div class="author-details">
@@ -2462,8 +2350,6 @@
                 <a href="#" class="author-link" itemprop="url" rel="author">View Full Portfolio & Case Studies →</a>
             </div>
         </div>
-
-        <!-- Sources List -->
         <div class="sources-block">
             <h5 class="sources-title">References & Documentation (Verified 2025):</h5>
             <ul class="sources-list-grid">
@@ -2488,8 +2374,6 @@
                 <h2 class="block-10__title">Frequently Asked Questions (FAQ)</h2>
                 <div class="block-10__wrapper">
                     <div class="block-10__items-container">
-
-                        <!-- Первая колонка (3 блока) -->
                         <div class="block-10__column">
                             <div class="block-10__item">
                                 <div class="block-10__border"></div>
@@ -2533,8 +2417,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Вторая колонка (2 блока) -->
                         <div class="block-10__column">
                             <div class="block-10__item">
                                 <div class="block-10__border"></div>
@@ -2571,10 +2453,6 @@
             </div>
         </div>
     </section>
-
-
-
-    <!-- Final CTA Section -->
     <aside class="block-11" role="complementary" aria-label="Call to Action">
         <div class="container container-block-11 flex-center-all">
             <div class="block-11__content">
@@ -2584,16 +2462,12 @@
                     maker with AI assistant are ready to start generating. Click "Generate Free Image" — we'll jump back
                     to the form above.
                 </p>
-
-                <!-- Action Buttons -->
                 <div class="block-11__actions">
                     <a href="#top-form" role="button" class="btn btn-branded flex-center-all block-11__button">
                         Generate Free Image
                     </a>
                     <a href="#gallery-grid" class="block-11__secondary-link">View Gallery</a>
                 </div>
-
-                <!-- E-E-A-T Trust Signal -->
                 <div class="block-11__trust-info">
                     <span class="trust-icon">🔒</span>
                     <p class="block-11__trust-text">
