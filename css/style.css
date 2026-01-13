@@ -3,7 +3,12 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
+    overflow-x: hidden;
     font-family: var(--font-stack);
     font-size: var(--font-size-regular);
     line-height: var(--line-height-regular);
@@ -962,7 +967,6 @@ section {
 
 .block-8__card {
     width: 268px;
-    height: 973px;
     padding: 32px 24px;
     border-radius: 8px;
     background: var(--color-black-light-25);
@@ -1409,7 +1413,6 @@ section {
 
 .block-10__question span {
     flex: 1;
-    margin-right: 16px;
 }
 
 .block-10__icon {

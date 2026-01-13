@@ -1,0 +1,1157 @@
+/* --- Video List Section Styles (Non-Card Layout) --- */
+
+.video-list-section {
+    max-width: 900px !important;
+    /* Делаем чуть шире стандартного article-section для удобства чтения */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-tool-item {
+    margin-bottom: 40px;
+    /* Убираем рамки карточек, оставляем чистый контент */
+}
+
+.video-tool-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-branded-light);
+    /* Выделяем заголовок брендовым цветом */
+    margin-bottom: 12px;
+}
+
+/* Раскрашиваем часть заголовка после тире в белый, если нужно, или оставляем одним цветом.
+   Здесь для читаемости весь заголовок цветной, но можно сделать через span */
+
+.video-tool-desc {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-white);
+    margin-bottom: 20px;
+}
+
+.video-meta-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+}
+
+.video-meta-list li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 8px;
+    padding-left: 16px;
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.video-meta-list li strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.video-cta-wrapper {
+    margin-bottom: 20px;
+}
+
+.btn-video-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-branded);
+    color: var(--color-white);
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 15px;
+}
+
+.btn-video-cta:hover {
+    background: var(--color-white);
+    color: var(--color-black);
+    text-decoration: none;
+    transform: translateX(4px);
+}
+
+.video-quote-block {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #aaa;
+    font-style: italic;
+    margin: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.quote-source-link {
+    font-style: normal;
+    color: var(--color-branded-light);
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.quote-source-link:hover {
+    color: var(--color-white);
+}
+
+.video-divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+    margin: 40px 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .video-tool-title {
+        font-size: 20px;
+    }
+
+    .video-tool-desc {
+        font-size: 16px;
+    }
+
+    .video-meta-list li {
+        padding-left: 12px;
+        font-size: 15px;
+    }
+}
+
+/* --- Video Comparison Table Extensions --- */
+
+/* Стили для блока источников под таблицей */
+.video-sources-block {
+    margin-top: 32px;
+    padding-top: 24px;
+    font-size: 14px;
+    color: #888;
+}
+
+.video-sources-block strong {
+    display: block;
+    color: var(--color-white);
+    margin-bottom: 12px;
+}
+
+.video-sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.video-sources-list li {
+    position: relative;
+}
+
+/* Разделитель между ссылками для красоты */
+.video-sources-list li:not(:last-child)::after {
+    content: "•";
+    color: #444;
+    margin-left: 16px;
+    position: absolute;
+    right: -10px;
+    /* Позиционируем точку между элементами */
+}
+
+.video-sources-list a {
+    color: var(--color-branded-light);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.video-sources-list a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* Адаптивность для таблицы видео (если нужно уточнить ширину колонок) */
+@media (min-width: 1024px) {
+    .video-table th:nth-child(1) {
+        width: 15%;
+    }
+
+    /* Tool */
+    .video-table th:nth-child(2) {
+        width: 20%;
+    }
+
+    /* Best for */
+    .video-table th:nth-child(3) {
+        width: 20%;
+    }
+
+    /* Free Plan */
+    .video-table th:nth-child(4) {
+        width: 10%;
+    }
+
+    /* Watermark */
+    .video-table th:nth-child(5) {
+        width: 15%;
+    }
+
+    /* Resolution */
+    .video-table th:nth-child(6) {
+        width: 20%;
+    }
+
+    /* Avatar */
+}
+
+/* Мобильные правки для списка источников */
+@media (max-width: 768px) {
+    .video-sources-list {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .video-sources-list li:not(:last-child)::after {
+        display: none;
+        /* Убираем точки на мобильном */
+    }
+}
+
+/* --- Popular Video Generators Comparison Styles --- */
+
+/* Настройка ширины колонок для этой конкретной таблицы */
+@media (min-width: 1024px) {
+    .popular-video-table th:nth-child(1) {
+        width: 18%;
+    }
+
+    /* Tool */
+    .popular-video-table th:nth-child(2) {
+        width: 18%;
+    }
+
+    /* Best for */
+    .popular-video-table th:nth-child(3) {
+        width: 20%;
+    }
+
+    /* Free Plan */
+    .popular-video-table th:nth-child(4) {
+        width: 12%;
+    }
+
+    /* Watermark */
+    .popular-video-table th:nth-child(5) {
+        width: 15%;
+    }
+
+    /* Resolution */
+    .popular-video-table th:nth-child(6) {
+        width: 17%;
+    }
+
+    /* Avatars */
+}
+
+/* Блок примечания (Note) */
+.video-note-block {
+    background: rgba(255, 215, 0, 0.05);
+    /* Легкий золотистый оттенок */
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    padding: 16px 24px;
+    border-radius: 8px;
+    margin: 32px 0;
+    font-size: 15px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.video-note-block strong {
+    color: var(--color-gold);
+    margin-right: 4px;
+}
+
+/* Сетка для цитат (чтобы они стояли рядом) */
+.video-quotes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.video-mini-quote {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-branded);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.6;
+    margin: 0;
+    font-style: italic;
+}
+
+.video-mini-quote a {
+    color: var(--color-branded-light);
+    text-decoration: underline;
+    font-style: normal;
+    margin-left: 4px;
+}
+
+.video-mini-quote a:hover {
+    color: var(--color-white);
+}
+
+/* Адаптив для цитат */
+@media (max-width: 768px) {
+    .video-quotes-grid {
+        grid-template-columns: 1fr;
+        /* Одна колонка на мобильном */
+        gap: 16px;
+    }
+
+    .video-note-block {
+        padding: 16px;
+        font-size: 14px;
+    }
+}
+
+/* --- Video Guide Step-by-Step Styles --- */
+
+.video-steps-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-step-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    gap: 32px;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.video-step-card:hover {
+    transform: translateX(8px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.step-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--color-branded);
+    /* Используем ваш брендовый цвет */
+    line-height: 1;
+    opacity: 0.8;
+    min-width: 60px;
+    /* Фиксированная ширина для выравнивания */
+    font-family: 'Onest', sans-serif;
+    /* Ваш шрифт */
+}
+
+.step-content {
+    flex-grow: 1;
+}
+
+.step-content h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 22px;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.step-content p {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+    font-weight: 300;
+}
+
+.step-content strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.step-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Стили для примера в шаге 1 */
+.step-example {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    border-radius: 8px;
+    border-left: 3px solid #888;
+    font-size: 15px !important;
+    color: #ccc !important;
+}
+
+/* Стили для цитаты внутри шага 3 */
+.video-inline-quote {
+    margin: 20px 0 0 0;
+    background: rgba(44, 34, 250, 0.1);
+    /* Легкий оттенок бренда */
+    border: 1px solid rgba(44, 34, 250, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-style: italic;
+    color: #eee;
+}
+
+.video-inline-quote a {
+    color: var(--color-branded-light);
+    text-decoration: underline;
+    font-style: normal;
+}
+
+.video-inline-quote a:hover {
+    color: var(--color-white);
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 768px) {
+    .video-step-card {
+        flex-direction: column;
+        gap: 16px;
+        padding: 24px;
+    }
+
+    .video-step-card:hover {
+        transform: translateY(-4px);
+        /* На мобильном лучше вертикальная анимация */
+    }
+
+    .step-number {
+        font-size: 36px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 12px;
+        width: 100%;
+    }
+}
+
+/* --- Video Criteria Grid Styles --- */
+
+.criteria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.criteria-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.criteria-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.criteria-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(44, 34, 250, 0.1);
+    /* Легкий оттенок бренда */
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-branded-light);
+}
+
+.criteria-content {
+    flex-grow: 1;
+}
+
+.criteria-content h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.criteria-content p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.criteria-content strong {
+    color: var(--color-white);
+    font-weight: 500;
+}
+
+/* Стили для цитаты внутри карточки */
+.criteria-quote {
+    margin: 16px 0 0 0;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 2px solid var(--color-branded);
+    border-radius: 4px;
+    font-size: 13px;
+    font-style: italic;
+    color: #bbb;
+    line-height: 1.5;
+}
+
+.criteria-quote a {
+    color: var(--color-branded-light);
+    text-decoration: underline;
+    font-style: normal;
+}
+
+.criteria-quote a:hover {
+    color: var(--color-white);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .criteria-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .criteria-card {
+        flex-direction: column;
+        /* Иконка сверху */
+    }
+
+    .criteria-icon {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* --- Text-to-Video Section Styles --- */
+
+.text-video-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 24px;
+}
+
+.text-video-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+}
+
+.text-video-list li {
+    position: relative;
+    padding-left: 24px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+/* Кастомные маркеры списка */
+.text-video-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--color-branded);
+    font-size: 20px;
+    line-height: 1.2;
+}
+
+.text-video-list li strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+/* Блок с советами (Tips) */
+.video-tips-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 4px solid var(--color-branded);
+    padding: 20px 24px;
+    border-radius: 4px 8px 8px 4px;
+}
+
+.video-tips-box p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #eee;
+}
+
+.video-tips-box strong {
+    color: var(--color-branded-light);
+}
+
+/* Стилизация блока промптов под терминал/код */
+.prompts-terminal-wrapper {
+    margin-top: 40px;
+}
+
+.prompts-label {
+    display: block;
+    font-size: 18px;
+    color: var(--color-white);
+    margin-bottom: 12px;
+}
+
+.prompts-terminal {
+    background: #1e1e1e;
+    /* Темный фон терминала */
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #a9b7c6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.prompt-line {
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.prompt-line:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.prompt-key {
+    color: var(--color-gold);
+    /* Цвет ключа (Marketing, etc.) */
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.prompt-value {
+    color: #a5d6ff;
+    /* Цвет самого промпта (голубоватый, как строка кода) */
+    display: block;
+    padding-left: 0;
+}
+
+@media (min-width: 600px) {
+    .prompt-value {
+        padding-left: 16px;
+        /* Отступ текста промпта на десктопе */
+    }
+}
+
+/* --- Choosing Generator Section Styles --- */
+
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.task-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.task-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.task-card h3 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: var(--color-branded-light);
+    font-weight: 600;
+}
+
+.task-card p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+    font-weight: 300;
+}
+
+.task-card strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.task-card.full-width {
+    grid-column: 1 / -1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0%, rgba(44, 34, 250, 0.05) 100%);
+    border-left: 4px solid var(--color-branded);
+}
+
+/* --- ИСПРАВЛЕНИЕ ТАБЛИЦЫ (Table Fix) --- */
+
+.tasks-table th,
+.tasks-table td {
+    padding: 16px;
+    font-size: 15px;
+    vertical-align: top;
+    /* Выравнивание по верху для многострочного текста */
+}
+
+.tasks-table td:first-child {
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+/* Стили для Десктопа (убираем скролл, растягиваем на 100%) */
+@media (min-width: 1024px) {
+
+    /* Переопределяем стили обертки, чтобы убрать центрирование flex, которое может мешать */
+    .video-choose-section .comparison-table-wrapper {
+        display: block;
+        overflow-x: visible;
+        /* Отключаем скролл */
+        width: 100%;
+    }
+
+    .tasks-table {
+        width: 100% !important;
+        /* Принудительно на всю ширину */
+        min-width: 0 !important;
+        /* Сбрасываем минимальную ширину */
+        table-layout: fixed;
+        /* Фиксирует ширину колонок, чтобы они не раздувались */
+    }
+
+    /* Настраиваем ширину колонок */
+    .tasks-table th:nth-child(1) {
+        width: 20%;
+    }
+
+    .tasks-table th:nth-child(2) {
+        width: 30%;
+    }
+
+    .tasks-table th:nth-child(3) {
+        width: 50%;
+    }
+
+    /* Разрешаем перенос слов, чтобы текст не растягивал таблицу */
+    .tasks-table td {
+        white-space: normal;
+        word-wrap: break-word;
+    }
+}
+
+/* Стили для Мобильных (оставляем скролл) */
+@media (max-width: 768px) {
+    .tasks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .task-card.full-width {
+        grid-column: auto;
+    }
+
+    .tasks-table {
+        min-width: 600px;
+        /* На телефоне скролл нужен */
+    }
+}
+
+/* --- Core Features Section Styles --- */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 60px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+}
+
+.feature-box:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.feature-box p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    font-weight: 300;
+}
+
+/* Стилизация выделенного жирным текста (ключевых слов) */
+.feature-box strong {
+    color: var(--color-branded-light);
+    font-weight: 600;
+    display: block;
+    /* Делаем заголовок на отдельной строке для красоты */
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+/* Блок Editing Capabilities */
+.editing-block {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-left: 4px solid var(--color-branded);
+    border-radius: 8px;
+    padding: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.editing-block h3 {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 24px;
+    color: var(--color-white);
+}
+
+.editing-block p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #ddd;
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+.editing-block strong {
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .editing-block {
+        padding: 24px;
+    }
+
+    .editing-block h3 {
+        font-size: 20px;
+    }
+}
+
+/* --- Common Mistakes Section Styles --- */
+
+.mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mistake-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    height: 100%;
+}
+
+.mistake-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.mistake-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.mistake-header strong {
+    color: var(--color-branded-light);
+    /* Легкий красноватый оттенок для "ошибки" */
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.mistake-arrow {
+    color: var(--color-branded-light);
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.mistake-solution {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .mistakes-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mistake-card {
+        padding: 20px;
+    }
+}
+
+/* --- Future Trends Section Styles --- */
+
+.future-content-wrapper {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(44, 34, 250, 0.05) 100%);
+    /* Легкий градиент вниз */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Декоративная линия сверху для акцента */
+.future-content-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, var(--color-branded) 50%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0.7;
+}
+
+.future-text {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #eee;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+    font-weight: 300;
+}
+
+/* Стилизация особой "хайлайт" цитаты */
+.highlight-quote {
+    background: rgba(44, 34, 250, 0.1);
+    border-left: 4px solid var(--color-branded);
+    padding: 24px;
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+    font-style: italic;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.highlight-quote a {
+    color: var(--color-branded-light);
+    text-decoration: underline;
+    font-style: normal;
+}
+
+.highlight-quote a:hover {
+    color: var(--color-white);
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .future-content-wrapper {
+        padding: 24px;
+    }
+
+    .future-text {
+        font-size: 16px;
+        text-align: left;
+    }
+}
+
+/* --- Sources & Author Section Styles --- */
+
+/* Блок методологии */
+.methodology-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.methodology-box strong {
+    color: var(--color-white);
+}
+
+/* Карточка автора */
+.author-bio-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    margin-bottom: 48px;
+}
+
+.author-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.author-initials {
+    width: 80px;
+    height: 80px;
+    background: var(--color-branded);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.author-content p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.author-content strong {
+    color: var(--color-white);
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+
+/* Список источников */
+.sources-list-container h3 {
+    font-size: 18px;
+    color: var(--color-white);
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 10px;
+}
+
+.final-sources-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Адаптивная сетка */
+    gap: 12px 32px;
+}
+
+.final-sources-list li {
+    font-size: 14px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.final-sources-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-branded);
+}
+
+.final-sources-list a {
+    color: var(--color-branded-light);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.final-sources-list a:hover {
+    color: var(--color-branded-light);
+    text-decoration: underline;
+}
+
+/* Дисклеймер и разделитель */
+.sources-divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 40px 0 24px 0;
+}
+
+.disclaimer-text {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #777;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.disclaimer-text strong {
+    color: #999;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .author-bio-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 24px;
+    }
+
+    .final-sources-list {
+        grid-template-columns: 1fr;
+    }
+}
