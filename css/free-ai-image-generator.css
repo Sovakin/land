@@ -238,7 +238,6 @@
         scroll-snap-type: x mandatory;
         gap: 20px;
         padding: 10px 4vw 30px 4vw;
-        /* Hide scrollbar */
         scrollbar-width: none;
         -ms-overflow-style: none;
         -webkit-overflow-scrolling: touch;
@@ -318,8 +317,6 @@
         flex-shrink: 0;
     }
 }
-
-
 
 .gallery-item img:hover {
     transform: scale(1.05);
@@ -518,7 +515,6 @@
         display: flex !important;
         flex-wrap: nowrap !important;
         overflow-x: auto !important;
-        /* Важно: делаем слайдер во всю ширину экрана */
         width: 100vw;
         margin-left: calc(50% - 50vw);
         margin-right: calc(50% - 50vw);
@@ -537,7 +533,6 @@
         min-width: 85vw;
         max-width: 85vw;
         flex-shrink: 0;
-        /* Центрируем активный слайд при скролле */
         scroll-snap-align: center;
         margin: 0 !important;
     }
@@ -773,7 +768,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Expert Context Badge */
 .expert-context {
     display: flex;
     align-items: center;
@@ -902,7 +896,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Video Container */
 .howto-video-wrapper {
     width: 100%;
     max-width: 900px;
@@ -1004,7 +997,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Formula Visuals */
 .prompt-guide-block {
     margin-bottom: 32px;
 }
@@ -1150,7 +1142,6 @@ ul.block-6__cards-container {
     border-radius: 3px;
 }
 
-/* Расширяем секцию только на десктопах (экраны шире 1024px) */
 @media (min-width: 1024px) {
     #prompt-secrets {
         max-width: 1200px;
@@ -1169,7 +1160,6 @@ ul.block-6__cards-container {
         table-layout: fixed;
     }
 
-    /* 1. Poor Prompt */
     #prompt-secrets .prompt-comparison-table th:nth-child(1) {
         width: 15%;
     }
@@ -1318,7 +1308,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Expand section width on desktop for 2x2 grid */
 @media (min-width: 1024px) {
     #advanced-tools {
         max-width: 1200px;
@@ -1695,7 +1684,6 @@ ul.block-6__cards-container {
     color: #f87171;
 }
 
-/* Инфо-блок с ценами и назначением */
 .specs-box {
     display: flex;
     flex-wrap: wrap;
@@ -2277,7 +2265,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Layout for DO/DON'T Columns */
 .dodont-container {
     display: flex;
     gap: 32px;
@@ -2448,7 +2435,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Intro Grid (Criteria & Methodology) */
 .methodology-intro-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -2644,7 +2630,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Intro Tags List */
 .use-cases-intro {
     margin-bottom: 40px;
     display: flex;
@@ -2676,9 +2661,7 @@ ul.block-6__cards-container {
 
 .use-case-grid {
     display: grid;
-    /* СТАЛО: Жестко задаем 2 колонки равной ширины */
     grid-template-columns: repeat(2, 1fr);
-
     gap: 24px;
     padding: 0;
     list-style: none;
@@ -2807,7 +2790,6 @@ ul.block-6__cards-container {
     }
 }
 
-/* Aggregate Rating Header */
 .aggregate-rating-block {
     display: flex;
     flex-direction: column;
@@ -3246,9 +3228,7 @@ ul.block-6__cards-container {
     }
 }
 
-/* ===== MOBILE SLIDER FIX ===== */
 @media (max-width: 900px) {
-
     .gallery-grid {
         display: flex;
         gap: 16px;

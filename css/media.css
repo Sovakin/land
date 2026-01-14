@@ -1,22 +1,12 @@
-/* Media queries for adaptivity */
+@media (min-width: 1200px) {}
 
-/* Large desktop screens */
-@media (min-width: 1200px) {
-    /* Styles for large screens */
-}
+@media (max-width: 1199px) and (min-width: 992px) {}
 
-/* Medium desktop screens */
-@media (max-width: 1199px) and (min-width: 992px) {
-    /* Styles for medium screens */
-}
-
-/* Tablets */
 @media (max-width: 991px) and (min-width: 768px) {
     .container {
         max-width: 720px;
     }
 
-    /* Block 8 responsive styles */
     .block-8__main-image-container {
         max-width: 720px;
     }
@@ -25,7 +15,6 @@
         max-width: 344px;
     }
 
-    /* Block 13 responsive styles */
     .block-13__feature-container {
         flex-direction: column;
         gap: 48px;
@@ -41,13 +30,11 @@
         height: 616px;
     }
 
-    /* Block 3 responsive styles */
     .block-3__card {
         width: 100%;
         max-width: 544px;
     }
 
-    /* Block 4 responsive styles */
     .block-4__feature-container,
     .block-4__feature-container--reverse {
         flex-direction: column;
@@ -68,29 +55,22 @@
         text-align: center;
     }
 
-    /* Block 6 responsive styles */
     .block-6__image {
         width: 100%;
         height: auto;
     }
 
-    /* Block 7 responsive styles */
     .block-7__stats-container {
         gap: 40px;
     }
-
-    /* Other styles for tablets */
 }
 
-/* Navigation menu responsive styles */
 .menu-toggle {
     display: none;
-    /* Hidden by default, shown in media queries */
 }
 
 body.menu-open {
     overflow: hidden;
-    /* Prevent scrolling when menu is open */
 }
 
 @media (max-width: 991px) {
@@ -169,13 +149,11 @@ body.menu-open {
     }
 }
 
-/* Mobile devices (landscape orientation) */
 @media (max-width: 767px) and (min-width: 576px) {
     .container {
         max-width: 540px;
     }
 
-    /* Block 8 responsive styles */
     .block-8__main-image-container {
         max-width: 540px;
     }
@@ -185,7 +163,6 @@ body.menu-open {
         width: 100%;
     }
 
-    /* Block 13 responsive styles */
     .block-13 {
         padding: var(--spacing-md);
         margin: 0;
@@ -225,7 +202,6 @@ body.menu-open {
         align-self: center;
     }
 
-    /* Block 3 responsive styles */
     .block-3__card {
         width: 100%;
         max-width: 544px;
@@ -236,7 +212,6 @@ body.menu-open {
         line-height: 40px;
     }
 
-    /* Block 4 responsive styles */
     .block-4__feature-container,
     .block-4__feature-container--reverse {
         flex-direction: column;
@@ -262,7 +237,6 @@ body.menu-open {
         height: auto;
     }
 
-    /* Block 6 responsive styles */
     .block-6__title {
         font-size: 32px;
         line-height: 40px;
@@ -277,7 +251,6 @@ body.menu-open {
         margin-top: 48px;
     }
 
-    /* Block 7 responsive styles */
     .block-7__stats-container {
         gap: 36px;
     }
@@ -286,18 +259,14 @@ body.menu-open {
         font-size: 36px;
         line-height: 44px;
     }
-
-    /* Other styles for mobile devices in landscape orientation */
 }
 
-/* Mobile devices (portrait orientation) */
 @media (max-width: 575px) {
     .container {
         max-width: 90%;
         padding: 0 10px;
     }
 
-    /* Block 8 responsive styles */
     .block-8 {
         padding: var(--spacing-md);
         margin: 0;
@@ -321,7 +290,6 @@ body.menu-open {
         gap: 16px;
     }
 
-    /* Block 13 responsive styles */
     .block-13 {
         padding: 40px 16px;
         margin: 0;
@@ -376,7 +344,6 @@ body.menu-open {
         max-width: 240px;
     }
 
-    /* Block 10 responsive styles */
     .block-10 {
         padding: var(--spacing-md);
         margin: 0;
@@ -396,7 +363,6 @@ body.menu-open {
         max-width: 340px;
     }
 
-    /* Reducing font size for mobile devices */
     body {
         font-size: 14px;
     }
@@ -409,12 +375,10 @@ body.menu-open {
         font-size: 1.5rem;
     }
 
-    /* Reducing section paddings */
     section {
         padding: 0;
     }
 
-    /* Block 1 responsive styles */
     .block-1 {
         padding: 40px 16px 32px 16px;
         margin: 16px 16px 0 16px;
@@ -423,7 +387,6 @@ body.menu-open {
         align-items: flex-start;
     }
 
-    /* Reduce vertical gaps between sections on mobile */
     .block-2,
     .block-3,
     .block-4,
@@ -474,7 +437,6 @@ body.menu-open {
     }
 
     .block-1__trust {
-        justify-content: flex-start;
         margin-top: 24px;
         width: 100%;
         height: auto;
@@ -513,7 +475,6 @@ body.menu-open {
         margin-top: 24px;
     }
 
-    /* Block 3 responsive styles */
     .block-3 {
         min-height: auto;
         padding: 40px 0;
@@ -543,7 +504,6 @@ body.menu-open {
         padding: 16px 24px 24px;
     }
 
-    /* Block 4 responsive styles */
     .block-4 {
         padding: 40px 16px;
     }
@@ -589,7 +549,6 @@ body.menu-open {
         height: auto;
     }
 
-    /* Block 6 responsive styles */
     .block-6 {
         padding: 40px 16px;
     }
@@ -630,7 +589,6 @@ body.menu-open {
         border-radius: 8px;
     }
 
-    /* Block 7 responsive styles */
     .block-7 {
         padding: 40px 0px;
     }
@@ -649,7 +607,6 @@ body.menu-open {
         line-height: 24px;
     }
 
-    /* Block 9 responsive styles */
     .block-9__cards-wrapper {
         gap: 24px;
     }
@@ -658,11 +615,8 @@ body.menu-open {
         width: 100%;
         max-width: 100%;
     }
-
-    /* Other styles for mobile devices in portrait orientation */
 }
 
-/* Media queries for block-11 */
 @media (max-width: 1440px) {
     .container-block-11 {
         width: 100%;

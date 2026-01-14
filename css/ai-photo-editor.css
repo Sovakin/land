@@ -1,0 +1,241 @@
+.visual-media-container {
+    margin: 24px 0;
+    text-align: center;
+}
+
+.visual-media-container figure {
+    margin: 0;
+}
+
+.media-caption {
+    font-size: 13px;
+    color: #888;
+    margin-top: 8px;
+    font-style: italic;
+    font-family: inherit;
+}
+
+.feature-list-centered {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    border-radius: 12px;
+}
+
+.feature-list-centered ul {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+.feature-list-centered li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.feature-list-centered li::before {
+    content: "•";
+    color: var(--color-branded);
+    position: absolute;
+    left: 0;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.review-card h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: var(--color-white);
+    margin-bottom: 16px;
+}
+
+.review-card p {
+    font-size: 14px;
+    color: #ccc;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.expert-insight {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid var(--color-branded);
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+}
+
+.expert-insight h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: var(--color-white);
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.reviews-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 20px;
+}
+
+.review-rank {
+    font-size: 32px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    font-family: 'Onest', sans-serif;
+    min-width: 50px;
+}
+
+.review-title {
+    margin: 0;
+    font-size: 22px;
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.review-body {
+    padding: 24px;
+}
+
+.review-desc,
+.review-pricing {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 16px;
+}
+
+.review-desc strong,
+.review-pricing strong {
+    color: var(--color-white);
+}
+
+.review-pros-cons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.review-pros-cons .label {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.review-pros-cons .pros .label {
+    color: #4ade80;
+}
+
+.review-pros-cons .cons .label {
+    color: #f87171;
+}
+
+.review-pros-cons ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-pros-cons li {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.4;
+}
+
+.review-pros-cons .pros li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #4ade80;
+    font-size: 12px;
+}
+
+.review-pros-cons .cons li::before {
+    content: "✖";
+    position: absolute;
+    left: 0;
+    color: #f87171;
+    font-size: 12px;
+}
+
+.review-source {
+    font-size: 12px;
+    color: #888;
+    font-style: italic;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+}
+
+@media (max-width: 768px) {
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .review-rank {
+        font-size: 24px;
+    }
+
+    .review-pros-cons {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
