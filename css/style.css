@@ -7,6 +7,22 @@ html {
     overflow-x: hidden;
 }
 
+.btn-header-external {
+    width: 101px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+    color: var(--color-white);
+    background-color: var(--color-branded);
+    border-color: var(--color-branded);
+    border-radius: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-sm-plus);
+    text-decoration: none;
+    margin-left: var(--spacing-xl);
+}
+
 /* --- Redesigned Detailed Reviews (List Layout) --- */
 
 .reviews-list-wrapper {
@@ -302,7 +318,6 @@ section {
 
 .btn-header {
     width: 101px;
-    height: 40;
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
@@ -313,7 +328,6 @@ section {
     border-color: var(--color-branded);
     border-radius: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-sm-plus);
-    margin-left: var(--spacing-xl);
     text-decoration: none;
 }
 
