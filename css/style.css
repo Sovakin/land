@@ -357,7 +357,7 @@ section {
 .block-1 {
     min-height: 640px;
     padding: 100px 32px;
-    background-image: linear-gradient(var(--color-black-alpha), var(--color-black-alpha)), url('../assets/images/block-1.jpg');
+    background-image: linear-gradient(var(--color-black-alpha), var(--color-black-alpha)), url('../assets/images/block-1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -1814,7 +1814,7 @@ section {
 
 .block-11 {
     min-height: 644px;
-    background-image: url('../assets/images/block-11.png');
+    background-image: url('../assets/images/block-11.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

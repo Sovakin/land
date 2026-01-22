@@ -284,7 +284,7 @@ The article may contain special markers for visual elements. Each marker must be
 
 ```html
 <figure style="margin: 40px 0;">
-    <img src="/assets/images/compressor-ui.png" 
+    <img src="/assets/images/compressor-ui.webp" 
           alt="Interface of online video compressor showing target-size slider and Compress button" 
           style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);">
     <figcaption style="text-align: center; margin-top: 12px; font-size: 0.9em; color: #aaa;">
@@ -453,10 +453,10 @@ The result must be completely ready for use without additional edits.
 1. RETURN ONLY RAW HTML CODE. Do not write "Here is the code" or "Done". Do not use markdown blocks (```html). Start immediately with <!DOCTYPE html>.
 2. IMAGE PATHS & FORMAT: 
    - All <img> src attributes MUST start with "/assets/images/".
-   - All image filenames MUST end with the ".png" extension. 
-   - Do NOT use .svg, .jpg, .webp or .jpeg. ONLY .png.
+   - All image filenames MUST end with the ".webp" extension. 
+   - Do NOT use .svg, .webp, .webp or .jpeg. ONLY .webp.
    - Use descriptive filenames in kebab-case.
-   - Example: src="/assets/images/hero-logo-generator-ui.png"
+   - Example: src="/assets/images/hero-logo-generator-ui.webp"
 3. IMAGE ALTS: All <img> alt attributes must contain a detailed visual description (prompt) for an AI image generator.
 4. NO TRUNCATION OR SUMMARIZATION: 
    - You MUST convert 100% of the input Markdown article into HTML.
