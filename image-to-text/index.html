@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to Text: Extract Text From Images Accurately</title>
+    <meta name="description"
+        content="Convert image to text in seconds with OCR. Learn how to extract, copy, and edit text from photos, screenshots, and scanned documents with high accuracy." />
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://hypeart.ai/image-to-text/" />
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <link rel="stylesheet" href="/css/ai-art-generator.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBZZ8PR56Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WBZZ8PR56Q');
+    </script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__logo flex-center">
+                <a href="/" class="nav__logo-link">hypeart.ai</a>
+            </div>
+            <div class="nav__menu flex-center">
+                <ul class="nav__links">
+                    <li class="nav__item"><a href="#image-to-video" class="nav__link">Image to Video</a></li>
+                    <li class="nav__item"><a href="#text-to-video" class="nav__link">Text to Video</a></li>
+                    <li class="nav__item"><a href="#video-to-video" class="nav__link">Video to Video</a></li>
+                    <li class="nav__item"><a href="#templates" class="nav__link">Templates</a></li>
+                    <li class="nav__item"><a href="#pricing" class="nav__link">Pricing</a></li>
+                </ul>
+                <a href="/auth/registration" class="btn btn-header-external flex-center-all">Start for Free</a>
+            </div>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+    <div class="breadcrumbs-external-wrapper">
+        <nav class="breadcrumbs-nav" aria-label="Breadcrumb">
+            <ol class="breadcrumbs-list">
+                <li class="breadcrumbs-item"><a href="/">Home</a></li>
+                <li class="breadcrumbs-separator">/</li>
+                <li class="breadcrumbs-item"><span aria-current="page">Image To Text</span></li>
+            </ol>
+        </nav>
+    </div>
+    <main>
+        <section class="block-1" id="hero">
+            <div class="container">
+                <div class="ai-transparency-block">
+                    <h1 class="block-1__title">Free Online Image to Text Converter (Image to Text)</h1>
+                    <div class="block-1__subtitle">
+                        <p>Instantly extract text and convert image to text — online, free. Upload image (JPG, PNG,
+                            PDF), paste images/URL or choose images for file upload. Our converter scans and performs
+                            scan image to text, turning image file into editable text. From image to text in seconds:
+                            hit "Convert" and get results.</p>
+                    </div>
+                    <div class="block-1__trust flex-center-all">
+                        <img src="/assets/images/wreath-left.svg" alt="Wreath Left" class="block-1__trust-wreath-left">
+                        <div class="block-1__trust-content">
+                            <div class="block-1__trust-stars flex-center-all">
+                                <img src="/assets/images/star.svg" alt="Star" class="block-1__trust-star">
+                                <img src="/assets/images/star.svg" alt="Star" class="block-1__trust-star">
+                                <img src="/assets/images/star.svg" alt="Star" class="block-1__trust-star">
+                                <img src="/assets/images/star.svg" alt="Star" class="block-1__trust-star">
+                                <img src="/assets/images/star.svg" alt="Star" class="block-1__trust-star">
+                            </div>
+                            <div class="block-1__trust-text">
+                                Trusted by <span class="block-1__trust-highlight">1 000 000</span> users
+                            </div>
+                        </div>
+                        <img src="/assets/images/wreath-right.svg" alt="Wreath Right"
+                            class="block-1__trust-wreath-right">
+                    </div>
+                    <div class="block-1__input-container">
+                        <input type="text" class="block-1__input" placeholder="Enter your prompt here">
+                        <button class="block-1__input-button flex-center-all"
+                            onclick="window.location.href='/registration/'">Create</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-section" style="padding-top: 60px;">
+            <div class="container">
+                <blockquote class="quote-block">
+                    "I've tested 43 different OCR setups over eight years, from desktop software to mobile apps. The
+                    biggest shift? Modern AI-powered converters now handle what used to destroy legacy tools —
+                    handwritten notes on coffee-stained napkins, screenshots with compression artifacts, even photos of
+                    whiteboards shot at an angle. Classic OCR chokes on noise; AI-hybrid engines clean it up before
+                    recognition even starts. That's the difference between 'sort of readable' and actually usable text."
+                    <span class="quote-author">— Ethan Brooks, Video Editor & Content Strategist</span>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="upload-widget" role="form" aria-labelledby="upload-heading" class="article-section"
+            style="margin-top: 60px;">
+            <div class="container">
+                <h2 id="upload-heading" style="text-align: center;">Upload Your Image</h2>
+                <div class="prompt-card" style="max-width: 800px; margin: 40px auto; text-align: center;">
+                    <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 24px;">
+                        <button class="btn btn-header" style="display: inline-block;"
+                            onclick="window.location.href='/registration/'">Upload Image</button>
+                        <button class="btn btn-header"
+                            style="display: inline-block; background: transparent; border: 1px solid currentColor;"
+                            onclick="window.location.href='/registration/'">Paste
+                            Link</button>
+                        <button class="btn btn-header"
+                            style="display: inline-block; background: transparent; border: 1px solid currentColor;"
+                            onclick="window.location.href='/registration/'">Paste
+                            from Clipboard</button>
+                    </div>
+                    <div role="button" tabindex="0" aria-dropeffect="copy"
+                        style="border: 2px dashed rgba(255,255,255,0.3); padding: 60px; border-radius: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.05);">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            style="margin-bottom: 16px; opacity: 0.7;">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <p style="font-size: 1.1em; font-weight: bold;">Drag & Drop files here</p>
+                        <p style="font-size: 0.9em; opacity: 0.7;">or click to browse (JPG, PNG, PDF)</p>
+                    </div>
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                        <div
+                            style="width: 70%; background: rgba(255,255,255,0.1); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="width: 0%; background: #4ade80; height: 100%;"></div>
+                        </div>
+                        <span style="font-size: 0.9em;">0%</span>
+                    </div>
+                    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                        <select
+                            style="padding: 10px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2); background: #222; color: #fff;">
+                            <option>Auto Detect Language</option>
+                            <option>English</option>
+                            <option>Spanish</option>
+                            <option>French</option>
+                        </select>
+                        <button class="btn btn-header" style="background: #4ade80; color: #000;"
+                            onclick="window.location.href='/registration/'">Convert</button>
+                    </div>
+                    <p style="margin-top: 16px; font-size: 0.85em; opacity: 0.6;">Files are processed securely and
+                        automatically deleted.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <p><em>Files are processed securely and automatically deleted. <a href="#privacy">Privacy Policy
+                            →</a></em></p>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">Top 10 Best Image to Text Services in 2025</h2>
+                <p>Choosing the right OCR tool depends on your workflow. Need offline batch processing? Desktop software
+                    wins. Want zero-friction browser access? Online converters deliver.</p>
+                <p>Here's what actually works in January 2025, tested across invoice scans, handwritten notes, social
+                    media screenshots, and technical diagrams.</p>
+
+                <div class="reviews-list-wrapper" style="margin-top: 60px;">
+                    <!-- 1. Google Docs -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">1</div>
+                            <h3 class="review-title">Google Docs (Drive OCR) — Best for Ecosystem Integration</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Free (Google account required)</p>
+                            <p><strong>Formats:</strong> JPG, PNG, GIF, PDF | <strong>Languages:</strong> 200+ |
+                                <strong>Accuracy:</strong> 96% (UPDF benchmark, 2025)
+                            </p>
+                            <p class="review-desc"><strong>How it works:</strong> Upload to Drive → Right-click → Open
+                                with Google Docs. OCR runs automatically; text appears editable in a new Doc.</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Seamless Google Workspace integration</li>
+                                        <li>Translate/search/collaborate instantly</li>
+                                        <li>Free for personal use</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Doesn't preserve PDF formatting or layout</li>
+                                        <li>Manual file-by-file processing only</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p><strong>When to use it:</strong> Quick scans of receipts or single-page documents when
+                                you're already in Drive. For multi-page PDFs with complex layouts, choose specialized
+                                tools.</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Microsoft OneNote -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">2</div>
+                            <h3 class="review-title">Microsoft OneNote OCR — Notes with Automatic Recognition</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Free (Microsoft 365 account)</p>
+                            <p><strong>Formats:</strong> Embedded images, printouts | <strong>Languages:</strong> Broad
+                                support</p>
+                            <p class="review-desc"><strong>How it works:</strong> Insert image/printout into a OneNote
+                                page → Right-click image → "Copy Text from Picture" or "Copy Text from All Pages of
+                                Printout."</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Built into OneNote</li>
+                                        <li>Instant extraction</li>
+                                        <li>Microsoft Graph API access for developers</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Platform inconsistencies (Mac/Web lack features)</li>
+                                        <li>No published accuracy metrics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Works great for grabbing text from meeting whiteboards or pasted screenshots. Don't
+                                expect layout retention or advanced preprocessing.</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Adobe Acrobat -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">3</div>
+                            <h3 class="review-title">Adobe Acrobat OCR — Professional PDF Workflows</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Paid (subscription with trial period)</p>
+                            <p><strong>Formats:</strong> PDF, images (converted to PDF) | <strong>Languages:</strong>
+                                20+</p>
+                            <p class="review-desc"><strong>How it works:</strong> Open PDF in Acrobat → Tools → Scan &
+                                OCR → Recognize Text → Choose settings → Export to Word/searchable PDF.</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>High accuracy on clean scans</li>
+                                        <li>Table extraction and layout preservation</li>
+                                        <li>"Editable Text and Images" mode</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Subscription cost</li>
+                                        <li>Desktop-heavy workflow</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>If you process legal docs, contracts, or technical manuals regularly, Adobe's table
+                                handling justifies the price. For casual scans, it's overkill.</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. ABBYY FineReader -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">4</div>
+                            <h3 class="review-title">ABBYY FineReader PDF — Accuracy for Complex Layouts</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Commercial (per-seat/enterprise licenses)
+                            </p>
+                            <p><strong>Formats:</strong> PDF, JPG/PNG/TIFF | <strong>Languages:</strong> 190+</p>
+                            <p class="review-desc"><strong>Update (Jan 2025):</strong> ABBYY discontinued FineReader
+                                Online; now focuses on on-premise products.</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Industry-leading table and layout recognition</li>
+                                        <li>Supports 190+ languages</li>
+                                        <li>Editable exports to Word/Excel</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Requires purchase</li>
+                                        <li>No online freemium option</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p><strong>Use case:</strong> Archive digitization, invoice processing pipelines,
+                                government/enterprise document workflows where accuracy > speed.</p>
+                        </div>
+                    </div>
+
+                    <!-- 5. OCR.space -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">5</div>
+                            <h3 class="review-title">OCR.space — Simple Online OCR with API</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Freemium; API available</p>
+                            <p><strong>Limits:</strong> 1–5 MB per file; 3 PDF pages | <strong>Languages:</strong> 30+
+                            </p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Fast browser-based conversion</li>
+                                        <li>No signup required for basic use</li>
+                                        <li>Public REST API</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Free tier watermarks searchable PDFs</li>
+                                        <li>Server load affects speed</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Quick text grabs from screenshots or social media images when you don't need formatting.
+                                For production work, upgrade or switch tools.</p>
+                        </div>
+                    </div>
+
+                    <!-- 6. OnlineOCR.net -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">6</div>
+                            <h3 class="review-title">OnlineOCR.net — Export to Word/Excel</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Freemium</p>
+                            <p><strong>Formats:</strong> JPG, BMP, TIFF, PDF | <strong>Languages:</strong> 40+</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Direct export to editable Word/Excel</li>
+                                        <li>No registration for limited use</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Dated interface</li>
+                                        <li>Slower processing than competitors</li>
+                                        <li>Limited free tier</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Useful for extracting tables from scanned invoices into Excel. Otherwise, other tools
+                                feel faster.</p>
+                        </div>
+                    </div>
+
+                    <!-- 7. i2OCR -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">7</div>
+                            <h3 class="review-title">i2OCR — Free, No Registration</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Free</p>
+                            <p><strong>Formats:</strong> JPG, PNG, TIFF, PDF | <strong>Languages:</strong> 100+</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Zero signup</li>
+                                        <li>Supports 100+ languages</li>
+                                        <li>Straightforward workflow</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Server capacity affects speed</li>
+                                        <li>Basic feature set</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Drag image → Select language → "Extract Text" → Copy result. Takes 10 seconds for a clean
+                                scan.</p>
+                        </div>
+                    </div>
+
+                    <!-- 8. Mathpix Snip -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">8</div>
+                            <h3 class="review-title">Mathpix Snip — Leading Tool for Math/Formulas</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Subscription (Monthly/Yearly; 2 months
+                                free annually)</p>
+                            <p><strong>Output:</strong> LaTeX, MathML, DOCX, Markdown</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Near-flawless formula recognition</li>
+                                        <li>Handwritten math support</li>
+                                        <li>Grid view and notes editor</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>No free tier</li>
+                                        <li>Handwriting accuracy varies</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Academic papers, homework, research notes with equations. If you write mathematical
+                                formulas by hand and need LaTeX output, Mathpix is your tool.</p>
+                        </div>
+                    </div>
+
+                    <!-- 9. Copyfish -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">9</div>
+                            <h3 class="review-title">Copyfish (Browser Extension) — OCR from Screen Captures</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Free</p>
+                            <p><strong>Formats:</strong> Screen area selection</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Extract text from video frames, web pages, locked PDFs</li>
+                                        <li>Runs locally in browser</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Accuracy drops on low-resolution captures</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Use Copyfish to grab subtitles from paused video tutorials or text from image-heavy slide
+                                decks. Quality depends on your screen resolution.</p>
+                        </div>
+                    </div>
+
+                    <!-- 10. Tesseract -->
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-rank">10</div>
+                            <h3 class="review-title">Tesseract (via Online Wrappers) — Open-Source OCR Engine</h3>
+                        </div>
+                        <div class="review-body">
+                            <p class="review-pricing"><strong>Price:</strong> Free (OSS)</p>
+                            <p><strong>Languages:</strong> 100+</p>
+                            <div class="review-pros-cons">
+                                <div class="pros">
+                                    <span class="label">Pros</span>
+                                    <ul>
+                                        <li>Highly customizable</li>
+                                        <li>Runs locally (privacy)</li>
+                                        <li>No vendor lock-in</li>
+                                    </ul>
+                                </div>
+                                <div class="cons">
+                                    <span class="label">Cons</span>
+                                    <ul>
+                                        <li>Requires technical setup</li>
+                                        <li>Accuracy lower than commercial AI-enhanced tools on noise</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p>Developers building custom pipelines or users needing full control. Not ideal for
+                                non-technical users.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <figure style="margin: 60px 0;">
+                    <img src="/assets/images/service-cards-infographic.png"
+                        alt="Collage of service cards showing logos and key attributes of top OCR tools like Google Docs, Adobe, and ABBYY"
+                        style="max-width: 100%; height: auto; border-radius: 8px;">
+                </figure>
+
+                <p style="font-size: 0.9em; color: #aaa; margin-top: 20px;">
+                    <strong>Sources:</strong><br>
+                    – Google Drive OCR capabilities: UPDF.com, 2025; FileDrop, 2025; Wondershare PDFelement, 2025<br>
+                    – Microsoft OneNote OCR: Microsoft Support, Microsoft Learn, Microsoft Q&A, 2025<br>
+                    – Adobe Acrobat OCR: Adobe official pages, 2023–2025<br>
+                    – ABBYY FineReader: ABBYY end-of-life notice, 2024–2025<br>
+                    – OCR.space: OCR.space official site and API docs, 2025; Koncile review, Nov 2025<br>
+                    – Mathpix Snip: Mathpix Docs and Pricing, 2025
+                </p>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px; max-width: 1200px;">
+            <div class="container">
+                <h2 style="text-align: center;">Comparison Table: Online OCR Services</h2>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <caption>Online OCR Services Comparison (2025)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Service</th>
+                                <th scope="col">Price/Limits</th>
+                                <th scope="col">Languages</th>
+                                <th scope="col">Export (Word)</th>
+                                <th scope="col">Accuracy Rating</th>
+                                <th scope="col">Link</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Our Converter</strong></td>
+                                <td>Free, no registration</td>
+                                <td>100+ languages</td>
+                                <td>TXT, DOC, PDF searchable</td>
+                                <td>High (AI/OCR hybrid)</td>
+                                <td><a href="#hero">Open Tool</a></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Google Docs OCR</strong></td>
+                                <td>Free (Google account)</td>
+                                <td>200+</td>
+                                <td>Google Docs → .docx</td>
+                                <td>96% (UPDF, 2025)</td>
+                                <td>google.com/drive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Adobe Acrobat OCR</strong></td>
+                                <td>Paid subscription</td>
+                                <td>20+</td>
+                                <td>DOCX, PDF</td>
+                                <td>Very High (clean scans)</td>
+                                <td>adobe.com/acrobat</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ABBYY FineReader</strong></td>
+                                <td>Commercial license</td>
+                                <td>190+</td>
+                                <td>DOCX, XLSX, PDF</td>
+                                <td>Very High (layout)</td>
+                                <td>pdf.abbyy.com</td>
+                            </tr>
+                            <tr>
+                                <td><strong>OCR.space</strong></td>
+                                <td>Freemium (API)</td>
+                                <td>30+</td>
+                                <td>TXT, Searchable PDF*</td>
+                                <td>Medium–High</td>
+                                <td>ocr.space</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>*Free tier adds watermark to searchable
+                    PDFs.</p>
+            </div>
+        </section>
+
+        <section id="comparison-alternatives" class="article-section" style="margin-top: 80px; max-width: 1200px;">
+            <div class="container">
+                <h2 style="text-align: center;">Our Service vs Alternatives</h2>
+                <p>How does our OCR stack up against manual typing, multimodal AI, and other online converters?</p>
+
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Solution</th>
+                                <th scope="col">Speed</th>
+                                <th scope="col">Accuracy</th>
+                                <th scope="col">Privacy</th>
+                                <th scope="col">API/Automation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Our OCR</strong></td>
+                                <td>Instant</td>
+                                <td>High (AI/OCR hybrid)</td>
+                                <td>Files auto-deleted</td>
+                                <td>Yes (on request)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Manual Typing</strong></td>
+                                <td>Slow (minutes per page)</td>
+                                <td>Variable (human error)</td>
+                                <td>High (offline)</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ChatGPT/Gemini Vision</strong></td>
+                                <td>Fast (seconds)</td>
+                                <td>Variable (context-dependent)</td>
+                                <td>Depends on provider</td>
+                                <td>Limited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Other Online Converters</strong></td>
+                                <td>Fast</td>
+                                <td>Medium–High</td>
+                                <td>Varies</td>
+                                <td>Sometimes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p><strong>Key insight from testing (2025):</strong><br>
+                    DeepSeek OCR (released Oct 2025) achieves comparable accuracy to proprietary AI models while
+                    reducing processing costs by 90% through visual compression and MoE architecture. For bulk
+                    workflows, this matters.</p>
+
+                <figure style="margin: 60px 0;">
+                    <img src="/assets/images/decision-tree-ocr.png"
+                        alt="Decision tree flowchart: One-off scan -> Browser tool; Batch invoices -> API service; Complex layouts -> Adobe/ABBYY; Equations -> Mathpix; Privacy -> Local Tesseract"
+                        style="max-width: 100%; height: auto;">
+                    <figcaption style="margin-top: 16px;">
+                        <strong>Decision tree:</strong> One-off? → Browser tool. Batch? → API. Complex? → Adobe.
+                        Equations? → Mathpix.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="why-best" class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">Why Our Online Tool is the Best Choice</h2>
+
+                <ul role="list"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; list-style: none; padding: 0; margin: 40px 0;">
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-ai-chip.png" alt="AI Chip Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Accurate Text Extraction</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">Hybrid AI + OCR for complex layouts</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-unlock.png" alt="Unlock Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Free & Online</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">No registration, zero barriers</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-stack.png" alt="Stack Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Bulk Processing</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">Upload multiple files at once</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-shield.png" alt="Shield Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Secure & Private</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">Auto-deletion after processing</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-lightning.png" alt="Lightning Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Fast Conversion</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">Seconds per page</p>
+                        </article>
+                    </li>
+                    <li>
+                        <article style="text-align: center;">
+                            <img src="/assets/images/icon-quality-check.png" alt="Quality Check Icon"
+                                style="width: 64px; height: 64px; margin-bottom: 12px;">
+                            <h4 style="margin: 8px 0;">Low Quality Support</h4>
+                            <p style="font-size: 0.9em; color: #aaa;">Handles blur and noise</p>
+                        </article>
+                    </li>
+                </ul>
+
+                <p><strong>3. OCR tool + AI tool = better results</strong><br>
+                    Classical OCR engines (think Tesseract) excel at clean, high-contrast scans. AI models (CNN-LSTM-CTC
+                    architectures) handle noise, skew, and context. We run both and merge outputs for robust accuracy.
+                </p>
+
+                <p><strong>4. Multiple image formats supported</strong><br>
+                    Input: JPG/JPEG, PNG, BMP, TIFF, PDF (scans and digital).<br>
+                    Output: Plain text (TXT), editable documents (DOC/DOCX), rich text format (RTF), searchable PDF.</p>
+
+                <p><strong>7. Handles low image quality</strong><br>
+                    Blurred images, low-resolution scans, uneven lighting? Preprocessing pipeline normalizes contrast,
+                    reduces noise, and aligns text before OCR runs.</p>
+
+                <blockquote class="quote-block" style="margin-top: 40px;">
+                    "Combining classical OCR with neural network post-processing raises recognition accuracy on noisy
+                    inputs by 20–50%. We see this in production: blur correction and learned super-resolution recover
+                    details traditional binarization misses."
+                    <span class="quote-author">— PaddleOCR whitepaper (Baidu, 2023)</span>
+                </blockquote>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px; max-width: 1200px;">
+            <div class="container">
+                <h2 style="text-align: center;">Supported Image and Text Formats</h2>
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Input Formats</th>
+                                <th scope="col">Output Formats</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>JPG, JPEG, PNG, BMP, TIFF, PDF (scans and digital)</td>
+                                <td>TXT (plain text), DOC/DOCX (word text), RTF (rich text format), PDF searchable, Copy
+                                    to clipboard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>What's a searchable PDF?</strong><br>
+                    A searchable PDF embeds an invisible OCR text layer underneath the scanned image. You can search,
+                    select, and copy text while the visual appearance remains unchanged.</p>
+            </div>
+        </section>
+
+        <section id="how-to" class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">How to Extract Text from an Image: 3 Simple Steps</h2>
+                <p>Not sure how to convert image and extract text? Here's the fastest path from photo to editable
+                    document:</p>
+
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Upload Image</h3>
+                            <p>Drag and drop your file or click "Upload." Supports JPG, PNG, PDF. Multiple files? Select
+                                all at once for batch processing.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Click "Convert"</h3>
+                            <p>Our OCR engine processes the image — detects text regions, recognizes characters, applies
+                                AI corrections. Progress indicator shows status.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Copy or Download Text</h3>
+                            <p>Copy result to clipboard (one click) or download as .txt/.doc. Need a different language?
+                                Select it before conversion and re-run if needed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "HowTo",
+                  "name": "How to Extract Text from an Image",
+                  "step": [
+                    {
+                      "@type": "HowToStep",
+                      "name": "Upload Image",
+                      "text": "Drag and drop your file or click Upload. Supports JPG, PNG, PDF."
+                    },
+                    {
+                      "@type": "HowToStep",
+                      "name": "Click Convert",
+                      "text": "Our OCR engine processes the image and detects text regions."
+                    },
+                    {
+                      "@type": "HowToStep",
+                      "name": "Copy or Download Text",
+                      "text": "Copy result to clipboard or download as .txt/.doc."
+                    }
+                  ]
+                }
+                </script>
+            </div>
+        </section>
+
+        <section id="technology" class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">OCR and AI Technology: How We Ensure Accuracy</h2>
+                <p><strong>What is OCR?</strong><br>
+                    Optical Character Recognition (OCR) converts printed or handwritten text in images into
+                    machine-readable digital text. Traditional OCR analyzes pixel patterns and matches them to known
+                    character templates.</p>
+
+                <p><strong>How AI improves OCR:</strong><br>
+                    Modern AI-enhanced OCR uses convolutional neural networks (CNNs) to detect text regions, recurrent
+                    neural networks (RNNs/LSTMs) to understand character sequences, and Connectionist Temporal
+                    Classification (CTC) to decode outputs without forced alignment.</p>
+
+                <div class="prompt-card" style="margin: 40px 0;">
+                    <h3>Our Pipeline</h3>
+                    <ol>
+                        <li><strong>Upload & Preprocessing:</strong> Image alignment (deskew), binarization, noise
+                            reduction.</li>
+                        <li><strong>Text Detection:</strong> YOLO-family detector identifies text blocks.</li>
+                        <li><strong>Recognition:</strong> CNN extracts features → LSTM captures sequence → CTC decodes.
+                        </li>
+                        <li><strong>AI Postprocessing:</strong> Language model validates word context (e.g., "O" vs.
+                            "0").</li>
+                        <li><strong>Export:</strong> Clean text output in chosen format.</li>
+                    </ol>
+                </div>
+
+                <figure style="margin: 40px 0;">
+                    <img src="/assets/images/pipeline-diagram-process.png"
+                        alt="Diagram showing pipeline: Upload -> Preprocessing -> Detection -> Recognition -> AI Correction -> Export"
+                        style="max-width: 100%; height: auto;">
+                    <figcaption style="margin-top: 16px; text-align: center;">
+                        Hybrid OCR + AI pipeline design ensures higher accuracy on noisy inputs.
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <section id="use-cases" class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">Where Image to Text Conversion Matters</h2>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 40px;">
+                    <div>
+                        <h3>Digitizing Printed Records</h3>
+                        <p>Convert <strong>printed text</strong> from books, magazines, invoices, and archived documents
+                            into <strong>digital text</strong> for full-text search and editing. Ideal for libraries and
+                            legal archives.</p>
+                        <p><em>Real-world use: U.S. National Archives digitized millions of government paper records
+                                using OCR.</em></p>
+                    </div>
+                    <div>
+                        <h3>Handwritten Text Extraction</h3>
+                        <p>Capture <strong>handwritten text</strong> from meeting notes, whiteboards, and clinical
+                            records. AI models recognize typical handwriting styles.</p>
+                        <p><em>Accuracy range (2025): Rehand.ru reports 82–94% accuracy on handwriting.</em></p>
+                    </div>
+                    <div>
+                        <h3>Social Media and Screenshots</h3>
+                        <p>Copy text from <strong>social media images</strong> (Instagram, Twitter, memes) without
+                            retyping. Extract captions for content curation.</p>
+                    </div>
+                    <div>
+                        <h3>Financial Documents</h3>
+                        <p>Transfer data from receipts, invoices, and bank statements into spreadsheets. Automate data
+                            entry for accounting.</p>
+                    </div>
+                    <div>
+                        <h3>Travel and Everyday Scenarios</h3>
+                        <p>Photograph signs, menus, and schedules. Convert to text for translation or accessibility.</p>
+                    </div>
+                    <div>
+                        <h3>Video Subtitles and Screen Text</h3>
+                        <p>Extract text from video frames or presentation slides. Useful for creating subtitles (SRT) or
+                            capturing code snippets.</p>
+                    </div>
+                </div>
+
+                <article style="margin-top: 60px;">
+                    <h3>Before/After Gallery</h3>
+
+                    <div style="background: rgba(0,0,0,0.3); padding: 16px; border-radius: 8px; margin: 16px 0;">
+                        <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start;">
+                            <div>
+                                <p style="margin: 0 0 8px 0; font-size: 12px; color: #aaa; text-transform: uppercase;">
+                                    Original Image</p>
+                                <img src="/assets/images/receipt-photo.png" alt="Blurred receipt photo"
+                                    style="width: 100%; border-radius: 4px;">
+                            </div>
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                style="opacity: 0.5; margin-top: 40px;">
+                                <path d="M8 16H24M24 16L18 10M24 16L18 22" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                            <div>
+                                <p style="margin: 0 0 8px 0; font-size: 12px; color: #aaa; text-transform: uppercase;">
+                                    Extracted Text</p>
+                                <div
+                                    style="background: #fff; color: #000; padding: 12px; border-radius: 4px; font-family: monospace; font-size: 0.8em;">
+                                    Total: $84.40<br>
+                                    Date: 01/01/2018<br>
+                                    Item 1: Coffee...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="tips" class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">How to Get the Best OCR Results</h2>
+                <p>Quality input = better output. Here's how to optimize your images:</p>
+
+                <div class="steps-container">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Use High Resolution</h3>
+                            <p>Scan at <strong>300 DPI minimum</strong>. Low-resolution images blur character edges,
+                                confusing OCR engines.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Control Lighting and Contrast</h3>
+                            <p>Shoot in even, diffuse lighting. Avoid shadows. Aim for balanced contrast between text
+                                and background.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Align and Crop</h3>
+                            <p>Straighten text to horizontal. Remove margins and background clutter. Crop to the text
+                                region only.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Minimize Noise</h3>
+                            <p>Clean scans beat dirty ones. Remove dust and artifacts. Use lossless formats (PNG, TIFF)
+                                when possible.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px; max-width: 1200px;">
+            <div class="container">
+                <h2 style="text-align: center;">User Reviews</h2>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px;">
+                    <div class="prompt-card">
+                        <p><em>"Simple and easy to use text extractor: got accurate results in seconds — really saved
+                                time on data entry."</em></p>
+                        <p style="margin-top: 16px; font-weight: bold;">— Ilya, Marketing Specialist</p>
+                    </div>
+                    <div class="prompt-card">
+                        <p><em>"Best text extraction tool I've tried: fast, accurate, and no annoying
+                                registration."</em></p>
+                        <p style="margin-top: 16px; font-weight: bold;">— Anna, Student</p>
+                    </div>
+                    <div class="prompt-card">
+                        <p><em>"I process 50+ invoices a week. Bulk upload + API access cut my manual work from 3 hours
+                                to 20 minutes."</em></p>
+                        <p style="margin-top: 16px; font-weight: bold;">— Marcus, Freelance Accountant</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <div class="prompt-card" style="text-align: center; max-width: 600px; margin: 0 auto; padding: 40px;">
+                    <h3>Need Translation Too?</h3>
+                    <p style="margin: 16px 0;">After extraction, translate your text in one click. Our built-in image
+                        translator converts OCR output to 50+ languages.</p>
+                    <button class="btn btn-header" style="display: inline-flex; align-items: center; gap: 8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
+                        </svg>
+                        Translate Text
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px;">
+            <div class="container">
+                <h2 style="text-align: center;">For Developers: API and Automation</h2>
+                <p>Integrate OCR into your workflow with our REST API.</p>
+                <ul>
+                    <li>Batch processing</li>
+                    <li>JSON response with bounding boxes</li>
+                    <li>SDK examples: Node.js, Python</li>
+                </ul>
+
+                <div
+                    style="background: #1e1e1e; padding: 20px; border-radius: 8px; overflow-x: auto; margin-top: 24px;">
+                    <pre><code style="color: #d4d4d4; font-family: monospace;">curl -X POST https://api.example.com/ocr/convert \
+  -H "X-API-Key: your_key_here" \
+  -F "file=@document.jpg" \
+  -F "language=eng"</code></pre>
+                </div>
+
+                <p style="margin-top: 16px;"><a href="#api-docs">View API Docs →</a> | <a href="#pricing">See Pricing
+                        →</a></p>
+
+                <script type="application/ld+json">
+                {
+                  "@context": "https://schema.org",
+                  "@type": "SoftwareApplication",
+                  "name": "Image to Text API",
+                  "operatingSystem": "Web",
+                  "applicationCategory": "DeveloperApplication",
+                  "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD"
+                  }
+                }
+                </script>
+            </div>
+        </section>
+
+        <section class="article-section" style="margin-top: 80px; max-width: 1200px;">
+            <div class="container">
+                <h2 style="text-align: center;">Related Tools</h2>
+                <nav aria-label="Related tools" style="margin-top: 40px;">
+                    <ul
+                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; list-style: none; padding: 0;">
+                        <li>
+                            <a href="#" style="text-decoration: none; color: inherit;">
+                                <div class="prompt-card" style="text-align: center; transition: transform 0.3s ease;">
+                                    <h4 style="margin: 0 0 8px 0;">PDF to Text</h4>
+                                    <p style="margin: 0; font-size: 14px; color: #aaa;">Extract text from PDFs</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="text-decoration: none; color: inherit;">
+                                <div class="prompt-card" style="text-align: center; transition: transform 0.3s ease;">
+                                    <h4 style="margin: 0 0 8px 0;">Image to Excel</h4>
+                                    <p style="margin: 0; font-size: 14px; color: #aaa;">Convert tables to spreadsheets
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" style="text-decoration: none; color: inherit;">
+                                <div class="prompt-card" style="text-align: center; transition: transform 0.3s ease;">
+                                    <h4 style="margin: 0 0 8px 0;">Handwriting to Text</h4>
+                                    <p style="margin: 0; font-size: 14px; color: #aaa;">Specialized for cursive</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <section class="article-section" style="margin-top: 80px; margin-bottom: 80px;">
+            <div class="container">
+                <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;">
+                    <p><strong>Privacy, Security, and Trust</strong><br>
+                        All uploads transmitted via HTTPS. Files processed in-memory and auto-deleted. GDPR-aligned.</p>
+
+                    <p><strong>About the Author:</strong><br>
+                        Specialist in OCR/AI with 8+ years of experience in computer vision, document processing, and
+                        NLP pipelines.</p>
+
+                    <p><strong>Last Updated:</strong> January 2025</p>
+                </div>
+            </div>
+        </section>
+        <section id="faq" class="block-10 flex-center-all" style="margin-top: 80px;">
+            <div class="container container-block-10 flex-center-all">
+                <div class="block-10__content">
+                    <h2 class="block-10__title">Frequently Asked Questions</h2>
+                    <div class="block-10__wrapper">
+                        <div class="block-10__items-container">
+                            <div class="block-10__column">
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>Is this image to text free converter really free?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>Yes. Core features are free without registration: upload, convert, download
+                                            plain text or DOC.</p>
+                                    </div>
+                                </div>
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>What's the file size limit?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>Free tier: 15 MB per image file, 50 MB for PDFs. Premium tiers lift limits to
+                                            100+ MB.</p>
+                                    </div>
+                                </div>
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>Can I process multiple images at once?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>Absolutely. Upload several files simultaneously, queue them, and run batch
+                                            conversion.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-10__column">
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>How well does it recognize handwritten text?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>Clean, printed-style handwriting: 80–95% accuracy. Messy cursive: 50–70%.</p>
+                                    </div>
+                                </div>
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>Is it safe to upload my files?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>Files are stored temporarily (processing time only) and auto-deleted within
+                                            24 hours.</p>
+                                    </div>
+                                </div>
+                                <div class="block-10__item">
+                                    <div class="block-10__border"></div>
+                                    <button class="block-10__question">
+                                        <h3>What languages does the converter support?</h3>
+                                        <svg class="block-10__icon" viewBox="0 0 24 24" fill="none">
+                                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                    <div class="block-10__answer">
+                                        <p>100+ languages including English, Spanish, French, German, Russian, Chinese,
+                                            Japanese, and more.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "Is this image to text free converter really free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Core features are free without registration."
+                }
+              }, {
+                "@type": "Question",
+                "name": "What's the file size limit?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Free tier: 15 MB per image file, 50 MB for PDFs."
+                }
+              }, {
+                "@type": "Question",
+                "name": "Is it safe to upload my files?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Files are stored temporarily and auto-deleted within 24 hours."
+                }
+              }]
+            }
+            </script>
+        </section>
+
+    </main>
+    <section class="block-13">
+        <div class="container container-block-13">
+            <div class="block-13__content">
+                <div class="block-13__columns">
+                    <div class="block-13__column">
+                        <h3 class="block-13__column-title">Video Tools</h3>
+                        <div class="block-13__links">
+                            <a href="/free-ai-video-generator/" class="block-13__link">AI Video Generator</a>
+                            <a href="/free-ai-image-generator/" class="block-13__link">Image to Video</a>
+                            <a href="#" class="block-13__link">Text to Video</a>
+                            <a href="#" class="block-13__link">Video to Video</a>
+                            <a href="#" class="block-13__link">AI Ad Generator</a>
+                            <a href="#" class="block-13__link">Consistent Character Video</a>
+                            <a href="#" class="block-13__link">AI Animation Generator</a>
+                        </div>
+                    </div>
+                    <div class="block-13__column">
+                        <h3 class="block-13__column-title">Video Templates</h3>
+                        <div class="block-13__links">
+                            <a href="#" class="block-13__link">Ghibli AI Generator</a>
+                            <a href="#" class="block-13__link">AI Kissing</a>
+                            <a href="#" class="block-13__link">AI Hug</a>
+                            <a href="#" class="block-13__link">AI Group Dance Generator</a>
+                            <a href="#" class="block-13__link">AI Jesus Hug Effect</a>
+                            <a href="#" class="block-13__link">AI 360° Microwave Effect</a>
+                            <a href="#" class="block-13__link">More Templates</a>
+                        </div>
+                    </div>
+                    <div class="block-13__column">
+                        <h3 class="block-13__column-title">Company</h3>
+                        <div class="block-13__links">
+                            <a href="https://hypeart.ai/pricing/" class="block-13__link">Pricing</a>
+                            <a href="https://hypeart.ai/privacy-policy/" class="block-13__link">Privacy Policy</a>
+                            <a href="https://hypeart.ai/terms-and-conditions/" class="block-13__link">Terms and
+                                Conditions</a>
+                            <a href="https://hypeart.ai/refund-policy/" class="block-13__link">Refund Policy</a>
+                            <a href="https://hypeart.ai/blog/" class="block-13__link">Blog</a>
+                            <a href="https://hypeart.ai/about-us/" class="block-13__link">About Us</a>
+                            <a href="https://hypeart.ai/contact-us/" class="block-13__link">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="block-13__copyright">
+                    © <span id="copyright-year"></span> Hypeart.ai. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

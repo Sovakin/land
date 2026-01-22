@@ -317,7 +317,7 @@ section {
 }
 
 .btn-header {
-    width: 101px;
+    width: 100%;
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
